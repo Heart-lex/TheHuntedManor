@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bstu74ngpg2p8"]
+
+[ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_d7cns"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_d7cns")
+cell_size = Vector3(4, 4, 4)
