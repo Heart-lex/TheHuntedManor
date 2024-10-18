@@ -1,0 +1,193 @@
+[gd_scene load_steps=64 format=3 uid="uid://bgw4i5bikaruf"]
+
+[ext_resource type="PackedScene" uid="uid://ci8v2lgqkn073" path="res://assets/dungeon/floor/halloween/arch.gltf" id="1_0efgj"]
+[ext_resource type="PackedScene" uid="uid://blg7kl6rxtg8h" path="res://assets/dungeon/floor/halloween/arch_gate.gltf" id="2_4sa35"]
+[ext_resource type="PackedScene" uid="uid://c1ewwd7xmf6rw" path="res://assets/dungeon/floor/halloween/bench.gltf" id="3_qavss"]
+[ext_resource type="PackedScene" uid="uid://la2tk5xt1n7u" path="res://assets/dungeon/floor/halloween/bench_decorated.gltf" id="4_ty5af"]
+[ext_resource type="PackedScene" uid="uid://d0dg1wa1ch4hu" path="res://assets/dungeon/floor/halloween/bone_A.gltf" id="5_0xtmc"]
+[ext_resource type="PackedScene" uid="uid://b8byxj3r4vpf3" path="res://assets/dungeon/floor/halloween/bone_B.gltf" id="6_foub0"]
+[ext_resource type="PackedScene" uid="uid://bisv52ly33g5s" path="res://assets/dungeon/floor/halloween/bone_C.gltf" id="7_5b1tt"]
+[ext_resource type="PackedScene" uid="uid://fity3wdif1uk" path="res://assets/dungeon/floor/halloween/candle.gltf" id="8_0oe6p"]
+[ext_resource type="PackedScene" uid="uid://cogliqvilag5g" path="res://assets/dungeon/floor/halloween/candle_melted.gltf" id="9_k1qx4"]
+[ext_resource type="PackedScene" uid="uid://djdfq03voxjg7" path="res://assets/dungeon/floor/halloween/candle_thin.gltf" id="10_g0sqg"]
+[ext_resource type="PackedScene" uid="uid://rai8ugc7hp8r" path="res://assets/dungeon/floor/halloween/candle_triple.gltf" id="11_jv518"]
+[ext_resource type="PackedScene" uid="uid://bw58jou52575c" path="res://assets/dungeon/floor/halloween/coffin.gltf" id="12_w0d8e"]
+[ext_resource type="PackedScene" uid="uid://ug3n01q8484b" path="res://assets/dungeon/floor/halloween/coffin_decorated.gltf" id="13_kq3ju"]
+[ext_resource type="PackedScene" uid="uid://csegue7lwqiok" path="res://assets/dungeon/floor/halloween/crypt.gltf" id="14_ri4fn"]
+[ext_resource type="PackedScene" uid="uid://kx61x66lhjnw" path="res://assets/dungeon/floor/halloween/fence.gltf" id="15_q381r"]
+[ext_resource type="PackedScene" uid="uid://deppbd38chkkj" path="res://assets/dungeon/floor/halloween/fence_broken.gltf" id="16_gorq7"]
+[ext_resource type="PackedScene" uid="uid://bsjf8sxkublhg" path="res://assets/dungeon/floor/halloween/fence_gate.gltf" id="17_8wg8q"]
+[ext_resource type="PackedScene" uid="uid://dbyjmhy532ok0" path="res://assets/dungeon/floor/halloween/fence_pillar.gltf" id="18_516w2"]
+[ext_resource type="PackedScene" uid="uid://db4n1tc0p41rg" path="res://assets/dungeon/floor/halloween/fence_pillar_broken.gltf" id="19_r86ym"]
+[ext_resource type="PackedScene" uid="uid://mfasrtebscb1" path="res://assets/dungeon/floor/halloween/fence_seperate.gltf" id="20_15xd5"]
+[ext_resource type="PackedScene" uid="uid://s3rxxmfeh6gt" path="res://assets/dungeon/floor/halloween/fence_seperate_broken.gltf" id="21_qhqxe"]
+[ext_resource type="PackedScene" uid="uid://b5l15wqa8axvk" path="res://assets/dungeon/floor/halloween/floor_dirt.gltf" id="22_86gy1"]
+[ext_resource type="PackedScene" uid="uid://dxyoaw3nmtoei" path="res://assets/dungeon/floor/halloween/floor_dirt_grave.gltf" id="23_gggm5"]
+[ext_resource type="PackedScene" uid="uid://bw7kqcx01qpmf" path="res://assets/dungeon/floor/halloween/floor_dirt_small.gltf" id="24_x2r4e"]
+[ext_resource type="PackedScene" uid="uid://bqv4ks51dbp1m" path="res://assets/dungeon/floor/halloween/gravemarker_A.gltf" id="25_d5nx8"]
+[ext_resource type="PackedScene" uid="uid://bva2jk21vefjh" path="res://assets/dungeon/floor/halloween/gravemarker_B.gltf" id="26_n5nfa"]
+[ext_resource type="PackedScene" uid="uid://bichjgovtcn5b" path="res://assets/dungeon/floor/halloween/gravestone.gltf" id="27_ysgno"]
+[ext_resource type="PackedScene" uid="uid://bclowfdxm614r" path="res://assets/dungeon/floor/halloween/grave_A.gltf" id="28_oo4yw"]
+[ext_resource type="PackedScene" uid="uid://c6w538fsn8jr3" path="res://assets/dungeon/floor/halloween/grave_A_destroyed.gltf" id="29_gphek"]
+[ext_resource type="PackedScene" uid="uid://cbrglm82gtvfh" path="res://assets/dungeon/floor/halloween/grave_B.gltf" id="30_we1ss"]
+[ext_resource type="PackedScene" uid="uid://c40c8ai0gopde" path="res://assets/dungeon/floor/halloween/lantern_hanging.gltf" id="31_2dbes"]
+[ext_resource type="PackedScene" uid="uid://c1tc7udq3o0i3" path="res://assets/dungeon/floor/halloween/lantern_standing.gltf" id="32_wk5ww"]
+[ext_resource type="PackedScene" uid="uid://hh6rtl1du2m6" path="res://assets/dungeon/floor/halloween/path_A.gltf" id="33_nid3b"]
+[ext_resource type="PackedScene" uid="uid://chqggp454gili" path="res://assets/dungeon/floor/halloween/path_B.gltf" id="34_ge3jl"]
+[ext_resource type="PackedScene" uid="uid://yobmvwniu8c1" path="res://assets/dungeon/floor/halloween/path_C.gltf" id="35_iraeq"]
+[ext_resource type="PackedScene" uid="uid://8uhbtj2o1pwp" path="res://assets/dungeon/floor/halloween/path_D.gltf" id="36_gw7g7"]
+[ext_resource type="PackedScene" uid="uid://b3idy8nitbomy" path="res://assets/dungeon/floor/halloween/pillar.gltf" id="37_8u386"]
+[ext_resource type="PackedScene" uid="uid://dg7hghd57ekdi" path="res://assets/dungeon/floor/halloween/plaque.gltf" id="38_imes7"]
+[ext_resource type="PackedScene" uid="uid://c7co5dyq3pd3m" path="res://assets/dungeon/floor/halloween/plaque_candles.gltf" id="39_06hg6"]
+[ext_resource type="PackedScene" uid="uid://cvnceo88toxfx" path="res://assets/dungeon/floor/halloween/post.gltf" id="40_xj08o"]
+[ext_resource type="PackedScene" uid="uid://3ff1nqn5huqg" path="res://assets/dungeon/floor/halloween/post_lantern.gltf" id="41_hnag0"]
+[ext_resource type="PackedScene" uid="uid://n6682utxeocx" path="res://assets/dungeon/floor/halloween/post_skull.gltf" id="42_eolar"]
+[ext_resource type="PackedScene" uid="uid://bvt2t14577qis" path="res://assets/dungeon/floor/halloween/pumpkin_orange.gltf" id="43_t2f5u"]
+[ext_resource type="PackedScene" uid="uid://defq18qwri1gp" path="res://assets/dungeon/floor/halloween/pumpkin_orange_jackolantern.gltf" id="44_28yvo"]
+[ext_resource type="PackedScene" uid="uid://cxled5dwtgakw" path="res://assets/dungeon/floor/halloween/pumpkin_orange_small.gltf" id="45_kyegn"]
+[ext_resource type="PackedScene" uid="uid://bejumcvhisq2f" path="res://assets/dungeon/floor/halloween/pumpkin_yellow.gltf" id="46_yhu8k"]
+[ext_resource type="PackedScene" uid="uid://dqc2o23uss5wn" path="res://assets/dungeon/floor/halloween/pumpkin_yellow_jackolantern.gltf" id="47_1lq4r"]
+[ext_resource type="PackedScene" uid="uid://cp06dgw86o23k" path="res://assets/dungeon/floor/halloween/pumpkin_yellow_small.gltf" id="48_cspsa"]
+[ext_resource type="PackedScene" uid="uid://b4kf3hy2g7xlq" path="res://assets/dungeon/floor/halloween/ribcage.gltf" id="49_mqakh"]
+[ext_resource type="PackedScene" uid="uid://bsor1u1eoc7mq" path="res://assets/dungeon/floor/halloween/shrine.gltf" id="50_32kb0"]
+[ext_resource type="PackedScene" uid="uid://cp4fnfqgndq2t" path="res://assets/dungeon/floor/halloween/shrine_candles.gltf" id="51_h3o87"]
+[ext_resource type="PackedScene" uid="uid://deona5dbmybef" path="res://assets/dungeon/floor/halloween/skull.gltf" id="52_qrwhi"]
+[ext_resource type="PackedScene" uid="uid://0hliiu44ro0o" path="res://assets/dungeon/floor/halloween/skull_candle.gltf" id="53_arhme"]
+[ext_resource type="PackedScene" uid="uid://de1jw1x7xwlvk" path="res://assets/dungeon/floor/halloween/tree_dead_large.gltf" id="54_a0jcn"]
+[ext_resource type="PackedScene" uid="uid://583n13jhd0s6" path="res://assets/dungeon/floor/halloween/tree_dead_large_decorated.gltf" id="55_dcin2"]
+[ext_resource type="PackedScene" uid="uid://x5fxvbnngltg" path="res://assets/dungeon/floor/halloween/tree_dead_medium.gltf" id="56_h4sle"]
+[ext_resource type="PackedScene" uid="uid://b7cfveauyur2a" path="res://assets/dungeon/floor/halloween/tree_dead_small.gltf" id="57_jxyuu"]
+[ext_resource type="PackedScene" uid="uid://e7e5m2pk5ke" path="res://assets/dungeon/floor/halloween/tree_pine_orange_large.gltf" id="58_6hsrn"]
+[ext_resource type="PackedScene" uid="uid://cu315ttgcmcpb" path="res://assets/dungeon/floor/halloween/tree_pine_orange_medium.gltf" id="59_355ds"]
+[ext_resource type="PackedScene" uid="uid://ciwxyj1lw0ob" path="res://assets/dungeon/floor/halloween/tree_pine_orange_small.gltf" id="60_li6wx"]
+[ext_resource type="PackedScene" uid="uid://b6epo77bla4ei" path="res://assets/dungeon/floor/halloween/tree_pine_yellow_large.gltf" id="61_v83h1"]
+[ext_resource type="PackedScene" uid="uid://xgnxh1jbk1b2" path="res://assets/dungeon/floor/halloween/tree_pine_yellow_medium.gltf" id="62_ehtc0"]
+[ext_resource type="PackedScene" uid="uid://vamipb6a2jxh" path="res://assets/dungeon/floor/halloween/tree_pine_yellow_small.gltf" id="63_up6tt"]
+
+[node name="halloween" type="Node3D"]
+
+[node name="arch2" parent="." instance=ExtResource("1_0efgj")]
+
+[node name="arch_gate2" parent="." instance=ExtResource("2_4sa35")]
+
+[node name="bench2" parent="." instance=ExtResource("3_qavss")]
+
+[node name="bench_decorated2" parent="." instance=ExtResource("4_ty5af")]
+
+[node name="bone_A2" parent="." instance=ExtResource("5_0xtmc")]
+
+[node name="bone_B2" parent="." instance=ExtResource("6_foub0")]
+
+[node name="bone_C2" parent="." instance=ExtResource("7_5b1tt")]
+
+[node name="candle2" parent="." instance=ExtResource("8_0oe6p")]
+
+[node name="candle_melted2" parent="." instance=ExtResource("9_k1qx4")]
+
+[node name="candle_thin2" parent="." instance=ExtResource("10_g0sqg")]
+
+[node name="candle_triple2" parent="." instance=ExtResource("11_jv518")]
+
+[node name="coffin2" parent="." instance=ExtResource("12_w0d8e")]
+
+[node name="coffin_decorated2" parent="." instance=ExtResource("13_kq3ju")]
+
+[node name="crypt2" parent="." instance=ExtResource("14_ri4fn")]
+
+[node name="fence2" parent="." instance=ExtResource("15_q381r")]
+
+[node name="fence_broken2" parent="." instance=ExtResource("16_gorq7")]
+
+[node name="fence_gate2" parent="." instance=ExtResource("17_8wg8q")]
+
+[node name="fence_pillar2" parent="." instance=ExtResource("18_516w2")]
+
+[node name="fence_pillar_broken2" parent="." instance=ExtResource("19_r86ym")]
+
+[node name="fence_seperate2" parent="." instance=ExtResource("20_15xd5")]
+
+[node name="fence_seperate_broken2" parent="." instance=ExtResource("21_qhqxe")]
+
+[node name="floor_dirt2" parent="." instance=ExtResource("22_86gy1")]
+
+[node name="floor_dirt_grave2" parent="." instance=ExtResource("23_gggm5")]
+
+[node name="floor_dirt_small2" parent="." instance=ExtResource("24_x2r4e")]
+
+[node name="gravemarker_A2" parent="." instance=ExtResource("25_d5nx8")]
+
+[node name="gravemarker_B2" parent="." instance=ExtResource("26_n5nfa")]
+
+[node name="gravestone2" parent="." instance=ExtResource("27_ysgno")]
+
+[node name="grave_A2" parent="." instance=ExtResource("28_oo4yw")]
+
+[node name="grave_A_destroyed2" parent="." instance=ExtResource("29_gphek")]
+
+[node name="grave_B2" parent="." instance=ExtResource("30_we1ss")]
+
+[node name="lantern_hanging2" parent="." instance=ExtResource("31_2dbes")]
+
+[node name="lantern_standing2" parent="." instance=ExtResource("32_wk5ww")]
+
+[node name="path_A2" parent="." instance=ExtResource("33_nid3b")]
+
+[node name="path_B2" parent="." instance=ExtResource("34_ge3jl")]
+
+[node name="path_C2" parent="." instance=ExtResource("35_iraeq")]
+
+[node name="path_D2" parent="." instance=ExtResource("36_gw7g7")]
+
+[node name="pillar2" parent="." instance=ExtResource("37_8u386")]
+
+[node name="plaque2" parent="." instance=ExtResource("38_imes7")]
+
+[node name="plaque_candles2" parent="." instance=ExtResource("39_06hg6")]
+
+[node name="post2" parent="." instance=ExtResource("40_xj08o")]
+
+[node name="post_lantern2" parent="." instance=ExtResource("41_hnag0")]
+
+[node name="post_skull2" parent="." instance=ExtResource("42_eolar")]
+
+[node name="pumpkin_orange2" parent="." instance=ExtResource("43_t2f5u")]
+
+[node name="pumpkin_orange_jackolantern2" parent="." instance=ExtResource("44_28yvo")]
+
+[node name="pumpkin_orange_small2" parent="." instance=ExtResource("45_kyegn")]
+
+[node name="pumpkin_yellow2" parent="." instance=ExtResource("46_yhu8k")]
+
+[node name="pumpkin_yellow_jackolantern2" parent="." instance=ExtResource("47_1lq4r")]
+
+[node name="pumpkin_yellow_small2" parent="." instance=ExtResource("48_cspsa")]
+
+[node name="ribcage2" parent="." instance=ExtResource("49_mqakh")]
+
+[node name="shrine2" parent="." instance=ExtResource("50_32kb0")]
+
+[node name="shrine_candles2" parent="." instance=ExtResource("51_h3o87")]
+
+[node name="skull2" parent="." instance=ExtResource("52_qrwhi")]
+
+[node name="skull_candle2" parent="." instance=ExtResource("53_arhme")]
+
+[node name="tree_dead_large2" parent="." instance=ExtResource("54_a0jcn")]
+
+[node name="tree_dead_large_decorated2" parent="." instance=ExtResource("55_dcin2")]
+
+[node name="tree_dead_medium2" parent="." instance=ExtResource("56_h4sle")]
+
+[node name="tree_dead_small2" parent="." instance=ExtResource("57_jxyuu")]
+
+[node name="tree_pine_orange_large2" parent="." instance=ExtResource("58_6hsrn")]
+
+[node name="tree_pine_orange_medium2" parent="." instance=ExtResource("59_355ds")]
+
+[node name="tree_pine_orange_small2" parent="." instance=ExtResource("60_li6wx")]
+
+[node name="tree_pine_yellow_large2" parent="." instance=ExtResource("61_v83h1")]
+
+[node name="tree_pine_yellow_medium2" parent="." instance=ExtResource("62_ehtc0")]
+
+[node name="tree_pine_yellow_small2" parent="." instance=ExtResource("63_up6tt")]
