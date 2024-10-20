@@ -9,15 +9,15 @@ class_name HeroKnight
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var jumping: bool = false
 var last_floor: bool = true
-var attacks = [
+var attacks := [
 	"1H_Melee_Attack_Slice_Diagonal",
 	"1H_Melee_Attack_Slice_Horizontal",
 	"1H_Melee_Attack_Chop"
 ]
 
-@onready var model = $Rig
-@onready var anim_tree = $AnimationTree
-@onready var anim_state = $AnimationTree.get("parameters/playback")
+@onready var model: Node3D = $Rig
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var anim_state: Variant = anim_tree.get("parameters/playback")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		anim_tree.set("parameters/conditions/jumping", false)
 		anim_tree.set("parameters/conditions/grounded", true)
 	if not is_on_floor() and not jumping:
-		anim_state.travel("jump_idle")
+		anim_state.travel("Jump_Idle")
 		anim_tree.set("parameters/conditions/grounded", false)
 	last_floor = is_on_floor()
 
@@ -51,6 +51,7 @@ func get_move_input(delta: float) -> void:
 	var vy = velocity.y
 	velocity.y = 0
 	var input = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_backwards")
+	input = input.rotated(0.785)
 	var direction = Vector3(input.x, 0, input.y)
 	velocity = lerp(velocity, direction * SPEED, ACCELERATION * delta)
 	var vl = velocity * model.transform.basis
