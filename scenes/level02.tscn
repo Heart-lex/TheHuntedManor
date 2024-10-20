@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ypqyvyrjjkq6"]
+[gd_scene load_steps=4 format=3 uid="uid://ypqyvyrjjkq6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_xoxux"]
 [ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/hero_knight.tscn" id="2_pgc3g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcpcb"]
 albedo_color = Color(0.521569, 0.258824, 0.396078, 1)
-
-[sub_resource type="GDScript" id="GDScript_v5w3a"]
 
 [node name="Level02" type="Node3D"]
 
@@ -29,13 +27,9 @@ material = SubResource("StandardMaterial3D_gcpcb")
 
 [node name="HeroKnight" parent="." instance=ExtResource("2_pgc3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50004, 1, -0.483873)
-
-[node name="Camera3D" type="Camera3D" parent="HeroKnight"]
-transform = Transform3D(0.707107, 0.353553, -0.612373, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, -18, 15, 18)
-projection = 1
-fov = 37.8493
-size = 16.0
-script = SubResource("GDScript_v5w3a")
+SPEED = 6.0
+ACCELERATION = 4.0
+ROTATION_SPEED = 8.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.889887, 0.456182, 0, -0.456182, 0.889887, -19.6484, 26.157, 10)
