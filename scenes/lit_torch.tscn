@@ -19,8 +19,7 @@ material = SubResource("StandardMaterial3D_ruerv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CSGSphere3D"]
 light_color = Color(1, 0.0901961, 0.121569, 1)
-light_energy = 16.0
-light_indirect_energy = 2.0
+light_energy = 3.831
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.194148, 0.266499, 0.944079, 0.397753, -0.901116, 0.172575, 0.896716, 0.342005, -0.28095, 4.77627, -0.603704, 0.606732)

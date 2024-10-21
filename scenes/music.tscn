@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://db1ns12kp8un4"]
+
+[ext_resource type="AudioStream" uid="uid://bs040j6s3qv0p" path="res://sounds/background_music/Dungeon Ambience 1.mp3" id="1_3md4q"]
+
+[node name="Music" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_3md4q")
+autoplay = true
