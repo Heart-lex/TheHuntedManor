@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if velocity.length() > 1.0:
-		var direction_angle = atan2((model.position.x - velocity.normalized().x), (model.position.z - velocity.normalized().z))
+		var direction_angle = -atan2((model.position.x - velocity.normalized().x), -(model.position.z - velocity.normalized().z))
 		model.rotation.y = lerp_angle(model.rotation.y, direction_angle, ROTATION_SPEED * delta)
 		
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
@@ -51,8 +51,7 @@ func get_move_input(delta: float) -> void:
 	var vy = velocity.y
 	velocity.y = 0
 	var input = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_backwards")
-	input = input.rotated(0.785)
-	var direction = Vector3(input.x, 0, input.y)
+	var direction = Vector3(-input.x, 0, -input.y)
 	velocity = lerp(velocity, direction * SPEED, ACCELERATION * delta)
 	var vl = velocity * model.transform.basis
 	anim_tree.set("parameters/IdleWalkRun/blend_position", Vector2(vl.x, -vl.z) / SPEED)

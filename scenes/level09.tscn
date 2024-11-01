@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ypqyvyrjjkq6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_xoxux"]
-[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/hero_knight.tscn" id="2_pgc3g"]
+[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/rogue.tscn" id="2_kmenm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcpcb"]
 albedo_color = Color(0.970415, 0.866378, 0.919275, 1)
@@ -33,12 +33,6 @@ use_collision = true
 size = Vector3(1.05429, 1, 0.605957)
 material = SubResource("StandardMaterial3D_gcpcb")
 
-[node name="HeroKnight" parent="." instance=ExtResource("2_pgc3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329655, 1.15478, -0.302292)
-SPEED = 6.0
-ACCELERATION = 4.0
-ROTATION_SPEED = 8.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.889887, 0.456182, 0, -0.456182, 0.889887, -19.6484, 26.157, 10)
 light_color = Color(0.981837, 0.933475, 0.991062, 1)
@@ -48,3 +42,6 @@ shadow_enabled = true
 shadow_normal_bias = 1.293
 shadow_blur = 0.75
 sky_mode = 1
+
+[node name="Rogue" parent="." instance=ExtResource("2_kmenm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 5)

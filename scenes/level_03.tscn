@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkp4hj17ixp0d"]
+[gd_scene load_steps=5 format=3 uid="uid://bkp4hj17ixp0d"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_78dax"]
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="2_ejesa"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/lit_torch.tscn" id="3_c2fe3"]
+[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/rogue.tscn" id="4_d0y6e"]
 
 [node name="level03" type="Node3D"]
 
@@ -58,3 +59,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -5)
 
 [node name="Torch9" parent="Torches" instance=ExtResource("3_c2fe3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -17)
+
+[node name="Rogue" parent="." instance=ExtResource("4_d0y6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.63616, 5.51602, 8.97099)

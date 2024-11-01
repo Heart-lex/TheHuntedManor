@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://1fo5cuq4py51"]
+[gd_scene load_steps=7 format=3 uid="uid://1fo5cuq4py51"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_26lq5"]
 [ext_resource type="MeshLibrary" uid="uid://kmvubcu2c16m" path="res://assets/tilemap/dungeon_tiles02.tres" id="2_g7duo"]
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="3_6ti07"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/lit_torch.tscn" id="4_n0kgq"]
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/laterns.tscn" id="5_jlsas"]
+[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/rogue.tscn" id="6_nbcuu"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -36,6 +37,21 @@ data = {
 "cells": PackedInt32Array(851942, 65516, 1048589, 65523, 65535, 1048612, 65527, 65535, 1048612, 65528, 65534, 27, 65529, 65534, 28, 65530, 65534, 29, 131073, 65531, 11, 196606, 65527, 3, 131074, 65527, 1048628, 131074, 65529, 1048628, 131074, 65531, 1048628, 458740, 65522, 52, 458742, 65522, 52, 458737, 65525, 1048588, 458743, 65528, 1048587, 589814, 65519, 1048615, 589812, 65519, 1441831, 589811, 65515, 1048625, 589811, 65517, 1048625, 720879, 65516, 1048627, 589814, 65512, 655363, 589817, 65516, 1441803, 589817, 65514, 1441803, 589813, 65518, 1441827, 589813, 65517, 1441827, 589813, 65516, 1441827, 589812, 65516, 1441827, 589813, 65515, 1441827, 589813, 65514, 1441827, 589813, 65513, 1441827, 589813, 65511, 1441827, 589813, 65512, 1441827, 851948, 65516, 1441824, 851947, 65516, 1441824, 851946, 65516, 1441824, 851945, 65516, 1441824, 851944, 65516, 1441824, 851945, 65515, 1048626, 851945, 65517, 1048626, 851944, 65514, 1048629, 851941, 65513, 1048587, 851941, 65511, 1048587, 851941, 65512, 1048588, 851941, 65514, 1048588, 851943, 65513, 1048591, 851943, 65511, 1048593)
 }
 metadata/_editor_floor_ = Vector3(0, 12, 0)
+
+[node name="Collisions" type="Node" parent="."]
+
+[node name="GroundCollision1" type="CSGBox3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99911, 0, 0.758621)
+use_collision = true
+size = Vector3(19.8477, 1, 4)
+
+[node name="GroundCollision3" type="CSGBox3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99821, 0, 8.60717)
+size = Vector3(3.85306, 1, 12.3561)
+
+[node name="GroundCollision2" type="CSGBox3D" parent="Collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5642, 0, 0.525054)
+size = Vector3(24.7434, 1, 4.05192)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 53, 58.7251, 11.1946)
@@ -126,3 +142,6 @@ data = {
 "cells": PackedInt32Array(262144, 65527, 118)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Rogue" parent="." instance=ExtResource("6_nbcuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3017, 1.5, 0.970702)
