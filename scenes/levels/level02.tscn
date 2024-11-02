@@ -116,12 +116,6 @@ visible = false
 use_collision = true
 size = Vector3(4.03247, 1, 5.96973)
 
-[node name="Left Staircase" type="CSGBox3D" parent="Collisions/First Floor/Stairs"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -21.9685, 7.16023, -7.45234)
-visible = false
-use_collision = true
-size = Vector3(8, 1, 16.3522)
-
 [node name="Second Floor" type="Node" parent="Collisions"]
 
 [node name="Walls" type="Node" parent="Collisions/Second Floor"]
