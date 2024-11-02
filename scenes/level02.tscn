@@ -4,7 +4,7 @@
 [ext_resource type="MeshLibrary" uid="uid://kmvubcu2c16m" path="res://assets/tilemap/dungeon_tiles02.tres" id="2_g7duo"]
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="3_6ti07"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/lit_torch.tscn" id="4_n0kgq"]
-[ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/laterns.tscn" id="5_jlsas"]
+[ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/latern.tscn" id="5_jlsas"]
 [ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/rogue.tscn" id="6_nbcuu"]
 
 [node name="Node3D" type="Node3D"]
@@ -40,18 +40,114 @@ metadata/_editor_floor_ = Vector3(0, 12, 0)
 
 [node name="Collisions" type="Node" parent="."]
 
-[node name="GroundCollision1" type="CSGBox3D" parent="Collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99911, 0, 0.758621)
+[node name="First Floor" type="Node" parent="Collisions"]
+
+[node name="Walls" type="Node" parent="Collisions/First Floor"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05664, 4.65151, 3.48479)
+visible = false
+use_collision = true
+size = Vector3(15.4888, 7.32825, 1.23761)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0519, 4.65151, 3.48479)
+visible = false
+use_collision = true
+size = Vector3(23.9288, 7.32825, 1.23761)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2011, 4.65151, 0.245441)
+visible = false
+use_collision = true
+size = Vector3(2.38367, 7.32825, 5.34922)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.95544, 4.65151, -1.19181)
+visible = false
+use_collision = true
+size = Vector3(11.6912, 7.32825, 1.23761)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5563, 10.1912, -8.75466)
+visible = false
+use_collision = true
+size = Vector3(9.11023, 18.4076, 12.8661)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5938, 10.2283, -7.70013)
+visible = false
+use_collision = true
+size = Vector3(9.11023, 18.4819, 10.7571)
+
+[node name="Ground" type="Node" parent="Collisions/First Floor"]
+
+[node name="GroundCollision1" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99911, 0.492382, 0.758621)
 use_collision = true
 size = Vector3(19.8477, 1, 4)
 
-[node name="GroundCollision3" type="CSGBox3D" parent="Collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99821, 0, 8.60717)
+[node name="GroundCollision3" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99821, 0.492382, 8.60717)
+use_collision = true
 size = Vector3(3.85306, 1, 12.3561)
 
-[node name="GroundCollision2" type="CSGBox3D" parent="Collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5642, 0, 0.525054)
+[node name="GroundCollision2" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5642, 0.492382, 0.525054)
+use_collision = true
 size = Vector3(24.7434, 1, 4.05192)
+
+[node name="GroundCollision4" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+
+[node name="Stairs" type="Node" parent="Collisions/First Floor"]
+
+[node name="Right Staircase" type="CSGBox3D" parent="Collisions/First Floor/Stairs"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.944214, 2.69729, -5.08776)
+visible = false
+use_collision = true
+size = Vector3(4.03247, 1, 5.96973)
+
+[node name="Left Staircase" type="CSGBox3D" parent="Collisions/First Floor/Stairs"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -20.8015, 6.84994, -7.45234)
+visible = false
+use_collision = true
+size = Vector3(8, 1, 16.3522)
+
+[node name="Second Floor" type="Node" parent="Collisions"]
+
+[node name="Walls" type="Node" parent="Collisions/Second Floor"]
+
+[node name="Ground" type="Node" parent="Collisions/Second Floor"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Collisions/Second Floor/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500793, 4.53718, -12.7795)
+visible = false
+use_collision = true
+size = Vector3(11.9095, 1, 12.4244)
+
+[node name="Stairs" type="Node" parent="Collisions/Second Floor"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Collisions/Second Floor/Stairs"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -11.177, 8.8023, -17.0766)
+visible = false
+use_collision = true
+size = Vector3(11.235, 1, 3.83009)
+
+[node name="Third Floor" type="Node" parent="Collisions"]
+
+[node name="Walls" type="Node" parent="Collisions/Third Floor"]
+
+[node name="Ground" type="Node" parent="Collisions/Third Floor"]
+
+[node name="Stairs" type="Node" parent="Collisions/Third Floor"]
+
+[node name="Fourth Floor" type="Node" parent="Collisions"]
+
+[node name="Walls" type="Node" parent="Collisions/Fourth Floor"]
+
+[node name="Ground" type="Node" parent="Collisions/Fourth Floor"]
+
+[node name="Stairs" type="Node" parent="Collisions/Fourth Floor"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 53, 58.7251, 11.1946)

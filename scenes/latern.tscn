@@ -16,5 +16,6 @@ radius = 0.2
 material = SubResource("StandardMaterial3D_ag8nd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CSGSphere3D"]
-light_color = Color(0.866667, 0.941176, 0.180392, 1)
+light_color = Color(0.899532, 0.973247, 0.305789, 1)
 light_energy = 12.54
+light_size = 0.265
