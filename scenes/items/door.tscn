@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://cu1udinxcybro"]
+[gd_scene load_steps=8 format=4 uid="uid://cu1udinxcybro"]
 
-[ext_resource type="Texture2D" uid="uid://cliemj57o47do" path="res://assets/dungeon/floor/dungeon_remastered/dungeon_texture.png" id="1_hyqo5"]
+[ext_resource type="Script" path="res://scenes/items/door.gd" id="1_eccf6"]
+[ext_resource type="Texture2D" uid="uid://d1ikt77sgebnt" path="res://assets/dungeon/floor/dungeon_remastered/dungeon_texture.png" id="1_hyqo5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbcy0"]
 size = Vector3(1.99094, 2.75195, 0.396484)
@@ -48,6 +49,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nbp5b")
 
 [node name="DungeonDoor" type="Node3D"]
+script = ExtResource("1_eccf6")
 
 [node name="doorway" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189291, 0, 0.235904)
@@ -73,3 +75,6 @@ shape = SubResource("BoxShape3D_qv1nd")
 [node name="doorway_door" type="MeshInstance3D" parent="doorway"]
 mesh = SubResource("ArrayMesh_bafro")
 skeleton = NodePath("")
+
+[connection signal="body_entered" from="doorway/DoorBack" to="." method="_on_door_back_body_entered"]
+[connection signal="body_entered" from="doorway/DoorFront" to="." method="_on_door_front_body_entered"]

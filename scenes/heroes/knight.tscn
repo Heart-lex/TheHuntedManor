@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bbc16i4oqesmb"]
 
-[ext_resource type="PackedScene" uid="uid://d4bqdrl61p7n1" path="res://assets/dungeon/characters/heroes/Knight.glb" id="1_eng0n"]
-[ext_resource type="Script" path="res://scripts/knight.gd" id="2_xwyjr"]
+[ext_resource type="PackedScene" uid="uid://d4bqdrl61p7n1" path="res://assets/dungeon/characters/heroes/Knight.glb" id="1_lw6ox"]
+[ext_resource type="Script" path="res://scripts/knight.gd" id="2_fhiwi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kesft"]
 height = 2.49257
@@ -47,7 +47,7 @@ animation = &"Running_A"
 animation = &"Walking_B"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qbti1"]
-graph_offset = Vector2(-115.815, 187.955)
+graph_offset = Vector2(-91.8719, 208.856)
 "nodes/Blocking Animation/node" = SubResource("AnimationNodeAnimation_ohk1k")
 "nodes/Blocking Animation/position" = Vector2(440, 540)
 "nodes/Idle Animation/node" = SubResource("AnimationNodeAnimation_4l6ub")
@@ -82,8 +82,8 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="Knight" instance=ExtResource("1_eng0n")]
-script = ExtResource("2_xwyjr")
+[node name="Knight" instance=ExtResource("1_lw6ox")]
+script = ExtResource("2_fhiwi")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
@@ -197,9 +197,12 @@ parameters/Movement/current_state = "Idle"
 parameters/Movement/transition_request = ""
 parameters/Movement/current_index = 0
 
-[node name="UseCast" type="RayCast3D" parent="." index="4"]
+[node name="UseCast" type="RayCast3D" parent="." index="4" groups=["RaycastUse"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -1.5)
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_thickness = 5
 
 [node name="CameraPivot" type="Node3D" parent="." index="5"]
 transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, -0.00630677, 1, 0)
