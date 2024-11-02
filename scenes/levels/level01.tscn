@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bstu74ngpg2p8"]
+[gd_scene load_steps=10 format=3 uid="uid://bstu74ngpg2p8"]
 
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="1_18jwg"]
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="2_42q2d"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="5_gvqr2"]
+[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/knight.tscn" id="6_aryfd"]
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="6_ken8p"]
-[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scripts/rogue.tscn" id="6_kxlg1"]
-[ext_resource type="PackedScene" uid="uid://dlchlektuef0h" path="res://scenes/camera_rig.tscn" id="7_igowx"]
 [ext_resource type="PackedScene" uid="uid://cu1udinxcybro" path="res://scenes/items/door.tscn" id="7_tdx4u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0kbn4"]
@@ -191,7 +190,5 @@ transform = Transform3D(0.605086, 0, -0.79616, -0.107239, 0.990887, -0.0815022, 
 [node name="DungeonDoor" parent="." instance=ExtResource("7_tdx4u")]
 transform = Transform3D(0.0154281, 0, 0.999881, 0, 1, 0, -0.999881, 0, 0.0154281, -7.2106, 8.99277, -10.0338)
 
-[node name="Rogue" parent="." instance=ExtResource("6_kxlg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04725, 1.04998, -9.58437)
-
-[node name="camera_rig" parent="." instance=ExtResource("7_igowx")]
+[node name="Knight" parent="." instance=ExtResource("6_aryfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72028, 1.04998, -9.79096)
