@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ypqyvyrjjkq6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_xoxux"]
-[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/rogue.tscn" id="2_kmenm"]
+[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/knight.tscn" id="2_xfqdk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcpcb"]
 albedo_color = Color(0.970415, 0.866378, 0.919275, 1)
@@ -26,13 +26,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 32.2014, 0.5, 0.197542)
-visible = false
-use_collision = true
-size = Vector3(1.05429, 1, 0.605957)
-material = SubResource("StandardMaterial3D_gcpcb")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.889887, 0.456182, 0, -0.456182, 0.889887, -19.6484, 26.157, 10)
 light_color = Color(0.981837, 0.933475, 0.991062, 1)
@@ -43,5 +36,71 @@ shadow_normal_bias = 1.293
 shadow_blur = 0.75
 sky_mode = 1
 
-[node name="Rogue" parent="." instance=ExtResource("2_kmenm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 5)
+[node name="Knight" parent="." instance=ExtResource("2_xfqdk")]
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 4.47823, 1, 4.5404)
+
+[node name="Collisions" type="Node" parent="."]
+
+[node name="First Floor" type="Node" parent="Collisions"]
+
+[node name="Ground" type="Node" parent="Collisions/First Floor"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 10.2902, 0.5, 0.197542)
+visible = false
+use_collision = true
+size = Vector3(0.410789, 1, 0.605957)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, -17.7378, 5.84961, 0.197542)
+visible = false
+use_collision = true
+size = Vector3(0.416723, 11.6992, 0.605957)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 43.3328, 0.5, -0.324332)
+visible = false
+use_collision = true
+size = Vector3(0.550252, 1, 0.0654449)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(-2.97675e-06, 0, -62.2409, 0, 1, 0, 68.1, 0, -2.72064e-06, 41.3676, 0.5, -8.52351)
+visible = false
+use_collision = true
+size = Vector3(0.178446, 1, 0.0654449)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(-2.97675e-06, 0, -62.2409, 0, 1, 0, 68.1, 0, -2.72064e-06, 41.4618, 0.61787, 7.82046)
+use_collision = true
+size = Vector3(0.18395, 1, 0.0654449)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(-2.97675e-06, 0, -62.2409, 0, 1, 0, 68.1, 0, -2.72064e-06, 41.6945, 0.5, 22.4904)
+visible = false
+use_collision = true
+size = Vector3(0.234553, 1, 0.251223)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(-2.97675e-06, 0, -62.2409, 0, 1, 0, 68.1, 0, -2.72064e-06, 41.7923, 0.5, 48.392)
+visible = false
+use_collision = true
+size = Vector3(0.520885, 1, 0.631928)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="Walls" type="Node" parent="Collisions/First Floor"]
+
+[node name="Stairs" type="Node" parent="Collisions/First Floor"]
+
+[node name="Second Floor" type="Node" parent="Collisions"]
+
+[node name="Ground" type="Node" parent="Collisions/Second Floor"]
+
+[node name="Walls" type="Node" parent="Collisions/Second Floor"]
+
+[node name="Stairs" type="Node" parent="Collisions/Second Floor"]
