@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/Knight.glb-53ce4885b70856f9cdc9001ffa91972a.s
 [params]
 
 nodes/root_type="CharacterBody3D"
-nodes/root_name="HeroKnight"
+nodes/root_name="Knight"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
