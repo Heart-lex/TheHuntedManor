@@ -3,7 +3,8 @@ class_name Rogue
 
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var pivot: Node3D = $CameraPivot
+@onready var camera_point: Node3D = $camera_point
+
 var currState
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -13,6 +14,8 @@ const ROTATION_SPEED: float = 12.0
 
 enum state {RUN, JUMP, IDLE}
 
+func _ready():
+	GameManager.set_player(self)
 
 func _physics_process(delta: float) -> void:
 	

@@ -81,7 +81,7 @@
 [ext_resource type="PackedScene" uid="uid://d2es08gbof1so" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_medium.gltf" id="79_hbpft"]
 [ext_resource type="PackedScene" uid="uid://c7h5moha6os2a" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_small.gltf" id="80_rpmhi"]
 [ext_resource type="PackedScene" uid="uid://6iaeq2uahkth" path="res://assets/dungeon/floor/dungeon_remastered/column.gltf" id="81_scf2w"]
-[ext_resource type="Texture2D" uid="uid://b12itilxde70b" path="res://assets/dungeon/floor/dungeon_remastered/dungeon_texture.png" id="82_88s0m"]
+[ext_resource type="Texture2D" uid="uid://d1ikt77sgebnt" path="res://assets/dungeon/floor/dungeon_remastered/dungeon_texture.png" id="82_88s0m"]
 [ext_resource type="PackedScene" uid="uid://nwfhlt6j5vt8" path="res://assets/dungeon/floor/dungeon_remastered/floor_dirt_large.gltf" id="83_xlabe"]
 [ext_resource type="PackedScene" uid="uid://c7qqr2dy6a8re" path="res://assets/dungeon/floor/dungeon_remastered/floor_dirt_large_rocky.gltf" id="84_tgwfp"]
 [ext_resource type="PackedScene" uid="uid://dp4b1d23v235q" path="res://assets/dungeon/floor/dungeon_remastered/floor_dirt_small_A.gltf" id="85_lgb7j"]
@@ -288,250 +288,168 @@ shadow_mesh = SubResource("ArrayMesh_1k10d")
 [node name="Tile" type="Node3D"]
 
 [node name="banner_blue2" parent="." instance=ExtResource("1_8c2vs")]
-visible = false
 
 [node name="banner_brown2" parent="." instance=ExtResource("2_s2bdn")]
-visible = false
 
 [node name="banner_green2" parent="." instance=ExtResource("3_2ndoy")]
-visible = false
 
 [node name="banner_patternA_blue2" parent="." instance=ExtResource("4_8iwcv")]
-visible = false
 
 [node name="banner_patternA_brown2" parent="." instance=ExtResource("5_g7lwr")]
-visible = false
 
 [node name="banner_patternA_green2" parent="." instance=ExtResource("6_rcnqv")]
-visible = false
 
 [node name="banner_patternA_red2" parent="." instance=ExtResource("7_7e2w3")]
-visible = false
 
 [node name="banner_patternA_white2" parent="." instance=ExtResource("8_2qgcg")]
-visible = false
 
 [node name="banner_patternA_yellow2" parent="." instance=ExtResource("9_sreef")]
-visible = false
 
 [node name="banner_patternB_blue2" parent="." instance=ExtResource("10_au41s")]
-visible = false
 
 [node name="banner_patternB_brown2" parent="." instance=ExtResource("11_axehs")]
-visible = false
 
 [node name="banner_patternB_green2" parent="." instance=ExtResource("12_6uud3")]
-visible = false
 
 [node name="banner_patternB_red2" parent="." instance=ExtResource("13_qpwqr")]
-visible = false
 
 [node name="banner_patternB_white2" parent="." instance=ExtResource("14_glob6")]
-visible = false
 
 [node name="banner_patternB_yellow2" parent="." instance=ExtResource("15_na2pi")]
-visible = false
 
 [node name="banner_patternC_blue2" parent="." instance=ExtResource("16_egx10")]
-visible = false
 
 [node name="banner_patternC_brown2" parent="." instance=ExtResource("17_qvyjg")]
-visible = false
 
 [node name="banner_patternC_green2" parent="." instance=ExtResource("18_nkinr")]
-visible = false
 
 [node name="banner_patternC_red2" parent="." instance=ExtResource("19_5cnpq")]
-visible = false
 
 [node name="banner_patternC_white2" parent="." instance=ExtResource("20_hdkwv")]
-visible = false
 
 [node name="banner_patternC_yellow2" parent="." instance=ExtResource("21_ibcut")]
-visible = false
 
 [node name="banner_red2" parent="." instance=ExtResource("22_pil62")]
-visible = false
 
 [node name="banner_shield_blue2" parent="." instance=ExtResource("23_278nd")]
-visible = false
 
 [node name="banner_shield_brown2" parent="." instance=ExtResource("24_najcj")]
-visible = false
 
 [node name="banner_shield_green2" parent="." instance=ExtResource("25_a4x3f")]
-visible = false
 
 [node name="banner_shield_red2" parent="." instance=ExtResource("26_8gras")]
-visible = false
 
 [node name="banner_shield_white2" parent="." instance=ExtResource("27_nvig2")]
-visible = false
 
 [node name="banner_shield_yellow2" parent="." instance=ExtResource("28_j2dnd")]
-visible = false
 
 [node name="banner_thin_blue2" parent="." instance=ExtResource("29_be0os")]
-visible = false
 
 [node name="banner_thin_brown2" parent="." instance=ExtResource("30_uqpi0")]
-visible = false
 
 [node name="banner_thin_green2" parent="." instance=ExtResource("31_q6fh2")]
-visible = false
 
 [node name="banner_thin_red2" parent="." instance=ExtResource("32_wwcr3")]
-visible = false
 
 [node name="banner_thin_white2" parent="." instance=ExtResource("33_1rnq0")]
-visible = false
 
 [node name="banner_thin_yellow2" parent="." instance=ExtResource("34_n6crl")]
-visible = false
 
 [node name="banner_triple_blue2" parent="." instance=ExtResource("35_68ddv")]
-visible = false
 
 [node name="banner_triple_brown2" parent="." instance=ExtResource("36_ag1f8")]
-visible = false
 
 [node name="banner_triple_green2" parent="." instance=ExtResource("37_refyy")]
-visible = false
 
 [node name="banner_triple_red2" parent="." instance=ExtResource("38_7uo7i")]
-visible = false
 
 [node name="banner_triple_white2" parent="." instance=ExtResource("39_ug0kg")]
-visible = false
 
 [node name="banner_triple_yellow2" parent="." instance=ExtResource("40_nfhvr")]
-visible = false
 
 [node name="banner_white2" parent="." instance=ExtResource("41_1uhx4")]
-visible = false
 
 [node name="banner_yellow2" parent="." instance=ExtResource("42_nuw55")]
-visible = false
 
 [node name="barrel_large2" parent="." instance=ExtResource("43_34fa7")]
-visible = false
 
 [node name="barrel_large_decorated2" parent="." instance=ExtResource("44_hwl4w")]
-visible = false
 
 [node name="barrel_small2" parent="." instance=ExtResource("45_rlpis")]
-visible = false
 
 [node name="barrel_small_stack2" parent="." instance=ExtResource("46_qsp8m")]
-visible = false
 
 [node name="barrier2" parent="." instance=ExtResource("47_656bp")]
-visible = false
 
 [node name="barrier_column2" parent="." instance=ExtResource("48_jh2r7")]
-visible = false
 
 [node name="barrier_colum_half2" parent="." instance=ExtResource("49_jxjej")]
-visible = false
 
 [node name="barrier_corner2" parent="." instance=ExtResource("50_1ihll")]
-visible = false
 
 [node name="barrier_half2" parent="." instance=ExtResource("51_nik3m")]
-visible = false
 
 [node name="bed_decorated2" parent="." instance=ExtResource("52_bap0g")]
-visible = false
 
 [node name="bed_floor2" parent="." instance=ExtResource("53_upl3e")]
-visible = false
 
 [node name="bed_frame2" parent="." instance=ExtResource("54_7ilde")]
-visible = false
 
 [node name="bottle_A_brown2" parent="." instance=ExtResource("55_wtscl")]
-visible = false
 
 [node name="bottle_A_green2" parent="." instance=ExtResource("56_du7ol")]
-visible = false
 
 [node name="bottle_A_labeled_brown2" parent="." instance=ExtResource("57_wij58")]
-visible = false
 
 [node name="bottle_A_labeled_green2" parent="." instance=ExtResource("58_bvisn")]
-visible = false
 
 [node name="bottle_B_brown2" parent="." instance=ExtResource("59_5w2dd")]
-visible = false
 
 [node name="bottle_B_green2" parent="." instance=ExtResource("60_y7opa")]
-visible = false
 
 [node name="bottle_C_brown2" parent="." instance=ExtResource("61_28cgl")]
-visible = false
 
 [node name="bottle_C_green2" parent="." instance=ExtResource("62_wketi")]
-visible = false
 
 [node name="box_large2" parent="." instance=ExtResource("63_eu7x1")]
-visible = false
 
 [node name="box_small2" parent="." instance=ExtResource("64_6lsia")]
-visible = false
 
 [node name="box_small_decorated2" parent="." instance=ExtResource("65_sbvpe")]
-visible = false
 
 [node name="box_stacked2" parent="." instance=ExtResource("66_2rew7")]
-visible = false
 
 [node name="candle2" parent="." instance=ExtResource("67_l56l8")]
-visible = false
 
 [node name="candle_lit2" parent="." instance=ExtResource("68_oyehw")]
-visible = false
 
 [node name="candle_melted2" parent="." instance=ExtResource("69_1iyfb")]
-visible = false
 
 [node name="candle_thin2" parent="." instance=ExtResource("70_hpled")]
-visible = false
 
 [node name="candle_thin_lit2" parent="." instance=ExtResource("71_ni7ct")]
-visible = false
 
 [node name="candle_triple2" parent="." instance=ExtResource("72_pr3jx")]
-visible = false
 
 [node name="ceiling_tile2" parent="." instance=ExtResource("73_0uy56")]
-visible = false
 
 [node name="chair2" parent="." instance=ExtResource("74_hlcon")]
-visible = false
 
 [node name="chest2" parent="." instance=ExtResource("75_2rrk0")]
-visible = false
 
 [node name="chest_gold2" parent="." instance=ExtResource("76_c86xl")]
-visible = false
 
 [node name="coin2" parent="." instance=ExtResource("77_x0hyv")]
-visible = false
 
 [node name="coin_stack_large2" parent="." instance=ExtResource("78_3pq33")]
-visible = false
 
 [node name="coin_stack_medium2" parent="." instance=ExtResource("79_hbpft")]
-visible = false
 
 [node name="coin_stack_small2" parent="." instance=ExtResource("80_rpmhi")]
-visible = false
 
 [node name="column2" parent="." instance=ExtResource("81_scf2w")]
-visible = false
 
 [node name="crates_stacked2" type="Node3D" parent="."]
-visible = false
 
 [node name="crates_stacked" type="MeshInstance3D" parent="crates_stacked2"]
 visible = false
@@ -539,343 +457,232 @@ mesh = SubResource("ArrayMesh_8acsu")
 skeleton = NodePath("")
 
 [node name="floor_dirt_large2" parent="." instance=ExtResource("83_xlabe")]
-visible = false
 
 [node name="floor_dirt_large_rocky2" parent="." instance=ExtResource("84_tgwfp")]
-visible = false
 
 [node name="floor_dirt_small_A2" parent="." instance=ExtResource("85_lgb7j")]
-visible = false
 
 [node name="floor_dirt_small_B2" parent="." instance=ExtResource("86_jj15l")]
-visible = false
 
 [node name="floor_dirt_small_C2" parent="." instance=ExtResource("87_lf76v")]
-visible = false
 
 [node name="floor_dirt_small_corner2" parent="." instance=ExtResource("88_mnjj3")]
-visible = false
 
 [node name="floor_dirt_small_D2" parent="." instance=ExtResource("89_pj5qr")]
-visible = false
 
 [node name="floor_dirt_small_weeds2" parent="." instance=ExtResource("90_xx1nx")]
-visible = false
 
 [node name="floor_foundation_allsides2" parent="." instance=ExtResource("91_l54mj")]
-visible = false
 
 [node name="floor_foundation_corner2" parent="." instance=ExtResource("92_1m687")]
-visible = false
 
 [node name="floor_foundation_diagonal_corner2" parent="." instance=ExtResource("93_7s31j")]
-visible = false
 
 [node name="floor_foundation_front2" parent="." instance=ExtResource("94_a5kjv")]
-visible = false
 
 [node name="floor_foundation_front_and_back2" parent="." instance=ExtResource("95_s441q")]
-visible = false
 
 [node name="floor_foundation_front_and_sides2" parent="." instance=ExtResource("96_33nq6")]
-visible = false
 
 [node name="floor_tile_big_grate2" parent="." instance=ExtResource("97_vox72")]
-visible = false
 
 [node name="floor_tile_big_grate_open2" parent="." instance=ExtResource("98_ycl4l")]
-visible = false
 
 [node name="floor_tile_big_spikes2" parent="." instance=ExtResource("99_63bc5")]
-visible = false
 
 [node name="floor_tile_extralarge_grates2" parent="." instance=ExtResource("100_pj8io")]
-visible = false
 
 [node name="floor_tile_extralarge_grates_open2" parent="." instance=ExtResource("101_p3oxp")]
-visible = false
 
 [node name="floor_tile_grate2" parent="." instance=ExtResource("102_c3bp3")]
-visible = false
 
 [node name="floor_tile_grate_open2" parent="." instance=ExtResource("103_44oqn")]
-visible = false
 
 [node name="floor_tile_large2" parent="." instance=ExtResource("104_hjvhs")]
-visible = false
 
 [node name="floor_tile_large_rocks2" parent="." instance=ExtResource("105_j3okx")]
-visible = false
 
 [node name="floor_tile_small2" parent="." instance=ExtResource("106_8dne3")]
-visible = false
 
 [node name="floor_tile_small_broken_A2" parent="." instance=ExtResource("107_44bgn")]
-visible = false
 
 [node name="floor_tile_small_broken_B2" parent="." instance=ExtResource("108_qk2aq")]
-visible = false
 
 [node name="floor_tile_small_corner2" parent="." instance=ExtResource("109_txuls")]
-visible = false
 
 [node name="floor_tile_small_decorated2" parent="." instance=ExtResource("110_b00iu")]
-visible = false
 
 [node name="floor_tile_small_weeds_A2" parent="." instance=ExtResource("111_5kh1y")]
-visible = false
 
 [node name="floor_tile_small_weeds_B2" parent="." instance=ExtResource("112_crei8")]
-visible = false
 
 [node name="floor_wood_large2" parent="." instance=ExtResource("113_cri08")]
-visible = false
 
 [node name="floor_wood_large_dark2" parent="." instance=ExtResource("114_do5bv")]
-visible = false
 
 [node name="floor_wood_small2" parent="." instance=ExtResource("115_co51w")]
-visible = false
 
 [node name="floor_wood_small_dark2" parent="." instance=ExtResource("116_qq4e5")]
-visible = false
 
 [node name="keg2" parent="." instance=ExtResource("117_2e4py")]
-visible = false
 
 [node name="keg_decorated2" parent="." instance=ExtResource("118_lhj0c")]
-visible = false
 
 [node name="key2" parent="." instance=ExtResource("119_xm8gk")]
-visible = false
 
 [node name="keyring2" parent="." instance=ExtResource("120_ncch0")]
-visible = false
 
 [node name="keyring_hanging2" parent="." instance=ExtResource("121_62dda")]
-visible = false
 
 [node name="pillar2" parent="." instance=ExtResource("122_1amkw")]
-visible = false
 
 [node name="pillar_decorated2" parent="." instance=ExtResource("123_0owya")]
-visible = false
 
 [node name="plate2" parent="." instance=ExtResource("124_rp8kk")]
-visible = false
 
 [node name="plate_food_A2" parent="." instance=ExtResource("125_ooabc")]
-visible = false
 
 [node name="plate_food_B2" parent="." instance=ExtResource("126_gb528")]
-visible = false
 
 [node name="plate_small2" parent="." instance=ExtResource("127_q6q0x")]
-visible = false
 
 [node name="plate_stack2" parent="." instance=ExtResource("128_v1x0u")]
-visible = false
 
 [node name="rubble_half2" parent="." instance=ExtResource("129_1y7u2")]
-visible = false
 
 [node name="rubble_large2" parent="." instance=ExtResource("130_fje80")]
-visible = false
 
 [node name="shelf_large2" parent="." instance=ExtResource("131_io0bm")]
-visible = false
 
 [node name="shelf_small2" parent="." instance=ExtResource("132_shy1t")]
-visible = false
 
 [node name="shelf_small_candles2" parent="." instance=ExtResource("133_ap1to")]
-visible = false
 
 [node name="shelves2" parent="." instance=ExtResource("134_eqsf7")]
-visible = false
 
 [node name="stairs2" parent="." instance=ExtResource("135_5vvsu")]
-visible = false
 
 [node name="stairs_long2" parent="." instance=ExtResource("136_e3ik0")]
-visible = false
 
 [node name="stairs_long_modular_center2" parent="." instance=ExtResource("137_dfap4")]
-visible = false
 
 [node name="stairs_long_modular_left2" parent="." instance=ExtResource("138_hodlo")]
-visible = false
 
 [node name="stairs_long_modular_right2" parent="." instance=ExtResource("139_ocxoo")]
-visible = false
 
 [node name="stairs_modular_center2" parent="." instance=ExtResource("140_3gngg")]
-visible = false
 
 [node name="stairs_modular_left2" parent="." instance=ExtResource("141_77tnr")]
-visible = false
 
 [node name="stairs_modular_right2" parent="." instance=ExtResource("142_a88wl")]
-visible = false
 
 [node name="stairs_narrow2" parent="." instance=ExtResource("143_qe1kv")]
-visible = false
 
 [node name="stairs_walled2" parent="." instance=ExtResource("144_pat2m")]
-visible = false
 
 [node name="stairs_wall_left2" parent="." instance=ExtResource("145_k3e4y")]
-visible = false
 
 [node name="stairs_wall_right2" parent="." instance=ExtResource("146_06fqy")]
-visible = false
 
 [node name="stairs_wide2" parent="." instance=ExtResource("147_thtp4")]
-visible = false
 
 [node name="stairs_wood2" parent="." instance=ExtResource("148_wj1te")]
-visible = false
 
 [node name="stairs_wood_decorated2" parent="." instance=ExtResource("149_35a7f")]
-visible = false
 
 [node name="stool2" parent="." instance=ExtResource("150_6uxub")]
-visible = false
 
 [node name="sword_shield2" parent="." instance=ExtResource("151_n03iy")]
-visible = false
 
 [node name="sword_shield_broken2" parent="." instance=ExtResource("152_iylu4")]
-visible = false
 
 [node name="sword_shield_gold2" parent="." instance=ExtResource("153_33unm")]
-visible = false
 
 [node name="table_long2" parent="." instance=ExtResource("154_yxtlg")]
-visible = false
 
 [node name="table_long_broken2" parent="." instance=ExtResource("155_2rlnt")]
-visible = false
 
 [node name="table_long_decorated_A2" parent="." instance=ExtResource("156_hvqvj")]
-visible = false
 
 [node name="table_long_decorated_C2" parent="." instance=ExtResource("157_xglda")]
-visible = false
 
 [node name="table_long_tablecloth2" parent="." instance=ExtResource("158_our5w")]
-visible = false
 
 [node name="table_long_tablecloth_decorated_A2" parent="." instance=ExtResource("159_c8e12")]
-visible = false
 
 [node name="table_medium2" parent="." instance=ExtResource("160_n5xnh")]
-visible = false
 
 [node name="table_medium_broken2" parent="." instance=ExtResource("161_n66qq")]
-visible = false
 
 [node name="table_medium_decorated_A2" parent="." instance=ExtResource("162_pk5io")]
-visible = false
 
 [node name="table_medium_tablecloth2" parent="." instance=ExtResource("163_7x23h")]
-visible = false
 
 [node name="table_medium_tablecloth_decorated_B2" parent="." instance=ExtResource("164_rhmyd")]
-visible = false
 
 [node name="table_small2" parent="." instance=ExtResource("165_7kpq7")]
-visible = false
 
 [node name="table_small_decorated_A2" parent="." instance=ExtResource("166_8nu4n")]
-visible = false
 
 [node name="table_small_decorated_B2" parent="." instance=ExtResource("167_tfo5x")]
-visible = false
 
 [node name="torch2" parent="." instance=ExtResource("168_klexo")]
-visible = false
 
 [node name="torch_lit2" parent="." instance=ExtResource("169_4aure")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90765, 0.236171, 1.62268)
-visible = false
 
 [node name="torch_mounted2" parent="." instance=ExtResource("170_wjpnu")]
-visible = false
 
 [node name="trunk_large_A2" parent="." instance=ExtResource("171_n56qu")]
-visible = false
 
 [node name="trunk_large_B2" parent="." instance=ExtResource("172_1wia4")]
-visible = false
 
 [node name="trunk_large_C2" parent="." instance=ExtResource("173_s3kkb")]
-visible = false
 
 [node name="trunk_medium_A2" parent="." instance=ExtResource("174_6b30d")]
-visible = false
 
 [node name="trunk_medium_B2" parent="." instance=ExtResource("175_dvs81")]
-visible = false
 
 [node name="trunk_medium_C2" parent="." instance=ExtResource("176_hwc0p")]
-visible = false
 
 [node name="trunk_small_A2" parent="." instance=ExtResource("177_10koh")]
-visible = false
 
 [node name="trunk_small_B2" parent="." instance=ExtResource("178_bnlts")]
-visible = false
 
 [node name="trunk_small_C2" parent="." instance=ExtResource("179_5ewhu")]
-visible = false
 
 [node name="wall2" parent="." instance=ExtResource("180_dhl4o")]
-visible = false
 
 [node name="wall_arched2" parent="." instance=ExtResource("181_gle27")]
-visible = false
 
 [node name="wall_archedwindow_gated2" parent="." instance=ExtResource("182_fxyp5")]
-visible = false
 
 [node name="wall_archedwindow_gated_scaffold2" parent="." instance=ExtResource("183_yiqa8")]
-visible = false
 
 [node name="wall_archedwindow_open2" parent="." instance=ExtResource("184_7hphw")]
-visible = false
 
 [node name="wall_broken2" parent="." instance=ExtResource("185_8ifbf")]
-visible = false
 
 [node name="wall_corner2" parent="." instance=ExtResource("186_0v0jd")]
-visible = false
 
 [node name="wall_corner_gated2" parent="." instance=ExtResource("187_ujhky")]
-visible = false
 
 [node name="wall_corner_scaffold2" parent="." instance=ExtResource("188_lpv2m")]
-visible = false
 
 [node name="wall_corner_small2" parent="." instance=ExtResource("189_jn06e")]
-visible = false
 
 [node name="wall_cracked2" parent="." instance=ExtResource("190_gjo0k")]
-visible = false
 
 [node name="wall_crossing2" parent="." instance=ExtResource("191_tqxuw")]
-visible = false
 
 [node name="wall_doorway2" parent="." instance=ExtResource("192_epkc7")]
+visible = false
 
 [node name="wall_doorway_scaffold2" parent="." instance=ExtResource("193_xg6cy")]
-visible = false
 
 [node name="wall_doorway_sides2" parent="." instance=ExtResource("194_fm38s")]
-visible = false
 
 [node name="wall_doorway_Tsplit2" type="Node3D" parent="."]
-visible = false
 
 [node name="wall_doorway_Tsplit" type="MeshInstance3D" parent="wall_doorway_Tsplit2"]
 visible = false
@@ -883,49 +690,33 @@ mesh = SubResource("ArrayMesh_f3yti")
 skeleton = NodePath("")
 
 [node name="wall_endcap2" parent="." instance=ExtResource("195_h6ksc")]
-visible = false
 
 [node name="wall_gated2" parent="." instance=ExtResource("196_ehxen")]
-visible = false
 
 [node name="wall_half2" parent="." instance=ExtResource("197_qa552")]
-visible = false
 
 [node name="wall_half_endcap2" parent="." instance=ExtResource("198_aklje")]
-visible = false
 
 [node name="wall_half_endcap_sloped2" parent="." instance=ExtResource("199_8jb6j")]
-visible = false
 
 [node name="wall_open_scaffold2" parent="." instance=ExtResource("200_wdhw6")]
-visible = false
 
 [node name="wall_pillar2" parent="." instance=ExtResource("201_kdmf5")]
-visible = false
 
 [node name="wall_scaffold2" parent="." instance=ExtResource("202_r5xch")]
-visible = false
 
 [node name="wall_shelves2" parent="." instance=ExtResource("203_5ia6c")]
-visible = false
 
 [node name="wall_sloped2" parent="." instance=ExtResource("204_j0l6p")]
-visible = false
 
 [node name="wall_Tsplit2" parent="." instance=ExtResource("205_vitks")]
-visible = false
 
 [node name="wall_Tsplit_sloped2" parent="." instance=ExtResource("206_bg67q")]
-visible = false
 
 [node name="wall_window_closed2" parent="." instance=ExtResource("207_alysa")]
-visible = false
 
 [node name="wall_window_closed_scaffold2" parent="." instance=ExtResource("208_tvi2j")]
-visible = false
 
 [node name="wall_window_open2" parent="." instance=ExtResource("209_tyeya")]
-visible = false
 
 [node name="wall_window_open_scaffold2" parent="." instance=ExtResource("210_dodoe")]
-visible = false
