@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwl3eokw5v32j"]
+
+[ext_resource type="PackedScene" uid="uid://d1t034st2o3mi" path="res://assets/dungeon/floor/dungeon_remastered/torch_lit.gltf" id="1_yofce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruerv"]
+emission_enabled = true
+emission = Color(0.83106, 0.139251, 0.0927763, 1)
+emission_energy_multiplier = 16.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="torch_lit2" parent="." instance=ExtResource("1_yofce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.431135, 0)
+radius = 0.1
+material = SubResource("StandardMaterial3D_ruerv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGSphere3D"]
+light_color = Color(0.999993, 0.476225, 0.423512, 1)
+light_energy = 3.831
+light_indirect_energy = 3.0
+light_size = 0.215
+light_specular = 0.0
+omni_shadow_mode = 0
