@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://co58fcyq27djw"]
+
+[ext_resource type="PackedScene" uid="uid://b1yov6cxqekus" path="res://assets/dungeon/floor/dungeon_remastered/rubble_half.gltf" id="1_hrv73"]
+
+[node name="Rubble" type="Node3D"]
+
+[node name="rubble_half2" parent="." instance=ExtResource("1_hrv73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
