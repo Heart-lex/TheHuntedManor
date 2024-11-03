@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_78dax"]
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="2_ejesa"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="3_c2fe3"]
-[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scripts/rogue.tscn" id="4_d0y6e"]
+[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="4_d0y6e"]
 
 [node name="level03" type="Node3D"]
 

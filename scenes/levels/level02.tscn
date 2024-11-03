@@ -4,7 +4,7 @@
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="3_cg7rr"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="4_7aqpj"]
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="5_e8rw5"]
-[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scripts/rogue.tscn" id="6_kcxin"]
+[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="6_kcxin"]
 [ext_resource type="PackedScene" uid="uid://bnsuiv5f1bnul" path="res://scenes/items/coins_stack.tscn" id="7_u7513"]
 
 [node name="Node3D" type="Node3D"]

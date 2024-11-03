@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="1_18jwg"]
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="2_42q2d"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="5_gvqr2"]
-[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/knight.tscn" id="6_aryfd"]
+[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="6_aryfd"]
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="6_ken8p"]
 [ext_resource type="PackedScene" uid="uid://cu1udinxcybro" path="res://scenes/items/door.tscn" id="7_tdx4u"]
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ypqyvyrjjkq6"]
+[gd_scene load_steps=3 format=3 uid="uid://ypqyvyrjjkq6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_xoxux"]
-[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scripts/rogue.tscn" id="2_kmenm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcpcb"]
 albedo_color = Color(0.970415, 0.866378, 0.919275, 1)
@@ -42,6 +41,3 @@ shadow_enabled = true
 shadow_normal_bias = 1.293
 shadow_blur = 0.75
 sky_mode = 1
-
-[node name="Rogue" parent="." instance=ExtResource("2_kmenm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 1, 5)
