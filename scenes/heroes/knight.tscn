@@ -84,8 +84,6 @@ func _process(delta: float) -> void:
 
 [node name="Knight" instance=ExtResource("1_lw6ox")]
 script = ExtResource("2_fhiwi")
-[node name="Knight" groups=["player"] instance=ExtResource("1_eng0n")]
-script = ExtResource("2_xwyjr")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
