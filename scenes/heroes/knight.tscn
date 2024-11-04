@@ -47,7 +47,7 @@ animation = &"Running_A"
 animation = &"Walking_B"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qbti1"]
-graph_offset = Vector2(-91.8719, 208.856)
+graph_offset = Vector2(-368.317, 17.1282)
 "nodes/Blocking Animation/node" = SubResource("AnimationNodeAnimation_ohk1k")
 "nodes/Blocking Animation/position" = Vector2(440, 540)
 "nodes/Idle Animation/node" = SubResource("AnimationNodeAnimation_4l6ub")
@@ -204,7 +204,10 @@ collide_with_areas = true
 collide_with_bodies = false
 debug_shape_thickness = 5
 
-[node name="CameraPivot" type="Node3D" parent="." index="5"]
+[node name="AimDirection" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="CameraPivot" type="Node3D" parent="." index="6"]
 transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, -0.00630677, 1, 0)
 
 [node name="IsometricCamera" type="Camera3D" parent="CameraPivot" index="0"]
