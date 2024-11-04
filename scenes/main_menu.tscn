@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://g6dywuk7s7bb"]
+
+[ext_resource type="Texture2D" uid="uid://ycb03thtuehd" path="res://background/hunted_manor_menu_background.jpg" id="1_i528a"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ugblu"]
+[ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="2_keg6p"]
+[ext_resource type="FontFile" uid="uid://cnml57ep6aa3x" path="res://fonts/Haunted.ttf" id="3_t35je"]
+[ext_resource type="AudioStream" uid="uid://ccx1ygnltflef" path="res://sounds/background_music/main_menu_music.wav" id="5_xpi77"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1124p"]
+texture = ExtResource("1_i528a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28ri5"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv6s7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovc17"]
+bg_color = Color(0.839216, 0.8, 0.121569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ugblu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1124p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.5
+anchor_right = 0.503
+anchor_bottom = 0.5
+offset_left = -174.456
+offset_top = 26.0
+offset_right = 155.544
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_hover_color = Color(0.839216, 0.8, 0.121569, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_keg6p")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_28ri5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hv6s7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ovc17")
+text = "Start Game"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_hover_color = Color(0.839216, 0.8, 0.121569, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_keg6p")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_28ri5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hv6s7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ovc17")
+text = "Exit"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 128.0
+offset_right = 261.0
+offset_bottom = 183.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.839216, 0.54902, 0.121569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_t35je")
+theme_override_font_sizes/font_size = 50
+text = "THE HUNTED MANOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="backgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xpi77")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
