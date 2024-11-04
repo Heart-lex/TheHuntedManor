@@ -11,6 +11,8 @@ extends CharacterBody3D
 var currState = state.IDLE
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_look_direction: Vector3 = Vector3.ZERO
+var rayOrigin: Vector3
+var rayEnd: Vector3
 
 const SPEED: float = 5.0
 const JUMP_VELOCITY: float = 4.5
@@ -20,13 +22,35 @@ const RAY_LENGTH = 1000.0
 enum state {IDLE, WALK, RUN, JUMP, ATTACK, BLOCK}
 
 # MOUSE-CONTROLLED ROTATION
-#func _input(event):
-	#if event is InputEventMouseMotion:
-		#var from = camera.project_ray_origin(event.position)
-		#var to = from + camera.project_ray_normal(event.position) * RAY_LENGTH
-		#mouse_look_direction = to
+func _input(event):
+	if event is InputEventMouseMotion:
+		var from = camera.project_ray_origin(event.position)
+		var to = from + camera.project_ray_normal(event.position) * RAY_LENGTH
+		mouse_look_direction = to
 
 func _physics_process(delta: float) -> void:
+	
+	var space_state := get_world_3d().direct_space_state
+	
+	var mouse_pos := get_viewport().get_mouse_position()
+	
+	rayOrigin = camera.project_ray_origin(mouse_pos)
+	
+	rayEnd = rayOrigin + camera.project_ray_normal(mouse_pos) * RAY_LENGTH
+	
+	var query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd);
+	
+	# Get the intersection point of the camera's ray and the world
+	var intersection = space_state.intersect_ray(query)
+	
+	# If the ray collides with something
+	if not intersection.is_empty():
+		var pos = intersection.position
+		
+		# position.y refers to this node's instance and is used so that
+		# the model "looks" ahead in a straight line instead of at an angle
+		# (which would happen since the intersection doesn't necessarily happen at character-height)
+		model.look_at(Vector3(pos.x, position.y, pos.z), Vector3(0, 1, 0))
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -34,9 +58,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump()
-		
-	var input_dir = Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	# Get input vector
+	var input_dir := Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
+	
+	# Calculate character's direction based on vector
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	# rotate by camera pivot's rotation so that the movement always stays "upright"
+	# regardless of node's rotation (e.g. can be placed on a level and rotated and "up" is always camera's up
+	direction = direction.rotated(Vector3.UP, pivot.rotation.y)
 	
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -50,22 +81,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	handle_animations(delta)
 
-	# MOUSE-CONTROLLED ROTATION
-	# model.rotation.y = lerp_angle(model.rotation.y,  aim_direction.position.angle_to(mouse_look_direction), ROTATION_SPEED * delta)
-
-	
-	if velocity.length() > 1.0:
-		var direction_angle = atan2((model.position.x - velocity.normalized().x), (model.position.z - velocity.normalized().z))
-		model.rotation.y = lerp_angle(model.rotation.y,  direction_angle, ROTATION_SPEED * delta)
-
 func handle_animations(delta: float) -> void:
 	match currState:
 		state.IDLE:
 			anim_tree.set("parameters/Movement/transition_request", "Idle")
 		state.WALK:
-			anim_tree.set("parameters/Movement/transition_request", "Walk")			
+			anim_tree.set("parameters/Movement/transition_request", "Walk")
 		state.RUN: 
 			anim_tree.set("parameters/Movement/transition_request","Run")
+			anim_tree.set("parameters/Running Animation/blend_position", Vector2(velocity.x, -velocity.z).normalized())
 		state.JUMP:
 			anim_tree.set("parameters/Movement/transition_request","Jump")
 		
