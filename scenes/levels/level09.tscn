@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ypqyvyrjjkq6"]
+[gd_scene load_steps=4 format=3 uid="uid://ypqyvyrjjkq6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_xoxux"]
+[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="2_hh8vg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcpcb"]
 albedo_color = Color(0.970415, 0.866378, 0.919275, 1)
@@ -25,13 +26,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 32.2014, 0.5, 0.197542)
-visible = false
-use_collision = true
-size = Vector3(1.05429, 1, 0.605957)
-material = SubResource("StandardMaterial3D_gcpcb")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.889887, 0.456182, 0, -0.456182, 0.889887, -19.6484, 26.157, 10)
 light_color = Color(0.981837, 0.933475, 0.991062, 1)
@@ -41,3 +35,45 @@ shadow_enabled = true
 shadow_normal_bias = 1.293
 shadow_blur = 0.75
 sky_mode = 1
+
+[node name="Knight" parent="." instance=ExtResource("2_hh8vg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57197, 1.04999, 5.36819)
+
+[node name="Collisions" type="Node" parent="."]
+
+[node name="First Floor" type="Node" parent="Collisions"]
+
+[node name="Ground" type="Node" parent="Collisions/First Floor"]
+
+[node name="Starter Building" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 10.2362, 0.5, 0.197542)
+visible = false
+use_collision = true
+size = Vector3(0.409202, 1, 0.605957)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="Bridge" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 42.301, 0.5, 5.75531)
+visible = false
+use_collision = true
+size = Vector3(0.511242, 1, 0.784546)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="Barracks Base" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
+transform = Transform3D(68.1, 0, 0, 0, 1, 0, 0, 0, 62.2409, 41.3575, 0.5, 48.4722)
+visible = false
+use_collision = true
+size = Vector3(0.568973, 1, 0.569458)
+material = SubResource("StandardMaterial3D_gcpcb")
+
+[node name="Walls" type="Node" parent="Collisions/First Floor"]
+
+[node name="Stairs" type="Node" parent="Collisions/First Floor"]
+
+[node name="Second Floor" type="Node" parent="Collisions"]
+
+[node name="Ground" type="Node" parent="Collisions/Second Floor"]
+
+[node name="Walls" type="Node" parent="Collisions/Second Floor"]
+
+[node name="Stairs" type="Node" parent="Collisions/Second Floor"]
