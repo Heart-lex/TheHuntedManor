@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjjetlxeir03f"]
+
+[ext_resource type="PackedScene" uid="uid://c6dvpac6ae6vx" path="res://assets/dungeon/characters/bat/FlyingBat.glb" id="1_4btw5"]
+[ext_resource type="Script" path="res://scenes/enemies/bat.gd" id="2_62it3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3t6w3"]
+animation = &"Fly"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_631mg"]
+animation = &"Hang"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_6pkqo"]
+input_0/name = "Wings"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Hang"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Sit"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Fly"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ohqt5"]
+animation = &"Sit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0xtc7"]
+animation = &"Expand_Wings"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_nffoo"]
+graph_offset = Vector2(-348.639, -64.3126)
+nodes/Fly/node = SubResource("AnimationNodeAnimation_3t6w3")
+nodes/Fly/position = Vector2(26.6667, 320)
+nodes/Hang/node = SubResource("AnimationNodeAnimation_631mg")
+nodes/Hang/position = Vector2(-106.667, 133.333)
+nodes/Movement/node = SubResource("AnimationNodeTransition_6pkqo")
+nodes/Movement/position = Vector2(186.667, -26.6667)
+nodes/Sit/node = SubResource("AnimationNodeAnimation_ohqt5")
+nodes/Sit/position = Vector2(-133.333, 293.333)
+nodes/Wings/node = SubResource("AnimationNodeAnimation_0xtc7")
+nodes/Wings/position = Vector2(-106.667, -26.6667)
+nodes/output/position = Vector2(426.667, 26.6667)
+node_connections = [&"Movement", 0, &"Wings", &"Movement", 1, &"Hang", &"Movement", 2, &"Sit", &"Movement", 3, &"Fly", &"output", 0, &"Movement"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ej0wu"]
+
+[node name="FlyingBat" instance=ExtResource("1_4btw5")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+script = ExtResource("2_62it3")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.0551612, 0, 0, 0, 0.0551612, 0, 0, 0, 0.0551612, 0, 0.096981, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/1/position = Vector3(1.98523e-23, -3.72529e-09, 0.0461421)
+bones/1/rotation = Quaternion(-5.33851e-08, 0.707107, 0.707107, -5.33851e-08)
+bones/2/rotation = Quaternion(1.24536e-09, 7.65697e-33, 1.88044e-16, 1)
+bones/3/rotation = Quaternion(-0.0903113, 0.994791, -0.0470778, -0.00427521)
+bones/4/rotation = Quaternion(-0.200305, 0.979632, -0.00283036, -0.0138421)
+bones/6/rotation = Quaternion(0.255154, 0.966797, -0.00360534, 0.0136609)
+bones/12/rotation = Quaternion(-0.0904318, 0.466729, 0.0985764, 0.874224)
+bones/12/scale = Vector3(0.333677, 0.333677, 0.333677)
+bones/13/rotation = Quaternion(0.0103943, -0.0344412, 0.971281, 0.2352)
+bones/13/scale = Vector3(1.06813, 2.24917, 1.01952)
+bones/14/rotation = Quaternion(0.0701887, -0.00175745, 0.912222, 0.403635)
+bones/14/scale = Vector3(1.2559, 2.11712, 1.02754)
+bones/15/rotation = Quaternion(0.00799819, -0.15054, 0.902095, 0.404349)
+bones/15/scale = Vector3(1.59012, 2.10149, 1.015)
+bones/18/rotation = Quaternion(-0.0904318, -0.46673, -0.0985765, 0.874224)
+bones/18/scale = Vector3(0.333677, 0.333677, 0.333677)
+bones/19/rotation = Quaternion(-0.0103943, -0.0344412, 0.971281, -0.2352)
+bones/19/scale = Vector3(1.06813, 2.24917, 1.01952)
+bones/20/rotation = Quaternion(0.0701887, 0.00175744, -0.912222, 0.403635)
+bones/20/scale = Vector3(1.2559, 2.11712, 1.02754)
+bones/21/rotation = Quaternion(0.00799818, 0.15054, -0.902095, 0.404349)
+bones/21/scale = Vector3(1.59012, 2.10149, 1.015)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_nffoo")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Movement/current_state = "Wings"
+parameters/Movement/transition_request = ""
+parameters/Movement/current_index = 0
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -0.000325227, -0.171098, 0.176849)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("BoxShape3D_ej0wu")
