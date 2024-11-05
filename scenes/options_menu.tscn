@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://kbbbtgsbdam7"]
 
-[ext_resource type="Script" path="res://scenes/options_menu.gd" id="1_psxi4"]
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_psxi4"]
 [ext_resource type="Texture2D" uid="uid://ycb03thtuehd" path="res://background/hunted_manor_menu_background.jpg" id="1_tj8rb"]
 [ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="2_ldfkg"]
 [ext_resource type="FontFile" uid="uid://cnml57ep6aa3x" path="res://fonts/Haunted.ttf" id="3_oq74o"]
