@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="5_gvqr2"]
 [ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="6_aryfd"]
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="6_ken8p"]
-[ext_resource type="PackedScene" uid="uid://bjjetlxeir03f" path="res://scenes/enemies/bat.tscn" id="7_g3fvy"]
+[ext_resource type="PackedScene" uid="uid://dojdxwasr8q2k" path="res://scenes/enemies/bat.tscn" id="7_0hoji"]
 [ext_resource type="PackedScene" uid="uid://cu1udinxcybro" path="res://scenes/items/door.tscn" id="7_tdx4u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0kbn4"]
@@ -194,5 +194,5 @@ transform = Transform3D(0.0154281, 0, 0.999881, 0, 1, 0, -0.999881, 0, 0.0154281
 [node name="Knight" parent="." instance=ExtResource("6_aryfd")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 7.72028, 1.04998, -9.79096)
 
-[node name="FlyingBat" parent="." instance=ExtResource("7_g3fvy")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -8.0878, 6.29416, 7.36509)
+[node name="CharacterBody3D" parent="." instance=ExtResource("7_0hoji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.536, 7.19567, -5.86121)
