@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://be0j8gwin07re"]
 
 [ext_resource type="PackedScene" uid="uid://de3dnjruckood" path="res://assets/dungeon/characters/heroes/Rogue.glb" id="1_najgj"]
-[ext_resource type="Script" path="res://scripts/rogue.gd" id="2_pxf6u"]
+[ext_resource type="Script" path="res://scripts/heroes/rogue.gd" id="2_pxf6u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_la7bs"]
 height = 2.56024

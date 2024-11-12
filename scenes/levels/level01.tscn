@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="6_ken8p"]
 [ext_resource type="PackedScene" uid="uid://dojdxwasr8q2k" path="res://scenes/enemies/bat.tscn" id="7_0hoji"]
 [ext_resource type="PackedScene" uid="uid://cu1udinxcybro" path="res://scenes/items/door.tscn" id="7_tdx4u"]
-[ext_resource type="PackedScene" uid="uid://dmyfa5fjdx88e" path="res://scenes/pause_menu.tscn" id="8_7ladw"]
+[ext_resource type="PackedScene" uid="uid://dmyfa5fjdx88e" path="res://scenes/ui/pause_menu.tscn" id="8_7ladw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0kbn4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -201,3 +201,6 @@ transform = Transform3D(-0.046043, 0, 0.998939, 0, 1, 0, -0.998939, 0, -0.046043
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_7ladw")]
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("7_0hoji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36305, 7.38181, -5.37111)

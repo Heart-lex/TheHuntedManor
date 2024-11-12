@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="The Hunted Manor"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://sounds/default_bus_layout.tres"
 
 [autoload]
 
 Music="*res://scenes/music.tscn"
-GameManager="*res://scripts/game_manager.gd"
+GameManager="*res://scripts/levels/game_manager.gd"
 
 [display]
 

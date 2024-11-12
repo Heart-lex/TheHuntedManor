@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnsuiv5f1bnul"]
 
 [ext_resource type="PackedScene" uid="uid://ctou2xlakkebs" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_large.gltf" id="1_0787i"]
-[ext_resource type="Script" path="res://scripts/coins_stack.gd" id="1_fctj1"]
+[ext_resource type="Script" path="res://scripts/items/coins_stack.gd" id="1_fctj1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e7ets"]
 size = Vector3(1.51703, 1.25269, 1.59619)

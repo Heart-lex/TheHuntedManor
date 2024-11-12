@@ -5,7 +5,6 @@ extends Control
 
 signal exit_options_menu
 
-
 func _ready() -> void:
 	exit_button.button_down.connect(_on_exit_pressed)
 	set_process(false)
@@ -22,7 +21,6 @@ func _ready() -> void:
 func _on_exit_pressed() -> void:
 	exit_options_menu.emit()
 	set_process(false)
-
 
 func _on_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0,value)

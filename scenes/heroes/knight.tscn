@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bbc16i4oqesmb"]
 
 [ext_resource type="PackedScene" uid="uid://d4bqdrl61p7n1" path="res://assets/dungeon/characters/heroes/Knight.glb" id="1_lw6ox"]
-[ext_resource type="Script" path="res://scripts/knight.gd" id="2_fhiwi"]
+[ext_resource type="Script" path="res://scripts/heroes/knight.gd" id="2_fhiwi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kesft"]
 height = 2.49257

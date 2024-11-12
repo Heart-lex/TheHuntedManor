@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7fd87ghilctb"
+uid="uid://c4carnq4ei2nt"
 path.s3tc="res://.godot/imported/Skeleton_Minion_skeleton_texture.png-0680b3b1717f0f3e647668b0abb63b17.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "661544b1e8ba10b5a0c98b638eae6d0b"
 }
 
 [deps]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dmyfa5fjdx88e"]
 
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_eww6q"]
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_usrq1"]
+[ext_resource type="Shader" path="res://shaders/pause_menu.gdshader" id="1_eww6q"]
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_usrq1"]
 [ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="2_h1108"]
 [ext_resource type="FontFile" uid="uid://cnml57ep6aa3x" path="res://fonts/Haunted.ttf" id="4_r5jit"]
 [ext_resource type="AudioStream" uid="uid://bs040j6s3qv0p" path="res://sounds/background_music/Dungeon Ambience 1.mp3" id="5_yrgle"]
