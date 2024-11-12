@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2ep8nb6bqfh6"]
+
+[ext_resource type="Script" path="res://scripts/health_component_sprite.gd" id="1_hcydc"]
+[ext_resource type="Script" path="res://scenes/healthbar_display.gd" id="1_rjnab"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6lyry"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kwvc"]
+bg_color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42akv"]
+bg_color = Color(0.855951, 0, 0.0443565, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpcre"]
+bg_color = Color(0.1367, 0.700395, 0.087286, 1)
+
+[node name="HealthComponent" type="Sprite3D"]
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_6lyry")
+script = ExtResource("1_hcydc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="HealthbarDisplay" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rjnab")
+
+[node name="Outline" type="ColorRect" parent="SubViewport/HealthbarDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -40.0
+offset_right = 200.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Hurtbar" type="ProgressBar" parent="SubViewport/HealthbarDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -32.0
+offset_right = 192.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5kwvc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_42akv")
+step = 1.0
+show_percentage = false
+
+[node name="Healthbar" type="ProgressBar" parent="SubViewport/HealthbarDisplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -32.0
+offset_right = 192.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_mpcre")
+step = 1.0
+show_percentage = false
