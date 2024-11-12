@@ -25,10 +25,10 @@ func _physics_process(delta: float) -> void:
 	
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("soldier"):  
-		knight = body  
-	currState = state.SIT
-	currState = state.WINGS
-	currState = state.FLY
+		knight = body
+		currState = state.SIT
+		currState = state.WINGS
+		currState = state.FLY
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
