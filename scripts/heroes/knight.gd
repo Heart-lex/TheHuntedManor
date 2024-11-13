@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var pivot: Node3D = $CameraPivot
 @onready var aim_direction: Marker3D = $AimDirection
 @onready var camera: Camera3D = $CameraPivot/IsometricCamera
+@onready var health_component: HealthComponent = $HealthComponent
 
 var currState = state.IDLE
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -19,7 +20,10 @@ const JUMP_VELOCITY: float = 4.5
 const ROTATION_SPEED: float = 12.0
 const RAY_LENGTH = 1000.0
 
-enum state {IDLE, WALK, RUN, JUMP, ATTACK, BLOCK}
+enum state {IDLE, WALK, RUN, JUMP, ATTACK, BLOCK, DIE}
+
+func _ready() -> void:
+	health_component.target_is_dead.connect(character_death)
 
 # MOUSE-CONTROLLED ROTATION
 func _input(event):
@@ -92,6 +96,11 @@ func handle_animations(delta: float) -> void:
 			anim_tree.set("parameters/Running Animation/blend_position", Vector2(velocity.x, -velocity.z).normalized())
 		state.JUMP:
 			anim_tree.set("parameters/Movement/transition_request","Jump")
+		state.DIE:
+			anim_tree.set("parameters/Death/transition_request", "Die")
 		
 func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+func character_death() -> void:
+	pass

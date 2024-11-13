@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2ep8nb6bqfh6"]
 
 [ext_resource type="Script" path="res://scripts/health_component_sprite.gd" id="1_hcydc"]
-[ext_resource type="Script" path="res://scenes/healthbar_display.gd" id="1_rjnab"]
+[ext_resource type="Script" path="res://scripts/ui/healthbar_display.gd" id="1_rjnab"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6lyry"]
 viewport_path = NodePath("SubViewport")
@@ -47,9 +47,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -136.0
 offset_top = -40.0
-offset_right = 200.0
+offset_right = 136.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -62,9 +62,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
+offset_left = -128.0
 offset_top = -32.0
-offset_right = 192.0
+offset_right = 128.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -80,9 +80,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
+offset_left = -128.0
 offset_top = -32.0
-offset_right = 192.0
+offset_right = 128.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
