@@ -52,3 +52,6 @@ func handle_animations(delta: float) -> void:
 			anim_tree.set("parameters/Movement/transition_request","Wings")
 		state.FLY:
 			anim_tree.set("parameters/Movement/transition_request","Fly")
+
+func _on_hurtbox_area_entered(area: Area3D) -> void:
+	area.health_component.apply_damage(8)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2ep8nb6bqfh6"]
 
-[ext_resource type="Script" path="res://scripts/health_component_sprite.gd" id="1_hcydc"]
+[ext_resource type="Script" path="res://scripts/shared/health_component_sprite.gd" id="1_hcydc"]
 [ext_resource type="Script" path="res://scripts/ui/healthbar_display.gd" id="1_rjnab"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6lyry"]
