@@ -1,0 +1,11 @@
+Model Information:
+* title:	Spider animated character
+* source:	https://sketchfab.com/3d-models/spider-animated-character-746f5c5173ce4f47ad0970b62ee4106e
+* author:	TheGameAssets (https://sketchfab.com/TheGameAssets)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Spider animated character" (https://sketchfab.com/3d-models/spider-animated-character-746f5c5173ce4f47ad0970b62ee4106e) by TheGameAssets (https://sketchfab.com/TheGameAssets) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
