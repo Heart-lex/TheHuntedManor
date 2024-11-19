@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://dws74k17qnt02"]
+
+[ext_resource type="PackedScene" uid="uid://bd4grjeylytoh" path="res://assets/dungeon/characters/spider/spider.gltf" id="1_drjoj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vadn0"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bsy52"]
+animation = &"Spider_Attack_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jo18h"]
+animation = &"Spider_Death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ysy3k"]
+animation = &"Spider_Idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_oo3xr"]
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Walk"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Attack"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Death"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2307o"]
+animation = &"Spider_Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_t7hhr"]
+graph_offset = Vector2(-241.655, 75.6504)
+nodes/Attack/node = SubResource("AnimationNodeAnimation_bsy52")
+nodes/Attack/position = Vector2(-186.667, 346.667)
+nodes/Death/node = SubResource("AnimationNodeAnimation_jo18h")
+nodes/Death/position = Vector2(-53.3333, 480)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_ysy3k")
+nodes/Idle/position = Vector2(-186.667, 53.3333)
+nodes/Transition/node = SubResource("AnimationNodeTransition_oo3xr")
+nodes/Transition/position = Vector2(106.667, 53.3333)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_2307o")
+nodes/Walk/position = Vector2(-186.667, 186.667)
+node_connections = [&"Transition", 0, &"Idle", &"Transition", 1, &"Walk", &"Transition", 2, &"Attack", &"Transition", 3, &"Death", &"output", 0, &"Transition"]
+
+[node name="spider" instance=ExtResource("1_drjoj")]
+wall_min_slide_angle = 0.0907571
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, 0.3, 0, -0.3, -1.31134e-08, 0, 14.3723, 0)
+
+[node name="Skeleton3D" parent="Sketchfab_model/f4c7dff2b8264fc5bf6d28e22753d2d4_fbx/Object_2/RootNode/Object_4" index="0"]
+bones/2/position = Vector3(-7.11275, 17.0387, 11.3955)
+bones/2/rotation = Quaternion(0.276322, 0.57344, 0.213207, 0.741186)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(0.00150999, 0.00380966, -0.0450939, 0.998974)
+bones/4/position = Vector3(32.7145, 3.55271e-15, 0)
+bones/5/rotation = Quaternion(-0.211489, -0.674739, -0.211489, 0.674739)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(-0.24878, -0.543779, -0.306413, 0.740624)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.405308, -0.814506, -0.260962, 0.322806)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-2.67962e-17, -7.2343e-18, 0.260643, 0.965435)
+bones/9/rotation = Quaternion(4.33419e-17, 9.77534e-18, -0.437586, 0.899177)
+bones/10/rotation = Quaternion(4.05427e-17, -9.46706e-18, -0.227391, 0.973804)
+bones/11/rotation = Quaternion(0.136641, 7.11105e-19, 5.15536e-18, 0.990621)
+bones/12/rotation = Quaternion(-0.413974, -0.687472, -0.140883, 0.579793)
+bones/13/rotation = Quaternion(-3.26173e-05, -2.43156e-05, 0.348506, 0.937307)
+bones/14/rotation = Quaternion(-4.15592e-05, -1.06071e-05, -0.672196, 0.740374)
+bones/15/rotation = Quaternion(-1.38679e-05, -2.6423e-05, -0.464724, 0.885456)
+bones/17/rotation = Quaternion(-0.320735, -0.565992, -0.0977485, 0.753145)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.00124359, -0.00122424, 0.166483, 0.986043)
+bones/19/rotation = Quaternion(0.0008624, -0.000523159, -0.522847, 0.852426)
+bones/20/rotation = Quaternion(-1.15369e-06, -4.34906e-06, -0.256406, 0.966569)
+bones/22/rotation = Quaternion(-0.0762489, -0.418841, -0.171389, 0.888473)
+bones/23/rotation = Quaternion(0.00287636, -0.00140138, 0.36487, 0.931053)
+bones/24/rotation = Quaternion(0.00149835, -0.00123336, -0.638565, 0.769565)
+bones/25/rotation = Quaternion(-3.61159e-06, -1.0211e-05, -0.333452, 0.942767)
+bones/27/rotation = Quaternion(0.436621, 0.0664475, 0.861725, 0.249755)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/rotation = Quaternion(6.43311e-06, 4.61713e-06, 0.419961, 0.907542)
+bones/29/rotation = Quaternion(8.11314e-06, 2.93297e-06, -0.714819, 0.69931)
+bones/30/rotation = Quaternion(1.958e-06, 4.71269e-06, -0.381766, 0.924259)
+bones/32/rotation = Quaternion(0.55478, -0.220399, 0.773325, 0.21357)
+bones/32/scale = Vector3(1, 1, 1)
+bones/33/rotation = Quaternion(1.02282e-05, 6.20609e-06, 0.273299, 0.961929)
+bones/34/rotation = Quaternion(1.23612e-05, 3.5068e-06, -0.755736, 0.654876)
+bones/35/rotation = Quaternion(3.27956e-06, 7.30726e-06, -0.40946, 0.912328)
+bones/36/rotation = Quaternion(0.136641, 1.67401e-18, -5.59245e-19, 0.990621)
+bones/37/rotation = Quaternion(0.717135, -0.310934, 0.536258, 0.318537)
+bones/38/rotation = Quaternion(-0.000117262, 0.00036115, 0.274574, 0.961566)
+bones/39/rotation = Quaternion(-0.000158079, 0.000100203, -0.53554, 0.84451)
+bones/40/rotation = Quaternion(7.85946e-08, 2.05357e-07, -0.357438, 0.933937)
+bones/42/rotation = Quaternion(0.831303, -0.340249, 0.218974, 0.381072)
+bones/42/scale = Vector3(1, 1, 1)
+bones/43/rotation = Quaternion(1.88412e-17, -5.22159e-17, 0.339413, 0.940638)
+bones/44/rotation = Quaternion(2.79766e-17, 8.16041e-17, -0.560314, 0.82828)
+bones/45/rotation = Quaternion(-2.65057e-17, 8.23526e-18, -0.296706, 0.954969)
+bones/46/rotation = Quaternion(0.136641, 6.16271e-18, -6.1035e-18, 0.990621)
+bones/47/rotation = Quaternion(0.674739, -0.211489, 0.674739, 0.211489)
+bones/47/scale = Vector3(1, 1, 1)
+bones/48/rotation = Quaternion(0.543779, -0.24878, 0.740624, 0.306413)
+bones/48/scale = Vector3(1, 1, 1)
+
+[node name="pPlane1" parent="Sketchfab_model/f4c7dff2b8264fc5bf6d28e22753d2d4_fbx/Object_2/RootNode/Object_4" index="3"]
+visible = false
+
+[node name="pPlane1_Camera_lambert2_0" parent="Sketchfab_model/f4c7dff2b8264fc5bf6d28e22753d2d4_fbx/Object_2/RootNode/Object_4/pPlane1" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0.147724, 22.8339, -1.87299)
+shape = SubResource("SphereShape3D_vadn0")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeBlendTree_t7hhr")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Transition/current_state = "Death"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 3
