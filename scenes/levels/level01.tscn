@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bstu74ngpg2p8"]
+[gd_scene load_steps=13 format=3 uid="uid://bstu74ngpg2p8"]
 
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="1_18jwg"]
+[ext_resource type="Script" path="res://scenes/levels/level_01.gd" id="1_bvyiu"]
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="2_42q2d"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="5_gvqr2"]
 [ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="6_aryfd"]
@@ -22,7 +23,8 @@ sky = SubResource("Sky_6p2kb")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Node3D" type="Node3D"]
+[node name="Level01" type="Node3D"]
+script = ExtResource("1_bvyiu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_od41d")
