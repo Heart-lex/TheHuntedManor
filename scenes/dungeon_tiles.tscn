@@ -1,4 +1,4 @@
-[gd_scene load_steps=217 format=4 uid="uid://bg2mfms1v2dy"]
+[gd_scene load_steps=218 format=4 uid="uid://bg2mfms1v2dy"]
 
 [ext_resource type="PackedScene" uid="uid://dr35ntlc7xasy" path="res://assets/dungeon/floor/dungeon_remastered/banner_blue.gltf" id="1_8c2vs"]
 [ext_resource type="PackedScene" uid="uid://dy2ooylilxfg2" path="res://assets/dungeon/floor/dungeon_remastered/banner_brown.gltf" id="2_s2bdn"]
@@ -81,7 +81,7 @@
 [ext_resource type="PackedScene" uid="uid://d2es08gbof1so" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_medium.gltf" id="79_hbpft"]
 [ext_resource type="PackedScene" uid="uid://c7h5moha6os2a" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_small.gltf" id="80_rpmhi"]
 [ext_resource type="PackedScene" uid="uid://6iaeq2uahkth" path="res://assets/dungeon/floor/dungeon_remastered/column.gltf" id="81_scf2w"]
-[ext_resource type="Texture2D" uid="uid://d1ikt77sgebnt" path="res://assets/dungeon/floor/dungeon_remastered/dungeon_texture.png" id="82_88s0m"]
+[ext_resource type="Texture2D" uid="uid://dv76iysrkc1yj" path="res://assets/dungeon/floor/dungeon_remastered/dungeon_texture.png" id="82_88s0m"]
 [ext_resource type="PackedScene" uid="uid://nwfhlt6j5vt8" path="res://assets/dungeon/floor/dungeon_remastered/floor_dirt_large.gltf" id="83_xlabe"]
 [ext_resource type="PackedScene" uid="uid://c7qqr2dy6a8re" path="res://assets/dungeon/floor/dungeon_remastered/floor_dirt_large_rocky.gltf" id="84_tgwfp"]
 [ext_resource type="PackedScene" uid="uid://dp4b1d23v235q" path="res://assets/dungeon/floor/dungeon_remastered/floor_dirt_small_A.gltf" id="85_lgb7j"]
@@ -100,6 +100,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ow2wf58q384" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_grate_open.gltf" id="98_ycl4l"]
 [ext_resource type="PackedScene" uid="uid://bigkxj4ggm50r" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_spikes.gltf" id="99_63bc5"]
 [ext_resource type="PackedScene" uid="uid://b5h5i0u2367qw" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_extralarge_grates.gltf" id="100_pj8io"]
+[ext_resource type="Script" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_spikes.gd" id="100_w0oct"]
 [ext_resource type="PackedScene" uid="uid://cxc6ul4uqfvhb" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_extralarge_grates_open.gltf" id="101_p3oxp"]
 [ext_resource type="PackedScene" uid="uid://ba08utt2x0r25" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_grate.gltf" id="102_c3bp3"]
 [ext_resource type="PackedScene" uid="uid://d2gemrurdivbi" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_grate_open.gltf" id="103_44oqn"]
@@ -489,6 +490,7 @@ skeleton = NodePath("")
 [node name="floor_tile_big_grate_open2" parent="." instance=ExtResource("98_ycl4l")]
 
 [node name="floor_tile_big_spikes2" parent="." instance=ExtResource("99_63bc5")]
+script = ExtResource("100_w0oct")
 
 [node name="floor_tile_extralarge_grates2" parent="." instance=ExtResource("100_pj8io")]
 
