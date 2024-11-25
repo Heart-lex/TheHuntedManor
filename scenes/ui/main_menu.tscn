@@ -144,6 +144,7 @@ stream = ExtResource("5_xpi77")
 autoplay = true
 
 [node name="OptionsMenu" parent="." instance=ExtResource("5_nj4rn")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Main/VBoxContainer/startButton" to="." method="_on_start_pressed"]

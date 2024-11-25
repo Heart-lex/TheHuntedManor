@@ -1,6 +1,7 @@
 extends Control
 
 @onready var volume: HSlider = $Menu/VBoxContainer/Volume
+@onready var menu: Control = $"."
 
 
 func _ready() -> void:
@@ -13,13 +14,20 @@ func _ready() -> void:
 	volume.max_value = 0   # Assuming the maximum volume is 0 dB
 	volume.min_value = -30 # Assuming -80 dB is the lowest volume (you can adjust this)
 	volume.value = 0       # Initial volume at -20 dB (slightly above the middle)
+	
+	menu.visible = false
+	menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func resume():
 	get_tree().paused = false
+	menu.visible = false
+	menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$AnimationPlayer.play_backwards("blur")
 	
 func pause():
 	get_tree().paused = true
+	menu.visible = true
+	menu.mouse_filter = Control.MOUSE_FILTER_PASS
 	$AnimationPlayer.play("blur")
 	
 func testEsc():
