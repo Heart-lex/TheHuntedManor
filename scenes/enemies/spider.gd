@@ -1,38 +1,32 @@
-class_name FlyingBat
+class_name spider
 
 extends CharacterBody3D
 
-@onready var model: Node3D = $Armature
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+@onready var model: Node3D = $Sketchfab_model
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var hitbox: CollisionShape3D = $Hitbox
-@onready var detection_area: Area3D = $DetectionArea
-@onready var health_component: Sprite3D = $HealthbarPosition/HealthComponent2
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var detection_area: Area3D = $Area3D
+@onready var health_component: Sprite3D = $HealthbarPosition/HealthComponent
 
 var currState
 var knight: Node3D =  null
 
-const SPEED: float = 3.0
-const ROTATION_SPEED: float = 3.0
-
-enum state {SIT, WINGS, FLY, HANG, DEATH}
+enum state {IDLE, WALK, ATTACK, DEATH}
 
 func _ready() -> void:
-	currState = state.HANG
+	currState = state.IDLE
 	detection_area.body_entered.connect(_on_body_entered)
 	health_component.health_component.target_is_dead.connect(on_target_dead)
 
 func _physics_process(delta: float) -> void:
-	move_and_slide()
+	if currState != state.DEATH:
+		move_and_slide()
 	handle_animations(delta)
 	
-func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("soldier"):  
-		knight = body
-		currState = state.SIT
-		currState = state.WINGS
-		currState = state.FLY
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if knight:
 		chase_target(delta)
@@ -43,26 +37,28 @@ func chase_target(delta: float) -> void:
 	global_position += direction * SPEED * delta  # Move towards the target
 	model.look_at(Vector3(knight.position.x, position.y, knight.position.z), Vector3(0, 1, 0), true)
 	
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group("soldier"):  
+		knight = body
+		currState = state.WALK
 
 func handle_animations(delta: float) -> void:
 	match currState:
-		state.SIT:
-			anim_tree.set("parameters/Movement/transition_request", "Sit")
-		state.HANG: 
-			anim_tree.set("parameters/Movement/transition_request","Hang")
-		state.WINGS:
-			anim_tree.set("parameters/Movement/transition_request","Wings")
-		state.FLY:
-			anim_tree.set("parameters/Movement/transition_request","Fly")
+		state.IDLE:
+			anim_tree.set("parameters/Movement/transition_request", "Idle")
+		state.WALK: 
+			anim_tree.set("parameters/Movement/transition_request","Walk")
+		state.ATTACK:
+			anim_tree.set("parameters/Movement/transition_request","Attack")
 		state.DEATH:
-			anim_tree.set("parameters/Movement/transition_request","Die")
+			anim_tree.set("parameters/Movement/transition_request","Death")
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	area.health_component.apply_damage(8)
 	
 func on_target_dead() -> void:
 	currState = state.DEATH
-	$AnimationTree.set("parameters/Movement/transition_request", "Die")
+	$AnimationTree.set("parameters/Movement/transition_request", "Death")
 	# Wait for the death animation to complete before fading
 	await get_tree().create_timer(1.5).timeout  # Adjust duration to match death animation
 	start_fade_out()

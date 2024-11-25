@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dws74k17qnt02"]
+[gd_scene load_steps=13 format=3 uid="uid://dws74k17qnt02"]
 
 [ext_resource type="PackedScene" uid="uid://bd4grjeylytoh" path="res://assets/dungeon/characters/spider/spider.gltf" id="1_drjoj"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_vadn0"]
+[ext_resource type="Script" path="res://scenes/enemies/spider.gd" id="2_p4e38"]
+[ext_resource type="PackedScene" uid="uid://d2ep8nb6bqfh6" path="res://scenes/health_component.tscn" id="3_wbj2b"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bsy52"]
 animation = &"Spider_Attack_1"
@@ -35,24 +35,35 @@ input_3/reset = true
 animation = &"Spider_Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_t7hhr"]
-graph_offset = Vector2(-241.655, 75.6504)
+graph_offset = Vector2(-333.909, 68.8182)
 nodes/Attack/node = SubResource("AnimationNodeAnimation_bsy52")
 nodes/Attack/position = Vector2(-186.667, 346.667)
 nodes/Death/node = SubResource("AnimationNodeAnimation_jo18h")
 nodes/Death/position = Vector2(-53.3333, 480)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_ysy3k")
 nodes/Idle/position = Vector2(-186.667, 53.3333)
-nodes/Transition/node = SubResource("AnimationNodeTransition_oo3xr")
-nodes/Transition/position = Vector2(106.667, 53.3333)
+nodes/Movement/node = SubResource("AnimationNodeTransition_oo3xr")
+nodes/Movement/position = Vector2(106.667, 53.3333)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_2307o")
 nodes/Walk/position = Vector2(-186.667, 186.667)
-node_connections = [&"Transition", 0, &"Idle", &"Transition", 1, &"Walk", &"Transition", 2, &"Attack", &"Transition", 3, &"Death", &"output", 0, &"Transition"]
+node_connections = [&"Movement", 0, &"Idle", &"Movement", 1, &"Walk", &"Movement", 2, &"Attack", &"Movement", 3, &"Death", &"output", 0, &"Movement"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5gq01"]
+height = 1.6437
+radius = 1.25942
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_urd2n"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7xgcp"]
+size = Vector3(1, 1, 11.2653)
 
 [node name="spider" instance=ExtResource("1_drjoj")]
 wall_min_slide_angle = 0.0907571
+script = ExtResource("2_p4e38")
 
 [node name="Sketchfab_model" parent="." index="0"]
-transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, 0.3, 0, -0.3, -1.31134e-08, 0, 14.3723, 0)
+transform = Transform3D(0.02, 0, 0, 0, -8.74228e-10, 0.02, 0, -0.02, -8.74228e-10, 0, 14.3723, 0)
 
 [node name="Skeleton3D" parent="Sketchfab_model/f4c7dff2b8264fc5bf6d28e22753d2d4_fbx/Object_2/RootNode/Object_4" index="0"]
 bones/2/position = Vector3(-7.11275, 17.0387, 11.3955)
@@ -65,7 +76,6 @@ bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-0.24878, -0.543779, -0.306413, 0.740624)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.405308, -0.814506, -0.260962, 0.322806)
-bones/7/scale = Vector3(1, 1, 1)
 bones/8/rotation = Quaternion(-2.67962e-17, -7.2343e-18, 0.260643, 0.965435)
 bones/9/rotation = Quaternion(4.33419e-17, 9.77534e-18, -0.437586, 0.899177)
 bones/10/rotation = Quaternion(4.05427e-17, -9.46706e-18, -0.227391, 0.973804)
@@ -99,7 +109,6 @@ bones/38/rotation = Quaternion(-0.000117262, 0.00036115, 0.274574, 0.961566)
 bones/39/rotation = Quaternion(-0.000158079, 0.000100203, -0.53554, 0.84451)
 bones/40/rotation = Quaternion(7.85946e-08, 2.05357e-07, -0.357438, 0.933937)
 bones/42/rotation = Quaternion(0.831303, -0.340249, 0.218974, 0.381072)
-bones/42/scale = Vector3(1, 1, 1)
 bones/43/rotation = Quaternion(1.88412e-17, -5.22159e-17, 0.339413, 0.940638)
 bones/44/rotation = Quaternion(2.79766e-17, 8.16041e-17, -0.560314, 0.82828)
 bones/45/rotation = Quaternion(-2.65057e-17, 8.23526e-18, -0.296706, 0.954969)
@@ -115,13 +124,26 @@ visible = false
 [node name="pPlane1_Camera_lambert2_0" parent="Sketchfab_model/f4c7dff2b8264fc5bf6d28e22753d2d4_fbx/Object_2/RootNode/Object_4/pPlane1" index="0"]
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0.147724, 22.8339, -1.87299)
-shape = SubResource("SphereShape3D_vadn0")
-
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_t7hhr")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Transition/current_state = "Death"
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = 3
+parameters/Movement/current_state = "Idle"
+parameters/Movement/transition_request = ""
+parameters/Movement/current_index = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(0.982323, 0, -0.187193, 0, 1, 0, 0.187193, 0, 0.982323, -0.0788184, 14.9734, -0.0666404)
+shape = SubResource("CylinderShape3D_5gq01")
+
+[node name="HealthbarPosition" type="Node3D" parent="." index="4"]
+
+[node name="HealthComponent" parent="HealthbarPosition" index="0" instance=ExtResource("3_wbj2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.6607, 0)
+texture = SubResource("ViewportTexture_urd2n")
+
+[node name="Area3D" type="Area3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.4217, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46889, 4.79426)
+shape = SubResource("BoxShape3D_7xgcp")
