@@ -42,26 +42,34 @@ func start_patrol() -> void:
 	velocity = patrol_direction * SPEED
 
 func handle_patrol(delta: float) -> void:
+	# Move the spider forward in its patrol direction
+	velocity = patrol_direction * SPEED
+	
+	# Check if the spider has reached the patrol distance
 	if global_position.distance_to(patrol_start) >= PATROL_DISTANCE and not is_turning:
-		# Stop movement and start the turn-around delay
-		is_turning = true
+		is_turning = true  # Prevent movement during turning
 		velocity = Vector3.ZERO  # Stop the spider
 		anim_tree.set("parameters/Movement/transition_request", "Idle")  # Pause animation
-
-		# Start a timer to handle the turn-back
+		
+		# Start a timer to handle the turn
 		var timer = Timer.new()
 		timer.wait_time = TURN_DELAY
 		timer.one_shot = true
 		timer.timeout.connect(turn_back)
-		add_child(timer)  # Add the timer to the scene
+		add_child(timer)  # Add timer to the scene
 		timer.start()
 
 func turn_back() -> void:
-	patrol_direction = -patrol_direction  # Reverse direction
-	velocity = patrol_direction * SPEED  # Update velocity for the new direction
-	patrol_start = global_position  # Reset patrol start position
-	anim_tree.set("parameters/Movement/transition_request", "Walk")  # Resume walking animation
-	is_turning = false  # Allow movement again
+	# Turn the spider 180 degrees
+	patrol_direction = -patrol_direction
+	model.look_at(global_position + patrol_direction, Vector3.UP)
+
+	# Reset patrol start and resume movement
+	patrol_start = global_position
+	velocity = patrol_direction * SPEED
+	anim_tree.set("parameters/Movement/transition_request", "Walk")
+	is_turning = false
+
 
 # Target chase
 func chase_target(delta: float) -> void:
