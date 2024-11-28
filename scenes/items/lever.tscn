@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://civ4ssgo6jrxw"]
+
+[ext_resource type="PackedScene" uid="uid://bikmw8jxnqjj5" path="res://assets/dungeon/items/old_lever/lever.gltf" id="1_jcmys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l262w"]
+size = Vector3(0.266357, 0.398743, 0.164429)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_krqav"]
+animation = &"Lever|LeverAction"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bnb3a"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_maykx"]
+states/End/position = Vector2(901, 100)
+states/Lever|LeverAction/node = SubResource("AnimationNodeAnimation_krqav")
+states/Lever|LeverAction/position = Vector2(548, 105)
+states/Start/position = Vector2(252, 105)
+transitions = ["Start", "Lever|LeverAction", SubResource("AnimationNodeStateMachineTransition_bnb3a")]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_jcmys")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(-0.01, -8.74228e-10, -3.82137e-17, 0, -4.37114e-10, 0.01, -8.74228e-10, 0.01, 4.37114e-10, 0, 0, 0)
+
+[node name="Lever" parent="Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode" index="0"]
+transform = Transform3D(0.00261715, 0, 0, 0, 0.00628972, 0.00570927, 0, -0.00922616, 0.00389216, -10.3698, -0.807412, -0.424761)
+
+[node name="Panel_Panel_0" parent="Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Panel" index="0"]
+transform = Transform3D(1, 4.23516e-22, -7.10543e-15, 4.23516e-22, 1, 3.55271e-15, 7.10543e-15, -3.55271e-15, 1, 0.336858, 0, -2.38419e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, -4.23516e-22, -7.10543e-15, -4.23516e-22, 1, -3.55271e-15, 7.10543e-15, 3.55271e-15, 1, 0.0931918, 0.0346777, 0.0287369)
+shape = SubResource("BoxShape3D_l262w")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_maykx")
+anim_player = NodePath("../AnimationPlayer")
