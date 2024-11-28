@@ -97,7 +97,7 @@ func handle_animations(delta: float) -> void:
 				anim_tree.set("parameters/Movement/transition_request", "Walk")
 			state.RUN: 
 				anim_tree.set("parameters/Movement/transition_request","Run")
-				anim_tree.set("parameters/Running Animation/blend_position", Vector2(velocity.x, -velocity.z).normalized())
+				anim_tree.set("parameters/Running Animation/blend_position", Vector2(-velocity.z, -velocity.x).normalized())
 			state.JUMP:
 				anim_tree.set("parameters/Movement/transition_request","Jump")
 			state.LIGHT_ATTACK:
