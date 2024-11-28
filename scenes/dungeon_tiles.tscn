@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=4 uid="uid://bg2mfms1v2dy"]
+[gd_scene load_steps=219 format=4 uid="uid://bg2mfms1v2dy"]
 
 [ext_resource type="PackedScene" uid="uid://dr35ntlc7xasy" path="res://assets/dungeon/floor/dungeon_remastered/banner_blue.gltf" id="1_8c2vs"]
 [ext_resource type="PackedScene" uid="uid://dy2ooylilxfg2" path="res://assets/dungeon/floor/dungeon_remastered/banner_brown.gltf" id="2_s2bdn"]
@@ -211,6 +211,7 @@
 [ext_resource type="PackedScene" uid="uid://cdx1bocc0uea4" path="res://assets/dungeon/floor/dungeon_remastered/wall_window_closed_scaffold.gltf" id="208_tvi2j"]
 [ext_resource type="PackedScene" uid="uid://cnt5v2x6156d7" path="res://assets/dungeon/floor/dungeon_remastered/wall_window_open.gltf" id="209_tyeya"]
 [ext_resource type="PackedScene" uid="uid://cccfsl547ag5y" path="res://assets/dungeon/floor/dungeon_remastered/wall_window_open_scaffold.gltf" id="210_dodoe"]
+[ext_resource type="PackedScene" uid="uid://c7pqnxu2ub620" path="res://scenes/items/wall.tscn" id="212_luxdb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oon3x"]
 resource_name = "texture"
@@ -724,3 +725,5 @@ skeleton = NodePath("")
 [node name="wall_window_open2" parent="." instance=ExtResource("209_tyeya")]
 
 [node name="wall_window_open_scaffold2" parent="." instance=ExtResource("210_dodoe")]
+
+[node name="wall_trasparent" parent="." instance=ExtResource("212_luxdb")]
