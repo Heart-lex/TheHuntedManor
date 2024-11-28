@@ -35,7 +35,7 @@ _subresources={
 "nodes": {
 "PATH:stairs_long": {
 "generate/physics": true,
-"physics/shape_type": 2
+"physics/shape_type": 1
 }
 }
 }

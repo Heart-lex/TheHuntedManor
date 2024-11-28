@@ -654,6 +654,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90765, 0.236171, 1.62268)
 [node name="trunk_small_C2" parent="." instance=ExtResource("179_5ewhu")]
 
 [node name="wall2" parent="." instance=ExtResource("180_dhl4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9689, 0, 0)
+visible = false
 
 [node name="wall_arched2" parent="." instance=ExtResource("181_gle27")]
 
