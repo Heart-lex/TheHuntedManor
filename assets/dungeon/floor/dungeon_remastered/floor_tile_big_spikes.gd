@@ -1,11 +1,21 @@
 extends Node3D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
+# Το state machine
+var current_state: String = "Idle"
+
 func _ready() -> void:
-	pass # Replace with function body.
+	play_animation("Idle")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Κάθε frame ελέγχει το state και αναπαράγει το animation αν χρειάζεται
 func _process(delta: float) -> void:
-	pass
+	match current_state:
+		"Idle":
+			if not animation_player.is_playing():
+				play_animation("Idle")
+
+# Παίζει το animation με το όνομα που δίνεις
+func play_animation(animation_name: String) -> void:
+	if animation_player.current_animation != animation_name:
+		animation_player.play(animation_name)

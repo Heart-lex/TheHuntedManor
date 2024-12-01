@@ -117,3 +117,4 @@ func character_death() -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	area.health_component.apply_damage(10)
+	

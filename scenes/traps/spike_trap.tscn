@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=3 uid="uid://b4edaphly6imf"]
+
+[ext_resource type="PackedScene" uid="uid://bigkxj4ggm50r" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_spikes.gltf" id="1_f43h4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvpw6"]
+size = Vector3(2.5274, 1.73114, 2.49121)
+
+[sub_resource type="Animation" id="Animation_03ibf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floor_tile_big_spikes/spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.81012, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xsyth"]
+resource_name = "activate"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floor_tile_big_spikes/spikes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.81012, 0), Vector3(0, -0.138108, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f4nv5"]
+resource_name = "activated"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floor_tile_big_spikes/spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.138108, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_du52n"]
+resource_name = "inactive"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floor_tile_big_spikes/spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.81012, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7rs4"]
+resource_name = "deactivate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("floor_tile_big_spikes/spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0125573, 0), Vector3(0, -1.84665, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0aac"]
+_data = {
+"RESET": SubResource("Animation_03ibf"),
+"activate": SubResource("Animation_xsyth"),
+"activated": SubResource("Animation_f4nv5"),
+"deactivate": SubResource("Animation_s7rs4"),
+"inactive": SubResource("Animation_du52n")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q4fxq"]
+animation = &"activate"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jbdij"]
+animation = &"activated"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wcr0x"]
+animation = &"deactivate"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1i7k"]
+animation = &"inactive"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_egcu8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_unb7r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rb4f2"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qggp6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xax34"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kxoke"]
+states/activate/node = SubResource("AnimationNodeAnimation_q4fxq")
+states/activate/position = Vector2(540, 100)
+states/activated/node = SubResource("AnimationNodeAnimation_jbdij")
+states/activated/position = Vector2(563, 246)
+states/deactivate/node = SubResource("AnimationNodeAnimation_wcr0x")
+states/deactivate/position = Vector2(326, 227)
+states/inactive/node = SubResource("AnimationNodeAnimation_i1i7k")
+states/inactive/position = Vector2(359, 100)
+transitions = ["Start", "inactive", SubResource("AnimationNodeStateMachineTransition_egcu8"), "inactive", "activate", SubResource("AnimationNodeStateMachineTransition_unb7r"), "activate", "activated", SubResource("AnimationNodeStateMachineTransition_rb4f2"), "activated", "deactivate", SubResource("AnimationNodeStateMachineTransition_qggp6"), "deactivate", "inactive", SubResource("AnimationNodeStateMachineTransition_xax34")]
+
+[node name="Floor Trap" groups=["Spikes"] instance=ExtResource("1_f43h4")]
+
+[node name="Hurtbox" type="Area3D" parent="." index="0" groups=["Spikes"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000799179, -1.19209e-07, -0.00992203)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00790405, 0.999585, -0.00537109)
+shape = SubResource("BoxShape3D_uvpw6")
+
+[node name="spikes" parent="floor_tile_big_spikes" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.81012, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_g0aac")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_kxoke")
+anim_player = NodePath("../AnimationPlayer")
