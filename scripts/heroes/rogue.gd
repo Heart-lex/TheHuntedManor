@@ -16,6 +16,10 @@ const ROTATION_SPEED: float = 12.0
 
 enum state {RUN, JUMP, IDLE}
 
+func _ready() -> void:
+	if not is_in_group("player"):
+		add_to_group("player")
+
 func _physics_process(delta: float) -> void:
 	
 	if active:

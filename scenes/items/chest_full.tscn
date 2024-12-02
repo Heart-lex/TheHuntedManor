@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://i61uxwn4i0yu"]
+
+[ext_resource type="PackedScene" uid="uid://b5ypp2hbmkoo3" path="res://assets/dungeon/floor/dungeon_remastered/chest_gold.gltf" id="1_qfep1"]
+
+[node name="chest_gold2" instance=ExtResource("1_qfep1")]
+
+[node name="chest_gold_lid" parent="chest_gold" index="0"]
+visible = false

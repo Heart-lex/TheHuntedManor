@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1fo5cuq4py51"]
+[gd_scene load_steps=9 format=3 uid="uid://1fo5cuq4py51"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_4rnas"]
 [ext_resource type="Script" path="res://scripts/levels/level_02.gd" id="1_b2lfi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="5_e8rw5"]
 [ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="6_kcxin"]
 [ext_resource type="PackedScene" uid="uid://bnsuiv5f1bnul" path="res://scenes/items/coins_stack.tscn" id="7_u7513"]
+[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="8_h4ox1"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_b2lfi")
@@ -109,6 +110,12 @@ size = Vector3(8.04572, 1, 5.11295)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5642, 0.492382, 0.525054)
 use_collision = true
 size = Vector3(24.7434, 1, 4.05192)
+
+[node name="Rogue" parent="Collisions/First Floor" instance=ExtResource("6_kcxin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6108, 1.03906, 1.15498)
+
+[node name="Knight" parent="Collisions/First Floor" instance=ExtResource("8_h4ox1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3681, 5.06753, -12.025)
 
 [node name="Stairs" type="Node" parent="Collisions/First Floor"]
 
@@ -243,9 +250,6 @@ data = {
 "cells": PackedInt32Array(262144, 65527, 118)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
-
-[node name="Rogue" parent="." instance=ExtResource("6_kcxin")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3017, 1.5, 0.970702)
 
 [node name="coin_stack" parent="." instance=ExtResource("7_u7513")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 8.98481)
