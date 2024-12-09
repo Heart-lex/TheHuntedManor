@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var hitbox: CollisionShape3D = $Hitbox
 @onready var detection_area: Area3D = $DetectionArea
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var healthbar_position: Node3D = $HealthbarPosition
 
 var currState
 var knight: Node3D =  null
@@ -31,6 +32,7 @@ func _on_body_entered(body: Node3D) -> void:
 		currState = state.SIT
 		currState = state.WINGS
 		currState = state.FLY
+		healthbar_position.show()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
