@@ -100,7 +100,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ow2wf58q384" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_grate_open.gltf" id="98_ycl4l"]
 [ext_resource type="PackedScene" uid="uid://bigkxj4ggm50r" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_spikes.gltf" id="99_63bc5"]
 [ext_resource type="PackedScene" uid="uid://b5h5i0u2367qw" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_extralarge_grates.gltf" id="100_pj8io"]
-[ext_resource type="Script" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_spikes.gd" id="100_w0oct"]
+[ext_resource type="Script" path="res://scripts/traps/floor_tile_big_spikes.gd" id="100_w0oct"]
 [ext_resource type="PackedScene" uid="uid://cxc6ul4uqfvhb" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_extralarge_grates_open.gltf" id="101_p3oxp"]
 [ext_resource type="PackedScene" uid="uid://ba08utt2x0r25" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_grate.gltf" id="102_c3bp3"]
 [ext_resource type="PackedScene" uid="uid://d2gemrurdivbi" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_grate_open.gltf" id="103_44oqn"]
