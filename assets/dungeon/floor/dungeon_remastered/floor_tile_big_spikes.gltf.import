@@ -38,7 +38,6 @@ _subresources={
 "physics/shape_type": 1
 },
 "PATH:floor_tile_big_spikes/spikes": {
-"generate/physics": true,
 "physics/shape_type": 2
 }
 }

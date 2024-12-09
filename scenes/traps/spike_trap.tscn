@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4edaphly6imf"]
+[gd_scene load_steps=20 format=3 uid="uid://b4edaphly6imf"]
 
 [ext_resource type="PackedScene" uid="uid://bigkxj4ggm50r" path="res://assets/dungeon/floor/dungeon_remastered/floor_tile_big_spikes.gltf" id="1_f43h4"]
+[ext_resource type="Script" path="res://scripts/traps/floor_tile_big_spikes.gd" id="2_2u1ae"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvpw6"]
 size = Vector3(2.5274, 1.73114, 2.49121)
@@ -31,9 +32,23 @@ tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -0.5),
 "update": 0,
 "values": [Vector3(0, -1.81012, 0), Vector3(0, -0.138108, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"activate"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_f4nv5"]
@@ -49,7 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.138108, 0)]
+"values": [Vector3(0, -0.125, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_s7rs4"]
@@ -65,7 +80,21 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.0125573, 0), Vector3(0, -1.84665, 0)]
+"values": [Vector3(0, -0.125, 0), Vector3(0, -1.84665, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deactivate"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_du52n"]
@@ -136,6 +165,7 @@ states/inactive/position = Vector2(359, 100)
 transitions = ["Start", "inactive", SubResource("AnimationNodeStateMachineTransition_egcu8"), "inactive", "activate", SubResource("AnimationNodeStateMachineTransition_unb7r"), "activate", "activated", SubResource("AnimationNodeStateMachineTransition_rb4f2"), "activated", "deactivate", SubResource("AnimationNodeStateMachineTransition_qggp6"), "deactivate", "inactive", SubResource("AnimationNodeStateMachineTransition_xax34")]
 
 [node name="Floor Trap" groups=["Spikes"] instance=ExtResource("1_f43h4")]
+script = ExtResource("2_2u1ae")
 
 [node name="Hurtbox" type="Area3D" parent="." index="0" groups=["Spikes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000799179, -1.19209e-07, -0.00992203)
@@ -155,3 +185,5 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeStateMachine_kxoke")
 anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
