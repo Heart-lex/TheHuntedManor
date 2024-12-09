@@ -9,8 +9,11 @@ extends Node3D
 @onready var mage: CharacterBody3D = $Mage
 
 var temp_state
+
+# UI
 @onready var coin_stack: Area3D = $coin_stack
-@onready var coin_collector_ui: CanvasLayer = $coin_collector_ui
+@onready var coin_collector_ui: CanvasLayer = $UI/coin_collector_ui
+@onready var interaction_prompt: CanvasLayer = $UI/InteractionPrompt
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +22,7 @@ func _ready() -> void:
 	
 	mage.connect("client_entered", Callable(self, "_on_mage_client_entered"))
 	mage_dialogue.visible = false
-
+	interaction_prompt.visible = false
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("player_switch"):
 		temp_state = !knight.active
@@ -53,4 +56,10 @@ func _on_coin_collected() -> void:
 func _on_mage_client_entered() -> void:
 	# Show the Mage dialogue
 	mage_dialogue.visible = true
-	print("MageDialogue is now visible!")
+func _on_interaction_prompt() -> void:
+	# Display interaction prompt
+	interaction_prompt.visible = true
+	
+func _on_interaction_prompt_close() -> void:
+	# Close interaction prompt
+	interaction_prompt.visible = false
