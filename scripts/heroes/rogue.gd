@@ -4,6 +4,7 @@ class_name Rogue
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var camera_point: Node3D = $CameraPivot
+@onready var health_component: HealthComponent = $HealthComponent
 
 @onready var active 
 
@@ -17,8 +18,7 @@ const ROTATION_SPEED: float = 12.0
 enum state {RUN, JUMP, IDLE}
 
 func _ready() -> void:
-	if not is_in_group("player"):
-		add_to_group("player")
+	health_component.target_is_dead.connect(character_death)
 
 func _physics_process(delta: float) -> void:
 	
@@ -63,3 +63,6 @@ func handle_animations(delta: float) -> void:
 		
 func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	
+func character_death() -> void:
+	pass
