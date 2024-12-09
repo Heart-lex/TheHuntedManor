@@ -1,14 +1,13 @@
 extends Node3D
 
-@onready var door_back: Area3D = $doorway/DoorBack
-@onready var door_front: Area3D = $doorway/DoorFront
+@export var locked : bool = false
+
 @onready var doorway_door: MeshInstance3D = $doorway/doorway_door
+@onready var anim_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/playback")
 
+func _ready() -> void:
+	anim_state_machine.start("closed")
 
-func _on_door_back_body_entered(body: Node3D) -> void:
-	if body.is_in_group("RaycastUse"):
-		print("I'm behind of the door!")
-
-func _on_door_front_body_entered(body: Node3D) -> void:
-	if body.is_in_group("RaycastUse"):
-		print("I'm behind of the door!")
+func open() -> void:
+	anim_state_machine.travel("open")
+	print("Door opened")
