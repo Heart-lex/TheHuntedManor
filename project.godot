@@ -98,6 +98,10 @@ heavy_atk={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://untitled.dialogue", "res://dialogue/main.dialogue")
+
 [rendering]
 
 environment/hdr_2d=false
