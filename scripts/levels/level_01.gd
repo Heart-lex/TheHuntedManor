@@ -5,16 +5,20 @@ extends Node3D
 @onready var rogue: Rogue = $Rogue
 @onready var knight: Knight = $Knight
 @onready var coin_stack_scene: PackedScene = preload("res://scenes/items/coins_stack.tscn")
+@onready var mage_dialogue: CanvasLayer = $MageDialogue
+@onready var mage: CharacterBody3D = $Mage
 
 var temp_state
 @onready var coin_stack: Area3D = $coin_stack
 @onready var coin_collector_ui: CanvasLayer = $coin_collector_ui
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	knight.active = true
 	rogue.active = false
+	
+	mage.connect("client_entered", Callable(self, "_on_mage_client_entered"))
+	mage_dialogue.visible = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("player_switch"):
@@ -45,3 +49,8 @@ func _spawn_coin_stack(position: Vector3) -> void:
 # Signal handler to update the UI when a coin stack is collected
 func _on_coin_collected() -> void:
 	coin_collector_ui.update_coin_count(5)  # Add 5 coins
+	
+func _on_mage_client_entered() -> void:
+	# Show the Mage dialogue
+	mage_dialogue.visible = true
+	print("MageDialogue is now visible!")
