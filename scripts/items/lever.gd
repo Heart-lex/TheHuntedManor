@@ -1,19 +1,22 @@
 extends CharacterBody3D
 
 @onready var detection_area: Area3D = $DetectionArea
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 var active: bool = false
 
-signal trigger
+signal trigger_door
 signal interact_prompt
 signal interact_prompt_close
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-
+func _ready() -> void:
+	animation_tree.set("parameters/LeverToggle/transition_request", "Idle")
+	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and active:
-		emit_signal("trigger")
+	if Input.is_action_just_pressed("interact") and active == true:
+		emit_signal("trigger_door")
+		animation_tree.set("parameters/LeverToggle/transition_request", "Toggle")
+		
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("rogue"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://civ4ssgo6jrxw"]
+[gd_scene load_steps=15 format=3 uid="uid://civ4ssgo6jrxw"]
 
 [ext_resource type="PackedScene" uid="uid://bikmw8jxnqjj5" path="res://assets/dungeon/items/old_lever/lever.gltf" id="1_jcmys"]
 [ext_resource type="Script" path="res://scripts/items/lever.gd" id="2_0y1cr"]
@@ -11,21 +11,150 @@ ao_light_affect = 0.96
 [sub_resource type="BoxShape3D" id="BoxShape3D_l262w"]
 size = Vector3(0.868534, 1.30127, 0.477219)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_krqav"]
-animation = &"Lever|LeverAction"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bnb3a"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_maykx"]
-states/End/position = Vector2(901, 100)
-states/Lever|LeverAction/node = SubResource("AnimationNodeAnimation_krqav")
-states/Lever|LeverAction/position = Vector2(548, 105)
-states/Start/position = Vector2(252, 105)
-transitions = ["Start", "Lever|LeverAction", SubResource("AnimationNodeStateMachineTransition_bnb3a")]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_65qx8"]
 size = Vector3(3.64319, 3.47314, 4.00488)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_22dgc"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_hdrp7"]
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Toggle"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Toggled"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7ypv3"]
+animation = &"Toggle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pb685"]
+animation = &"Toggled"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ilso6"]
+graph_offset = Vector2(-319.338, 44.1199)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_22dgc")
+nodes/Idle/position = Vector2(-60, 100)
+nodes/LeverToggle/node = SubResource("AnimationNodeTransition_hdrp7")
+nodes/LeverToggle/position = Vector2(200, 120)
+nodes/Toggle/node = SubResource("AnimationNodeAnimation_7ypv3")
+nodes/Toggle/position = Vector2(-100, 240)
+nodes/Toggled/node = SubResource("AnimationNodeAnimation_pb685")
+nodes/Toggled/position = Vector2(-60, 380)
+nodes/output/position = Vector2(420, 100)
+node_connections = [&"LeverToggle", 0, &"Idle", &"LeverToggle", 1, &"Toggle", &"LeverToggle", 2, &"Toggled", &"output", 0, &"LeverToggle"]
+
+[sub_resource type="Animation" id="Animation_gwsks"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.03853, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mmmdy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.03853, 0, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.03853, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_fi71c"]
+resource_name = "Toggle"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.03853, -0.25, 0, 0.25, 0, -0.972148, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Lever:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hipc"]
+_data = {
+"Idle": SubResource("Animation_gwsks"),
+"RESET": SubResource("Animation_mmmdy"),
+"Toggle": SubResource("Animation_fi71c")
+}
 
 [node name="Lever" instance=ExtResource("1_jcmys")]
 script = ExtResource("2_0y1cr")
@@ -45,15 +174,23 @@ transform = Transform3D(1, -4.23516e-22, -7.10543e-15, -4.23516e-22, 1, -3.55271
 shape = SubResource("BoxShape3D_l262w")
 disabled = true
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
-tree_root = SubResource("AnimationNodeStateMachine_maykx")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="DetectionArea" type="Area3D" parent="." index="4"]
+[node name="DetectionArea" type="Area3D" parent="." index="3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244446, 0.218771, 1.80091)
 shape = SubResource("BoxShape3D_65qx8")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_ilso6")
+anim_player = NodePath("../AnimationPlayer2")
+parameters/LeverToggle/current_state = "Toggled"
+parameters/LeverToggle/transition_request = ""
+parameters/LeverToggle/current_index = 2
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_8hipc")
+}
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_body_exited"]

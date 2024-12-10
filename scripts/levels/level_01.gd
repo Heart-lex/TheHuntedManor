@@ -13,7 +13,6 @@ extends Node3D
 var temp_state
 
 # UI
-@onready var coin_stack: Area3D = $coin_stack
 @onready var coin_collector_ui: CanvasLayer = $UI/coin_collector_ui
 @onready var interaction_prompt: CanvasLayer = $UI/InteractionPrompt
 
@@ -28,6 +27,8 @@ func _ready() -> void:
 	lever.connect("interact_prompt", Callable(self, "_on_interaction_prompt"))
 	lever.connect("interact_prompt_close", Callable(self, "_on_interaction_prompt_close"))
 	interaction_prompt.visible = false
+	
+	lever_door.connect("trigger_door", Callable(self, "_on_lever_trigger"))
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("player_switch"):
@@ -71,4 +72,5 @@ func _on_interaction_prompt_close() -> void:
 	interaction_prompt.visible = false
 	
 func _on_lever_trigger() -> void:
+	print("_on_lever_trigger")
 	lever_door.open()

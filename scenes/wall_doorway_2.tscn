@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://0p3xsg135jns"]
+
+[ext_resource type="PackedScene" uid="uid://dqdoijs3ga16" path="res://assets/dungeon/floor/dungeon_remastered/wall_doorway.gltf" id="1_isjfb"]
+
+[sub_resource type="Animation" id="Animation_i2d8m"]
+resource_name = "closed"
+
+[sub_resource type="Animation" id="Animation_ql50c"]
+resource_name = "open"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall_doorway/wall_doorway_door:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wall_doorway/wall_doorway_door:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wall_doorway/wall_doorway_door:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prwp4"]
+_data = {
+"closed": SubResource("Animation_i2d8m"),
+"open": SubResource("Animation_ql50c")
+}
+
+[node name="wall_doorway2" instance=ExtResource("1_isjfb")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_prwp4")
+}
