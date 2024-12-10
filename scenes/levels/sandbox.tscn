@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://cglpuscl4bymn"]
+
+[ext_resource type="Script" path="res://scripts/levels/sandbox.gd" id="1_gwjcd"]
+[ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="1_pp316"]
+[ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="2_2iyta"]
+[ext_resource type="PackedScene" uid="uid://dmyfa5fjdx88e" path="res://scenes/ui/pause_menu.tscn" id="3_cl1mo"]
+[ext_resource type="PackedScene" uid="uid://chj45gwxqj0ng" path="res://scenes/ui/coin_layer.tscn" id="5_gw8v5"]
+[ext_resource type="PackedScene" uid="uid://bxea2ujb23k66" path="res://scenes/ui/interaction_prompt.tscn" id="6_w58bn"]
+[ext_resource type="PackedScene" uid="uid://d1wi7ubtnwuwh" path="res://scenes/items/movable_foundation.tscn" id="7_8noto"]
+
+[sub_resource type="Environment" id="Environment_h4ekl"]
+background_mode = 1
+background_color = Color(0.787759, 0.787759, 0.787759, 1)
+
+[node name="Sandbox" type="Node3D"]
+script = ExtResource("1_gwjcd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4ekl")
+
+[node name="Knight" parent="." instance=ExtResource("1_pp316")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45034, 0.245871, 0)
+
+[node name="Rogue" parent="." instance=ExtResource("2_2iyta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67635, 0.245871, 0)
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Menu" type="CanvasLayer" parent="UI"]
+
+[node name="PauseMenu" parent="UI/Menu" instance=ExtResource("3_cl1mo")]
+
+[node name="coin_collector_ui" parent="UI" instance=ExtResource("5_gw8v5")]
+
+[node name="InteractionPrompt" parent="UI" instance=ExtResource("6_w58bn")]
+
+[node name="Floor" type="Node" parent="."]
+
+[node name="Ground" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.501827, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="MovableFoundation" parent="." instance=ExtResource("7_8noto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.02477)
