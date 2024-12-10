@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1wi7ubtnwuwh"]
+
+[ext_resource type="Script" path="res://scripts/items/movable_foundation.gd" id="1_k8ws7"]
+[ext_resource type="PackedScene" uid="uid://w6k5dsn7jo21" path="res://assets/dungeon/floor/dungeon_remastered/floor_foundation_allsides.gltf" id="1_uy52j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vaqpv"]
+size = Vector3(2.22839, 1.98083, 2.22916)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_psptt"]
+size = Vector3(2.19305, 1.99191, 1.08154)
+
+[node name="MovableFoundation" type="CharacterBody3D"]
+script = ExtResource("1_k8ws7")
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_vaqpv")
+
+[node name="Model" parent="." instance=ExtResource("1_uy52j")]
+
+[node name="ZonePositiveX" type="Area3D" parent="Model"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZonePositiveX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+shape = SubResource("BoxShape3D_psptt")
+
+[node name="ZoneNegativeX" type="Area3D" parent="Model"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZoneNegativeX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+shape = SubResource("BoxShape3D_psptt")
+
+[node name="ZoneNegativeZ" type="Area3D" parent="Model"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZoneNegativeZ"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+shape = SubResource("BoxShape3D_psptt")
+
+[node name="ZonePositiveZ" type="Area3D" parent="Model"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZonePositiveZ"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+shape = SubResource("BoxShape3D_psptt")
+
+[connection signal="body_entered" from="Model/ZonePositiveX" to="." method="_on_zone_positive_x_body_entered"]
+[connection signal="body_exited" from="Model/ZonePositiveX" to="." method="_on_zone_positive_x_body_exited"]
+[connection signal="body_entered" from="Model/ZoneNegativeX" to="." method="_on_zone_negative_x_body_entered"]
+[connection signal="body_exited" from="Model/ZoneNegativeX" to="." method="_on_zone_negative_x_body_exited"]
+[connection signal="body_entered" from="Model/ZoneNegativeZ" to="." method="_on_zone_negative_z_body_entered"]
+[connection signal="body_exited" from="Model/ZoneNegativeZ" to="." method="_on_zone_negative_z_body_exited"]
+[connection signal="body_entered" from="Model/ZonePositiveZ" to="." method="_on_zone_positive_z_body_entered"]
+[connection signal="body_exited" from="Model/ZonePositiveZ" to="." method="_on_zone_positive_z_body_exited"]
