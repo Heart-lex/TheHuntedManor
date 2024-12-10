@@ -190,7 +190,6 @@ animation = &"open"
 animation = &"opened"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_eqyfx"]
-graph_offset = Vector2(-471.939, -10.7775)
 nodes/Closed/node = SubResource("AnimationNodeAnimation_g0vp4")
 nodes/Closed/position = Vector2(-220, 100)
 nodes/DoorMovement/node = SubResource("AnimationNodeTransition_vcqf6")
