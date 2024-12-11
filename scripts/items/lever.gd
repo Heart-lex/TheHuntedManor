@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 var active: bool = false
+var is_triggered: bool = false
 
 signal trigger_door
 signal interact_prompt
@@ -13,8 +14,9 @@ func _ready() -> void:
 	animation_tree.set("parameters/LeverToggle/transition_request", "Idle")
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and active == true:
+	if Input.is_action_just_pressed("interact") and active == true and not is_triggered:
 		emit_signal("trigger_door")
+		is_triggered = true
 		animation_tree.set("parameters/LeverToggle/transition_request", "Toggle")
 		
 

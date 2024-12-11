@@ -10,6 +10,7 @@ extends Node3D
 @onready var lever: CharacterBody3D = $Lever
 @onready var lever_door: Node3D = $DungeonDoor/LeverDoor
 
+var triggered_door: bool = false
 var temp_state
 
 # UI
@@ -65,12 +66,14 @@ func _on_mage_client_entered() -> void:
 	
 func _on_interaction_prompt() -> void:
 	# Display interaction prompt
-	interaction_prompt.visible = true
+	if not triggered_door:
+		interaction_prompt.visible = true
 	
 func _on_interaction_prompt_close() -> void:
 	# Close interaction prompt
 	interaction_prompt.visible = false
 	
 func _on_lever_trigger() -> void:
-	print("_on_lever_trigger")
+	triggered_door = true
+	interaction_prompt.visible = false
 	lever_door.open()

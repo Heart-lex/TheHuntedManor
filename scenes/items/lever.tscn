@@ -163,7 +163,7 @@ script = ExtResource("2_0y1cr")
 transform = Transform3D(-0.03, -4.52987e-09, -1.98007e-16, 0, -1.31134e-09, 0.03, -4.52987e-09, 0.03, 1.31134e-09, 0, 0, 0)
 
 [node name="Lever" parent="Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode" index="0"]
-transform = Transform3D(0.00261715, 0, 0, 0, 0.00566671, -0.00595384, 0, 0.00962138, 0.00350663, -10.3698, -0.807412, -0.424761)
+transform = Transform3D(0.00261715, 0, 0, 0, 0.00566667, -0.00595385, 0, 0.0096214, 0.00350661, -10.3698, -0.807412, -0.424761)
 
 [node name="Panel_Panel_0" parent="Sketchfab_model/0c2d42745fba4ffd8173d9494c92f72f_fbx/Object_2/RootNode/Panel" index="0"]
 transform = Transform3D(1, 4.23516e-22, -7.10543e-15, 4.23516e-22, 1, 3.55271e-15, 7.10543e-15, -3.55271e-15, 1, 0.336858, 0, -2.38419e-07)
