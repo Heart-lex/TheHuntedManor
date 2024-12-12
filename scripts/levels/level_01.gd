@@ -15,7 +15,6 @@ var triggered_door: bool = false
 var temp_state
 
 # UI
-@onready var coin_collector_ui: CanvasLayer = $UI/coin_collector_ui
 @onready var interaction_prompt: CanvasLayer = $UI/InteractionPrompt
 
 # Called when the node enters the scene tree for the first time.
@@ -53,4 +52,4 @@ func _spawn_coin_stack(position: Vector3) -> void:
 
 # Signal handler to update the UI when a coin stack is collected
 func _on_coin_collected() -> void:
-	coin_collector_ui.update_coin_count(5)  # Add 5 coins
+	CoinCollector.update_coin_count(5)  # Add 5 coins
