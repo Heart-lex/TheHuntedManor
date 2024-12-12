@@ -52,11 +52,16 @@ func _on_buy_button_pressed() -> void:
 	buy_button.disabled = true
 	if type == card_type.RED_POTION:
 		CoinCollector.red_potion_count += 1
+		CoinCollector.update_visibility()
 	if type == card_type.GREEN_POTION:
 		CoinCollector.green_potion_count += 1
+		CoinCollector.update_visibility()
 	if type == card_type.PURPLE_POTION:
 		CoinCollector.purple_potion_count += 1
+		CoinCollector.update_visibility()
 	if type == card_type.BLUE_POTION:
 		CoinCollector.blue_potion_count += 1
+		CoinCollector.update_visibility()
 	if type == card_type.DOOR_KEY:
 		CoinCollector.door_key_count += 1
+		CoinCollector.update_visibility()
