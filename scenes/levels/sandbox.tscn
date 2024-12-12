@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="1_pp316"]
 [ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="2_2iyta"]
 [ext_resource type="PackedScene" uid="uid://dmyfa5fjdx88e" path="res://scenes/ui/pause_menu.tscn" id="3_cl1mo"]
-[ext_resource type="PackedScene" uid="uid://chj45gwxqj0ng" path="res://scenes/ui/coin_layer.tscn" id="5_gw8v5"]
+[ext_resource type="PackedScene" uid="uid://chj45gwxqj0ng" path="res://scenes/ui/coin_collector.tscn" id="5_gw8v5"]
 [ext_resource type="PackedScene" uid="uid://bxea2ujb23k66" path="res://scenes/ui/interaction_prompt.tscn" id="6_w58bn"]
 [ext_resource type="PackedScene" uid="uid://d1wi7ubtnwuwh" path="res://scenes/items/movable_foundation.tscn" id="7_8noto"]
 

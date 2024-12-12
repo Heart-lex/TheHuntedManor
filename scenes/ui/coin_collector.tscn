@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://chj45gwxqj0ng"]
+
+[ext_resource type="Script" path="res://scripts/ui/coin_ui.gd" id="1_ieb6f"]
+[ext_resource type="Texture2D" uid="uid://du0ecb4ivvmps" path="res://images/coin_icon.png" id="2_2nnao"]
+[ext_resource type="Texture2D" uid="uid://v3p4b5olnykh" path="res://assets/cards/door_key.png" id="3_ekckm"]
+[ext_resource type="Texture2D" uid="uid://cy3rpxde1uut4" path="res://images/keyboard_keys/key_1.png" id="3_wi60i"]
+[ext_resource type="Texture2D" uid="uid://s3frh4hsqida" path="res://assets/cards/red_potion.png" id="4_52ij7"]
+[ext_resource type="Texture2D" uid="uid://d0v252y5vscws" path="res://images/keyboard_keys/key_2.png" id="5_6cy7u"]
+[ext_resource type="Texture2D" uid="uid://qlygwc18f0hc" path="res://assets/cards/blue_potion.png" id="5_cfoeb"]
+[ext_resource type="Texture2D" uid="uid://bi33gc54nw3hd" path="res://assets/cards/green_potion.png" id="5_vdqfb"]
+[ext_resource type="Texture2D" uid="uid://ct2mutrqntsh8" path="res://assets/cards/purple_potion.png" id="6_x8qlr"]
+[ext_resource type="Texture2D" uid="uid://bdklw1hwiyydo" path="res://images/keyboard_keys/key_3.png" id="7_2badq"]
+[ext_resource type="Texture2D" uid="uid://br26inj76efs3" path="res://images/keyboard_keys/key_4.png" id="9_1lffv"]
+[ext_resource type="Texture2D" uid="uid://b7o0lhyohlxxf" path="res://images/keyboard_keys/key_5.png" id="11_pb4nj"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ieb6f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 672.0
+offset_bottom = 42.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2nnao")
+expand_mode = 2
+
+[node name="coin_text" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Coins: "
+
+[node name="coin_label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 167.0
+offset_top = 4.0
+offset_right = 673.0
+offset_bottom = 44.0
+theme_override_constants/margin_left = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Key1" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_wi60i")
+expand_mode = 2
+
+[node name="DoorKey" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_ekckm")
+expand_mode = 2
+
+[node name="Key2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_6cy7u")
+expand_mode = 2
+
+[node name="RedPotion" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_52ij7")
+expand_mode = 2
+
+[node name="Key3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_2badq")
+expand_mode = 2
+
+[node name="BluePotion" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_cfoeb")
+expand_mode = 2
+
+[node name="Key4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_1lffv")
+expand_mode = 2
+
+[node name="GreenPotion" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_vdqfb")
+expand_mode = 2
+
+[node name="Key5" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("11_pb4nj")
+expand_mode = 2
+
+[node name="PurplePotion" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_x8qlr")
+expand_mode = 2

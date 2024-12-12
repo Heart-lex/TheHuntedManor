@@ -1,0 +1,169 @@
+[gd_scene load_steps=13 format=3 uid="uid://d345qpyil1brc"]
+
+[ext_resource type="Texture2D" uid="uid://dien5hqpa5avq" path="res://assets/cards/shop_card.png" id="1_3na6g"]
+[ext_resource type="Script" path="res://scripts/ui/shop_card.gd" id="1_ixile"]
+[ext_resource type="Texture2D" uid="uid://du0ecb4ivvmps" path="res://images/coin_icon.png" id="2_4ols3"]
+[ext_resource type="FontFile" uid="uid://cnml57ep6aa3x" path="res://fonts/Haunted.ttf" id="3_xmyu4"]
+[ext_resource type="Texture2D" uid="uid://s3frh4hsqida" path="res://assets/cards/red_potion.png" id="4_opl33"]
+[ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="5_igiei"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xy3vs"]
+texture = ExtResource("1_3na6g")
+
+[sub_resource type="LabelSettings" id="LabelSettings_30snp"]
+font = ExtResource("3_xmyu4")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsxtn"]
+font = ExtResource("3_xmyu4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tenix"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s12wa"]
+bg_color = Color(0.230315, 0.230315, 0.230315, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5506"]
+bg_color = Color(0.839216, 0.8, 0.121569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="ShopCard" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_ixile")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -240.0
+offset_right = 135.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xy3vs")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="CoinBox" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/CoinBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/CoinBox/CoinContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("2_4ols3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CoinCount" type="Label" parent="PanelContainer/MarginContainer/CoinBox/CoinContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "15"
+label_settings = SubResource("LabelSettings_30snp")
+
+[node name="CoinText" type="Label" parent="PanelContainer/MarginContainer/CoinBox/CoinContainer"]
+layout_mode = 2
+text = "coins"
+label_settings = SubResource("LabelSettings_tsxtn")
+
+[node name="ImgMarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/CoinBox"]
+custom_minimum_size = Vector2(0, 170)
+layout_direction = 1
+layout_mode = 2
+
+[node name="HBoxImgContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/CoinBox/ImgMarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Image" type="TextureRect" parent="PanelContainer/MarginContainer/CoinBox/ImgMarginContainer/HBoxImgContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+texture = ExtResource("4_opl33")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TitleMarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/CoinBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/margin_top = -39
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/CoinBox/TitleMarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TitleText" type="Label" parent="PanelContainer/MarginContainer/CoinBox/TitleMarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xmyu4")
+text = "title"
+
+[node name="DescriptionMarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/CoinBox"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/CoinBox/DescriptionMarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="DescriptionText" type="Label" parent="PanelContainer/MarginContainer/CoinBox/DescriptionMarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xmyu4")
+text = "description text"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonMarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = -16
+
+[node name="buyButton" type="Button" parent="PanelContainer/MarginContainer/ButtonMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_hover_color = Color(0.839216, 0.8, 0.121569, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_igiei")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_tenix")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s12wa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t5506")
+text = "  BUY  "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/ButtonMarginContainer/buyButton" to="." method="_on_buy_button_pressed"]

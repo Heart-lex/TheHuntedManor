@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://civ4ssgo6jrxw"]
+[gd_scene load_steps=16 format=3 uid="uid://civ4ssgo6jrxw"]
 
 [ext_resource type="PackedScene" uid="uid://bikmw8jxnqjj5" path="res://assets/dungeon/items/old_lever/lever.gltf" id="1_jcmys"]
 [ext_resource type="Script" path="res://scripts/items/lever.gd" id="2_0y1cr"]
+[ext_resource type="PackedScene" uid="uid://bxea2ujb23k66" path="res://scenes/ui/interaction_prompt.tscn" id="3_ob8ji"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0jin"]
 albedo_color = Color(0.340028, 0.174638, 0.128305, 1)
@@ -191,6 +192,8 @@ parameters/LeverToggle/current_index = 2
 libraries = {
 "": SubResource("AnimationLibrary_8hipc")
 }
+
+[node name="InteractionPrompt" parent="." index="6" instance=ExtResource("3_ob8ji")]
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_body_exited"]
