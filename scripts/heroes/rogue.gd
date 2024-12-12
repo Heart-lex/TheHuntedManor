@@ -1,5 +1,6 @@
-extends CharacterBody3D
 class_name Rogue
+
+extends CharacterBody3D
 
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -22,10 +23,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if active:
-		if not is_on_floor():
-			velocity.y -= gravity * delta
+	move_and_slide()
+	handle_animations(delta)
+
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 		
+	if active:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jump()
@@ -41,13 +45,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 			currState = state.IDLE
-			
-		move_and_slide()
-		handle_animations(delta)
-		
+
 		if velocity.length() > 1.0:
 			var direction_angle = -atan2((model.position.x - velocity.normalized().x), -(model.position.z - velocity.normalized().z))
 			model.rotation.y = lerp_angle(model.rotation.y, direction_angle, ROTATION_SPEED * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		currState = state.IDLE
 		
 func handle_animations(delta: float) -> void:
 	if active:

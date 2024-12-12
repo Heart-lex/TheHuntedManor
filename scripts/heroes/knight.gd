@@ -36,6 +36,12 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 	
+	move_and_slide()
+	handle_animations(delta)
+	
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
 	if active: 
 		var space_state := get_world_3d().direct_space_state
 		
@@ -59,9 +65,6 @@ func _physics_process(delta: float) -> void:
 			# (which would happen since the intersection doesn't necessarily happen at character-height)
 			model.look_at(Vector3(pos.x, position.y, pos.z), Vector3(0, 1, 0))
 		
-		if not is_on_floor():
-			velocity.y -= gravity * delta
-		
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jump()
@@ -84,9 +87,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 			currState = state.IDLE
-			
-		move_and_slide()
-		handle_animations(delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		currState = state.IDLE
 
 func handle_animations(delta: float) -> void:
 	if active:
@@ -117,4 +121,3 @@ func character_death() -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	area.health_component.apply_damage(10)
-	
