@@ -7,7 +7,7 @@
 size = Vector3(2.22839, 1.98083, 2.22916)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_psptt"]
-size = Vector3(2.19305, 1.99191, 1.08154)
+size = Vector3(2.19305, 1.99191, 1.48657)
 
 [node name="MovableFoundation" type="CharacterBody3D"]
 script = ExtResource("1_k8ws7")
@@ -22,27 +22,27 @@ shape = SubResource("BoxShape3D_vaqpv")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZonePositiveX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09181e-09, 1, 1.85037)
 shape = SubResource("BoxShape3D_psptt")
 
 [node name="ZoneNegativeX" type="Area3D" parent="Model"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZoneNegativeX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
 shape = SubResource("BoxShape3D_psptt")
 
 [node name="ZoneNegativeZ" type="Area3D" parent="Model"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZoneNegativeZ"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
 shape = SubResource("BoxShape3D_psptt")
 
 [node name="ZonePositiveZ" type="Area3D" parent="Model"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZonePositiveZ"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
 shape = SubResource("BoxShape3D_psptt")
 
 [connection signal="body_entered" from="Model/ZonePositiveX" to="." method="_on_zone_positive_x_body_entered"]
