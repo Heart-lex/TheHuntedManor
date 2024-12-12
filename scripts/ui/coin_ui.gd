@@ -1,17 +1,15 @@
-class_name CoinCollector
-
 extends CanvasLayer
 
-@onready var door_key: TextureRect = $HBoxContainer/MarginContainer/HBoxContainer/DoorKey
-@onready var red_potion: TextureRect = $HBoxContainer/MarginContainer/HBoxContainer/RedPotion
-@onready var green_potion: TextureRect = $HBoxContainer/MarginContainer/HBoxContainer/GreenPotion
-@onready var blue_potion: TextureRect = $HBoxContainer/MarginContainer/HBoxContainer/BluePotion
-@onready var purple_potion: TextureRect = $HBoxContainer/MarginContainer/HBoxContainer/PurplePotion
 @onready var key_1: TextureRect = $MarginContainer/HBoxContainer/Key1
+@onready var door_key: TextureRect = $MarginContainer/HBoxContainer/DoorKey
 @onready var key_2: TextureRect = $MarginContainer/HBoxContainer/Key2
+@onready var red_potion: TextureRect = $MarginContainer/HBoxContainer/RedPotion
 @onready var key_3: TextureRect = $MarginContainer/HBoxContainer/Key3
+@onready var blue_potion: TextureRect = $MarginContainer/HBoxContainer/BluePotion
 @onready var key_4: TextureRect = $MarginContainer/HBoxContainer/Key4
+@onready var green_potion: TextureRect = $MarginContainer/HBoxContainer/GreenPotion
 @onready var key_5: TextureRect = $MarginContainer/HBoxContainer/Key5
+@onready var purple_potion: TextureRect = $MarginContainer/HBoxContainer/PurplePotion
 
 var coin_count: int = 0
 var door_key_count: int = 0
@@ -24,6 +22,7 @@ var purple_potion_count: int = 0
 @onready var coin_label: Label = $HBoxContainer/coin_label
 
 func _ready() -> void:
+	self.visible = true
 	door_key.visible = false
 	key_1.visible = false
 	red_potion.visible = false

@@ -9,20 +9,27 @@ extends Node3D
 @onready var mage: CharacterBody3D = $Mage
 @onready var lever: CharacterBody3D = $Lever
 @onready var lever_door: Node3D = $DungeonDoor/LeverDoor
+@export var shop: Shop
 
 var triggered_door: bool = false
 var temp_state
 
 # UI
-@onready var shop: CanvasLayer = $UI/shop
 @onready var coin_collector_ui: CanvasLayer = $UI/coin_collector_ui
 @onready var interaction_prompt: CanvasLayer = $UI/InteractionPrompt
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	knight.active = true
 	rogue.active = false
 	
+	shop.shop_card.create_card("RED POTION")
+	shop.shop_card.coin_count.text = "10"
+	shop.shop_card_2.create_card("DOOR KEY")
+	shop.shop_card_2.coin_count.text = "7"
+	shop.shop_card_3.create_card("BLUE POTION")
+	shop.shop_card_3.coin_count.text = "9"
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("player_switch"):

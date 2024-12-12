@@ -12,6 +12,7 @@ func _ready() -> void:
 	options_menu.visible = false
 	handle_connecting_signals()
 	background_music.play()
+	CoinCollector.visible = false
 
 func _on_start_pressed() -> void:
 	background_music.stop()

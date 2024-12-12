@@ -19,29 +19,29 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func create_card (name: card_type) -> void:
+func create_card (name: String) -> void:
 	match name:
-		card_type.RED_POTION:
+		"RED POTION":
 			type = card_type.RED_POTION
 			image.texture = preload("res://assets/red_potion.png") 
 			title_text.text = "red potion"
 			description_text.text = "a mystical brew that pulses with life energy. Consuming it grants 10xp, fueling your journey toward greater power skill."
-		card_type.GREEN_POTION:
+		"GREEN POTION":
 			type = card_type.GREEN_POTION
 			image.texture = preload("res://assets/green_potion.png") 
 			title_text.text = "green potion"
 			description_text.text = "drink to gain a magical shield that makes you immune to all damage for 30 seconds. perfect for daring escapes or bold attacks"
-		card_type.PURPLE_POTION:
+		"PURPLE POTION":
 			type = card_type.PURPLE_POTION
 			image.texture = preload("res://assets/purple_potion.png") 
 			title_text.text = "purple potion"
 			description_text.text = "this potion allows rogues to cast a unique spell, like unlocking doors or triggering mechanisms without a key or lever"
-		card_type.BLUE_POTION:
+		"BLUE POTION":
 			type = card_type.BLUE_POTION
 			image.texture = preload("res://assets/blue_potion.png") 
 			title_text.text = "blue potion"
 			description_text.text = "drink to gain a burst of speed outrunning enemies or completing tasks in record time!"
-		card_type.DOOR_KEY:
+		"DOOR KEY":
 			type = card_type.DOOR_KEY
 			image.texture = preload("res://assets/door_key.png") 
 			title_text.text = "door key"
@@ -51,12 +51,12 @@ func _on_buy_button_pressed() -> void:
 		# Disable the button
 	buy_button.disabled = true
 	if type == card_type.RED_POTION:
-		CoinUi.red_potion_count += 1
+		CoinCollector.red_potion_count += 1
 	if type == card_type.GREEN_POTION:
-		CoinUi.green_potion_count += 1
+		CoinCollector.green_potion_count += 1
 	if type == card_type.PURPLE_POTION:
-		CoinUi.purple_potion_count += 1
+		CoinCollector.purple_potion_count += 1
 	if type == card_type.BLUE_POTION:
-		CoinUi.blue_potion_count += 1
+		CoinCollector.blue_potion_count += 1
 	if type == card_type.DOOR_KEY:
-		CoinUi.door_key_count += 1
+		CoinCollector.door_key_count += 1

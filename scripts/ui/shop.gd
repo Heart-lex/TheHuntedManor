@@ -8,6 +8,5 @@ extends CanvasLayer
 @onready var shop_card_2: Control = $ShopCard2
 @onready var shop_card_3: Control = $ShopCard3
 
-
 func _on_exit_button_pressed() -> void:
 		self.visible = false
