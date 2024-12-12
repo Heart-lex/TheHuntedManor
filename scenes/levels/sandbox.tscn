@@ -19,10 +19,10 @@ script = ExtResource("1_gwjcd")
 environment = SubResource("Environment_h4ekl")
 
 [node name="Knight" parent="." instance=ExtResource("1_pp316")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45034, 0.245871, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45034, 0.0860932, 0)
 
 [node name="Rogue" parent="." instance=ExtResource("2_2iyta")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67635, 0.245871, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183146, 2.43526, -4.02681)
 
 [node name="UI" type="Node" parent="."]
 
@@ -42,4 +42,4 @@ use_collision = true
 size = Vector3(100, 1, 100)
 
 [node name="MovableFoundation" parent="." instance=ExtResource("7_8noto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.02477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.130556, -4.02477)
