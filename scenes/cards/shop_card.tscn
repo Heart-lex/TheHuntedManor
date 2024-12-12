@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d345qpyil1brc"]
+[gd_scene load_steps=14 format=3 uid="uid://d345qpyil1brc"]
 
 [ext_resource type="Texture2D" uid="uid://dien5hqpa5avq" path="res://assets/cards/shop_card.png" id="1_3na6g"]
 [ext_resource type="Script" path="res://scripts/ui/shop_card.gd" id="1_ixile"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cnml57ep6aa3x" path="res://fonts/Haunted.ttf" id="3_xmyu4"]
 [ext_resource type="Texture2D" uid="uid://s3frh4hsqida" path="res://assets/cards/red_potion.png" id="4_opl33"]
 [ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="5_igiei"]
+[ext_resource type="PackedScene" uid="uid://d25cmk0f3jjms" path="res://scenes/ui/error_message.tscn" id="7_jtx12"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xy3vs"]
 texture = ExtResource("1_3na6g")
@@ -165,5 +166,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_tenix")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_s12wa")
 theme_override_styles/normal = SubResource("StyleBoxFlat_t5506")
 text = "  BUY  "
+
+[node name="ErrorMessage" parent="." instance=ExtResource("7_jtx12")]
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/ButtonMarginContainer/buyButton" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d25cmk0f3jjms"]
+
+[ext_resource type="Script" path="res://scripts/ui/error_message.gd" id="1_ep7nu"]
+[ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="1_vql5v"]
+
+[node name="Control" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_ep7nu")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -858.0
+offset_top = 660.0
+offset_right = -474.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+self_modulate = Color(1, 1, 0.145098, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 372.0
+offset_bottom = 44.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_vql5v")
+theme_override_font_sizes/font_size = 30
+text = "Coins ARE NOT ENOUGH"

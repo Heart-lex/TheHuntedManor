@@ -7,6 +7,7 @@ extends Control
 @onready var image: TextureRect = $PanelContainer/MarginContainer/CoinBox/ImgMarginContainer/HBoxImgContainer/Image
 @onready var title_text: Label = $PanelContainer/MarginContainer/CoinBox/TitleMarginContainer/HBoxContainer/TitleText
 @onready var description_text: Label = $PanelContainer/MarginContainer/CoinBox/DescriptionMarginContainer/HBoxContainer/DescriptionText
+@onready var error_message: CanvasLayer = $ErrorMessage
 
 enum card_type {RED_POTION, GREEN_POTION, BLUE_POTION ,PURPLE_POTION ,DOOR_KEY}
 var type : card_type
@@ -49,19 +50,25 @@ func create_card (name: String) -> void:
 		
 func _on_buy_button_pressed() -> void:
 		# Disable the button
-	buy_button.disabled = true
-	if type == card_type.RED_POTION:
-		CoinCollector.red_potion_count += 1
-		CoinCollector.update_visibility()
-	if type == card_type.GREEN_POTION:
-		CoinCollector.green_potion_count += 1
-		CoinCollector.update_visibility()
-	if type == card_type.PURPLE_POTION:
-		CoinCollector.purple_potion_count += 1
-		CoinCollector.update_visibility()
-	if type == card_type.BLUE_POTION:
-		CoinCollector.blue_potion_count += 1
-		CoinCollector.update_visibility()
-	if type == card_type.DOOR_KEY:
-		CoinCollector.door_key_count += 1
-		CoinCollector.update_visibility()
+	var coin_collector_total = CoinCollector.coin_count
+	var card_total = int(coin_count.text)
+	if coin_collector_total > card_total:
+		buy_button.disabled = true
+		if type == card_type.RED_POTION:
+			CoinCollector.red_potion_count += 1
+			CoinCollector.update_visibility()
+		if type == card_type.GREEN_POTION:
+			CoinCollector.green_potion_count += 1
+			CoinCollector.update_visibility()
+		if type == card_type.PURPLE_POTION:
+			CoinCollector.purple_potion_count += 1
+			CoinCollector.update_visibility()
+		if type == card_type.BLUE_POTION:
+			CoinCollector.blue_potion_count += 1
+			CoinCollector.update_visibility()
+		if type == card_type.DOOR_KEY:
+			CoinCollector.door_key_count += 1
+			CoinCollector.update_visibility()
+	error_message.visible = true  
+	await get_tree().create_timer(2).timeout
+	error_message.visible = false  
