@@ -9,7 +9,7 @@ extends Control
 @onready var description_text: Label = $PanelContainer/MarginContainer/CoinBox/DescriptionMarginContainer/HBoxContainer/DescriptionText
 @onready var error_message: CanvasLayer = $ErrorMessage
 
-enum card_type {RED_POTION, GREEN_POTION, BLUE_POTION ,PURPLE_POTION ,DOOR_KEY}
+enum card_type { RED_POTION, GREEN_POTION, BLUE_POTION ,PURPLE_POTION, DOOR_KEY }
 var type : card_type
 
 # Called when the node enters the scene tree for the first time.
