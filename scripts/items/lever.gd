@@ -1,3 +1,5 @@
+class_name Lever 
+
 extends CharacterBody3D
 
 @export var door : Door
@@ -24,6 +26,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("rogue"):
 		active = true
 		if not is_triggered:
+			interaction_prompt.label.text = "Press E or Shift to interact"
 			interaction_prompt.visible = true
 
 func _on_body_exited(body: Node3D) -> void:

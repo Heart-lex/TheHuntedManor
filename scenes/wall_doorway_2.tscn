@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://0p3xsg135jns"]
+[gd_scene load_steps=9 format=3 uid="uid://0p3xsg135jns"]
 
 [ext_resource type="PackedScene" uid="uid://dqdoijs3ga16" path="res://assets/dungeon/floor/dungeon_remastered/wall_doorway.gltf" id="1_isjfb"]
 [ext_resource type="Script" path="res://scripts/items/wall_doorway_2.gd" id="2_cgksd"]
+[ext_resource type="PackedScene" uid="uid://bxea2ujb23k66" path="res://scenes/ui/interaction_prompt.tscn" id="3_l3ilm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sj7gr"]
+size = Vector3(3.07452, 2.67578, 3.43579)
 
 [sub_resource type="Animation" id="Animation_x8w7u"]
 length = 0.001
@@ -71,7 +75,19 @@ script = ExtResource("2_cgksd")
 [node name="wall_doorway_door" parent="wall_doorway" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.820099, 0, 0)
 
+[node name="DetectionArea" type="Area3D" parent="wall_doorway" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189291, 0, -0.0902959)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_doorway/DetectionArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207503, 1.41566, 1.86368)
+shape = SubResource("BoxShape3D_sj7gr")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_prwp4")
 }
+
+[node name="InteractionPrompt" parent="." index="2" instance=ExtResource("3_l3ilm")]
+
+[connection signal="body_entered" from="wall_doorway/DetectionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="wall_doorway/DetectionArea" to="." method="_on_body_exited"]

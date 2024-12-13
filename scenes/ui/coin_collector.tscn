@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://br26inj76efs3" path="res://images/keyboard_keys/key_4.png" id="9_1lffv"]
 [ext_resource type="Texture2D" uid="uid://b7o0lhyohlxxf" path="res://images/keyboard_keys/key_5.png" id="11_pb4nj"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CoinUi" type="CanvasLayer"]
 script = ExtResource("1_ieb6f")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_right = 672.0
-offset_bottom = 42.0
+offset_bottom = 53.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2

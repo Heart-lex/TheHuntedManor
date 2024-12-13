@@ -3,9 +3,35 @@ class_name Door
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var detection_area: Area3D = $wall_doorway/DetectionArea
+@onready var interaction_prompt: CanvasLayer = $InteractionPrompt
+
+@export var lever : Lever = null
+
+var active: bool = false
 
 func _ready() -> void:
+	interaction_prompt.visible = false
 	animation_player.play("closed")
 
 func open() -> void:
 	animation_player.play("open")
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("use_key") and active:
+		active = false
+		CoinCollector.door_key_count -= 1
+		self.open()
+		
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group("knight") and (CoinCollector.door_key_count > 0) and (lever == null):
+		active = true
+		interaction_prompt.label.text = "Press 1 to use the door key"
+		interaction_prompt.visible = true
+	else:
+		active = false
+		interaction_prompt.visible = false
+	
+func _on_body_exited(body: Node3D) -> void:
+	active = false
+	interaction_prompt.visible = false

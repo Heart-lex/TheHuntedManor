@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxea2ujb23k66"]
+[gd_scene load_steps=3 format=3 uid="uid://bxea2ujb23k66"]
 
+[ext_resource type="Script" path="res://scenes/ui/interaction_prompt.gd" id="1_33c80"]
 [ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="1_tjq32"]
 
 [node name="InteractionPrompt" type="CanvasLayer"]
+script = ExtResource("1_33c80")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 50)
