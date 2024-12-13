@@ -18,6 +18,7 @@ func _on_start_pressed() -> void:
 	background_music.stop()
 	CoinCollector.visible = true
 	get_tree().change_scene_to_file("res://scenes/levels/level01.tscn")
+	
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

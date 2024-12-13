@@ -22,7 +22,7 @@ buses/default_bus_layout="res://sounds/default_bus_layout.tres"
 [autoload]
 
 Music="*res://scenes/music.tscn"
-CoinCollector="*res://scenes/ui/coin_collector.tscn"
+CoinUi="*res://scripts/ui/coin_ui.gd"
 
 [display]
 

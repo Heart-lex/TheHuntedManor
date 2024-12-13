@@ -20,14 +20,12 @@ var purple_potion_count: int = 0
 
 # Reference to the Label node
 @onready var coin_label: Label = $HBoxContainer/coin_label
+@onready var container: HBoxContainer = $HBoxContainer
 
 func _ready() -> void:
 	self.visible = true
 	
 func _process(delta: float) -> void:
-	pass
-		
-func update_visibility() -> void:
 	if door_key_count == 0: 
 		door_key.visible = false
 		key_1.visible = false
@@ -58,6 +56,7 @@ func update_visibility() -> void:
 	else: 
 		purple_potion.visible = true
 		key_5.visible = true
+		
 
 # Function to update the coin count
 func update_coin_count(amount: int) -> void:
