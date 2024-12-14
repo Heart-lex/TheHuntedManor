@@ -2,11 +2,12 @@ class_name Knight
 
 extends CharacterBody3D
 
+@export var camera: CameraRig
+@onready var pivot: Node3D = $CameraPoint
+
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var pivot: Node3D = $CameraPivot
 @onready var aim_direction: Marker3D = $AimDirection
-@onready var camera: Camera3D = $CameraPivot/IsometricCamera
 @onready var health_component: HealthComponent = $HealthComponent
 
 @onready var active 

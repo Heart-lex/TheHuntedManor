@@ -54,37 +54,37 @@ func move(zone: Zones) -> void:
 # ~~ ZONE SIGNAL FUNCTIONS ~~ #
 
 func _on_zone_positive_x_body_entered(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.POS_X
 
 
 func _on_zone_positive_x_body_exited(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.NONE
 
 
 func _on_zone_negative_x_body_entered(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.NEG_X
 
 
 func _on_zone_negative_x_body_exited(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.NONE 
 
 
 func _on_zone_negative_z_body_entered(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.NEG_Z
 
 
 func _on_zone_negative_z_body_exited(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.NONE
 
 
 func _on_zone_positive_z_body_entered(body: Node3D) -> void:
-	if body.is_in_group("soldier"):
+	if body.is_in_group("knight"):
 		current_zone = Zones.POS_Z
 
 

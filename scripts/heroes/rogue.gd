@@ -2,9 +2,12 @@ class_name Rogue
 
 extends CharacterBody3D
 
+@export var camera : CameraRig
+
+@onready var pivot: Node3D = $CameraPoint
+
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var camera_point: Node3D = $CameraPivot
 @onready var health_component: HealthComponent = $HealthComponent
 
 @onready var active 
