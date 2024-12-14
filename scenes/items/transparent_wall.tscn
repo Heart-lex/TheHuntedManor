@@ -1,12 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcmfvg2hxk4ww"]
+[gd_scene load_steps=2 format=3 uid="uid://bcmfvg2hxk4ww"]
 
 [ext_resource type="PackedScene" uid="uid://b5hs3pcbjly6t" path="res://assets/dungeon/floor/dungeon_remastered/wall.gltf" id="1_a5leq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55hu6"]
-blend_mode = 1
-albedo_color = Color(0.753984, 0.753984, 0.753984, 1)
-
 [node name="wall2" instance=ExtResource("1_a5leq")]
-
-[node name="wall" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_55hu6")

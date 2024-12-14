@@ -5,43 +5,52 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wg8op"]
 shader = ExtResource("2_po73w")
-shader_parameter/MULTIPLIER = 0.56
-shader_parameter/SCALE = 0.5
-shader_parameter/SOFTNESS = 0.45
-shader_parameter/BASE_OPACITY = 0.6
+shader_parameter/MULTIPLIER = 1.0
+shader_parameter/SCALE = 0.6
+shader_parameter/SOFTNESS = 0.75
+shader_parameter/BASE_OPACITY = 1.0
 
-[node name="camera_rig" type="Node3D"]
+[node name="camera_rig" type="Camera3D"]
+cull_mask = 0
+projection = 1
+size = 16.0
 script = ExtResource("1_b8ex3")
 
-[node name="base_camera" type="Camera3D" parent="."]
-
-[node name="background_viewport_container" type="SubViewportContainer" parent="base_camera"]
+[node name="background_viewport_container" type="SubViewportContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="background_viewport" type="SubViewport" parent="base_camera/background_viewport_container"]
+[node name="background_viewport" type="SubViewport" parent="background_viewport_container"]
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="background_camera" type="Camera3D" parent="base_camera/background_viewport_container/background_viewport"]
+[node name="background_camera" type="Camera3D" parent="background_viewport_container/background_viewport"]
 cull_mask = 1
+projection = 1
+current = true
+size = 16.0
 
-[node name="foreground_viewport_container" type="SubViewportContainer" parent="base_camera"]
+[node name="foreground_viewport_container" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_wg8op")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="foreground_viewport" type="SubViewport" parent="base_camera/foreground_viewport_container"]
+[node name="foreground_viewport" type="SubViewport" parent="foreground_viewport_container"]
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="foreground_camera" type="Camera3D" parent="base_camera/foreground_viewport_container/foreground_viewport"]
+[node name="foreground_camera" type="Camera3D" parent="foreground_viewport_container/foreground_viewport"]
 cull_mask = 2
+projection = 1
+current = true
+size = 16.0
