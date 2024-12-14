@@ -24,6 +24,7 @@ buses/default_bus_layout="res://sounds/default_bus_layout.tres"
 Music="*res://scenes/music.tscn"
 CoinCollector="*res://scenes/ui/coin_collector.tscn"
 CardType="*res://scripts/ui/card_type.gd"
+GameManager="*res://scripts/globals/game_manager.gd"
 
 [display]
 
