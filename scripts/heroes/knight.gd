@@ -12,6 +12,8 @@ extends CharacterBody3D
 
 @onready var active 
 
+var is_attacking : bool = false
+
 var currState = state.IDLE
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_look_direction: Vector3 = Vector3.ZERO
@@ -70,6 +72,13 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			jump()
 		
+		if Input.is_action_just_pressed("light_attack") and not is_attacking:
+			currState = state.LIGHT_ATTACK
+			light_attack()
+			
+		if Input.is_action_just_pressed("heavy_attack") and not is_attacking:
+			currState = state.HEAVY_ATTACK
+		
 		# Get input vector
 		var input_dir := Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
 		
@@ -116,6 +125,10 @@ func handle_animations(delta: float) -> void:
 		
 func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	
+func light_attack():
+	anim_tree.set("parameters/LightAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
 
 func character_death() -> void:
 	pass
