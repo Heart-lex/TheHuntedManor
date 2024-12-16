@@ -1,13 +1,16 @@
 extends Area3D
 
-@export var health_component: HealthComponent
+@export var always_enabled = self.monitoring
 
 func _ready() -> void:
-	self.hide()
+	self.monitoring = always_enabled
 
 func start_attack() -> void:
-	self.show()
+	self.monitoring = true
+	print("ATTACK!")
 
 func stop_attack() -> void:
-	self.hide()
+	self.monitoring = false
+	print("Stopped attacking...")
+
 	
