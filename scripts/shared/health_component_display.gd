@@ -12,4 +12,4 @@ func apply_damage(damage: float) -> void:
 		target_is_dead.emit()
 		
 func gain_health(gained_health: float) -> void:
-		health = clamp(health+gained_health, 0, max_health)
+		health = clamp(health + gained_health, 0, max_health)
