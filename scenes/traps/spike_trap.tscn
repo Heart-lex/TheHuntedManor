@@ -169,8 +169,7 @@ script = ExtResource("2_2u1ae")
 
 [node name="Hurtbox" type="Area3D" parent="." index="0" groups=["Spikes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000799179, -1.19209e-07, -0.00992203)
-collision_layer = 0
-collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00790405, 0.999585, -0.00537109)
@@ -188,4 +187,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_kxoke")
 anim_player = NodePath("../AnimationPlayer")
 
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
