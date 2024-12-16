@@ -2,20 +2,32 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox: Area3D = $Hurtbox
+@onready var timer: Timer = $Timer
 
 enum States {ACTIVE, INACTIVE}
 
 var state : States = States.INACTIVE
 
+var active : bool = false
+
+var bodies : Array = []
+
+func _process(delta: float) -> void:
+	if state == States.ACTIVE:
+		for body in hurtbox.get_overlapping_bodies():
+			if body not in bodies:
+				body.health_component.apply_damage(20)
+				bodies.append(body)
+		
+		timer.start()
+
 func activate() -> void:
 	state = States.ACTIVE
+	hurtbox.monitoring = true
 	
 func deactivate() -> void:
 	state = States.INACTIVE
+	hurtbox.monitoring = false
 
-func _on_hurtbox_body_entered(body: Node3D) -> void:
-	if state == States.ACTIVE:
-		body.health_component.apply_damage(20)
-
-	
-		
+func _on_timer_timeout() -> void:
+	bodies.clear()
