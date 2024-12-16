@@ -4,7 +4,6 @@ extends CharacterBody3D
 
 @onready var model: Node3D = $Armature
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var hitbox: CollisionShape3D = $Hitbox
 @onready var detection_area: Area3D = $DetectionArea
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var healthbar_position: Node3D = $HealthbarPosition
