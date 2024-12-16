@@ -7,7 +7,6 @@ extends CharacterBody3D
 
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
-@onready var aim_direction: Marker3D = $AimDirection
 @onready var health_component: HealthComponent = $HealthComponent
 
 @onready var active 
@@ -15,33 +14,38 @@ extends CharacterBody3D
 var is_attacking : bool = false
 var is_dead: bool = false
 
-var currState = state.IDLE
+var currState = State.IDLE
+var attackType = AttackType.NONE
+var look_rotation : float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var mouse_look_direction: Vector3 = Vector3.ZERO
-var rayOrigin: Vector3
-var rayEnd: Vector3
+
+var attack_cooldown : float
 
 var SPEED: float = 5.0
+
 const JUMP_VELOCITY: float = 4.5
 const ROTATION_SPEED: float = 12.0
-const RAY_LENGTH = 1000.0
+const RAY_LENGTH = 2000.0
 
-enum state {IDLE, WALK, RUN, JUMP, LIGHT_ATTACK, HEAVY_ATTACK, BLOCK, DIE}
+enum State { IDLE, WALK, RUN, JUMP, LIGHT_ATTACK, HEAVY_ATTACK, BLOCK, DIE }
+
+enum AttackType { NONE, LIGHT_ATK, HEAVY_ATK, AERIAL_LIGHT_ATK, AERIAL_HEAVY_ATK }
 
 func _ready() -> void:
 	health_component.target_is_dead.connect(character_death)
 
-# MOUSE-CONTROLLED ROTATION
+# MOUSE-BASED CHARACTER ROTATION
 func _input(event):
 	if event is InputEventMouseMotion:
-		var from = camera.project_ray_origin(event.position)
-		var to = from + camera.project_ray_normal(event.position) * RAY_LENGTH
-		mouse_look_direction = to
-
+		# Get center of screen
+		var screen_size := Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y / 2)
+		# Calculate where the mouse is relative to the center of the screen and offset it by 90 degrees
+		look_rotation = atan2(event.position.x - screen_size.x, event.position.y - screen_size.y) + PI / 2
+		
 func _physics_process(delta: float) -> void:
 	
 	if health_component.health == 0:
-		currState = state.DIE
+		currState = State.DIE
 		is_dead = true
 	
 	if not is_dead:
@@ -51,39 +55,34 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if active: 
-		var space_state := get_world_3d().direct_space_state
+	if active and not is_dead:
 		
-		var mouse_pos := get_viewport().get_mouse_position()
-		
-		rayOrigin = camera.project_ray_origin(mouse_pos)
-		
-		rayEnd = rayOrigin + camera.project_ray_normal(mouse_pos) * RAY_LENGTH
-		
-		var query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd);
-		
-		# Get the intersection point of the camera's ray and the world
-		var intersection = space_state.intersect_ray(query)
-		
-		# If the ray collides with something
-		if not intersection.is_empty():
-			var pos = intersection.position
-			
-			# position.y refers to this node's instance and is used so that
-			# the model "looks" ahead in a straight line instead of at an angle
-			# (which would happen since the intersection doesn't necessarily happen at character-height)
-			model.look_at(Vector3(pos.x, position.y, pos.z), Vector3(0, 1, 0))
+		model.rotation.y = look_rotation
 		
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jump()
 		
-		if Input.is_action_just_pressed("light_attack") and not is_attacking:
-			currState = state.LIGHT_ATTACK
-			light_attack()
-			
-		if Input.is_action_just_pressed("heavy_attack") and not is_attacking:
-			currState = state.HEAVY_ATTACK
+		if not is_attacking:
+			if Input.is_action_just_pressed("light_attack") or Input.is_action_just_pressed("heavy_attack"):
+				
+				is_attacking = true
+				
+				if Input.is_action_just_pressed("light_attack"):
+					currState = State.LIGHT_ATTACK
+					if is_on_floor():
+						attackType = AttackType.LIGHT_ATK
+					else:
+						attackType = AttackType.AERIAL_LIGHT_ATK
+					light_attack()
+				
+				if Input.is_action_just_pressed("heavy_attack"):
+					currState = State.HEAVY_ATTACK
+					if is_on_floor():
+						attackType = AttackType.HEAVY_ATK
+					else:
+						attackType = AttackType.AERIAL_HEAVY_ATK
+					heavy_attack()
 		
 		# Get input vector
 		var input_dir := Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
@@ -98,31 +97,31 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
-			currState = state.RUN
+			currState = State.RUN
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
-			currState = state.IDLE
+			currState = State.IDLE
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		currState = state.IDLE
+		currState = State.IDLE
 
 func handle_animations(delta: float) -> void:
 	if active:
 		match currState:
-			state.IDLE:
+			State.IDLE:
 				anim_tree.set("parameters/Movement/transition_request", "Idle")
-			state.WALK:
+			State.WALK:
 				anim_tree.set("parameters/Movement/transition_request", "Walk")
-			state.RUN: 
+			State.RUN: 
 				anim_tree.set("parameters/Movement/transition_request","Run")
 				anim_tree.set("parameters/Running Animation/blend_position", Vector2(-velocity.z, -velocity.x).normalized())
-			state.JUMP:
+			State.JUMP:
 				anim_tree.set("parameters/Movement/transition_request","Jump")
-			state.LIGHT_ATTACK:
+			State.LIGHT_ATTACK:
 				pass
-			state.HEAVY_ATTACK:
+			State.HEAVY_ATTACK:
 				pass
 	else:
 		anim_tree.set("parameters/Movement/transition_request", "Idle")
@@ -132,13 +131,51 @@ func jump():
 	
 func light_attack():
 	anim_tree.set("parameters/LightAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-
+	
+	match attackType:
+		AttackType.LIGHT_ATK:
+			attack_cooldown = 1.2
+		AttackType.AERIAL_LIGHT_ATK:
+			velocity.y = 4.0
+			attack_cooldown = 1.6
+	
+func heavy_attack():
+	anim_tree.set("parameters/HeavyAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	
+	match attackType:
+		AttackType.HEAVY_ATK:
+			attack_cooldown = 1.4
+		AttackType.AERIAL_HEAVY_ATK:
+			velocity.y = -4.0
+			attack_cooldown = 1.8
+	
+func _on_attack_animation_finished(anim_name: StringName) -> void:
+	is_attacking = false
+	
 func character_death() -> void:
 	anim_tree.set("parameters/Movement/transition_request", "Die")
 	start_timer()
 
+func calc_damage() -> int:
+	var damage : int
+	
+	match attackType:
+		AttackType.NONE:
+			damage = 0
+		AttackType.LIGHT_ATK:
+			damage = 10
+		AttackType.AERIAL_LIGHT_ATK:
+			damage = 20
+		AttackType.HEAVY_ATK:
+			damage = 25
+		AttackType.AERIAL_HEAVY_ATK:
+			damage = 30
+		
+	return damage
+		
+
 func _on_hurtbox_area_entered(area: Area3D) -> void:
-	area.health_component.apply_damage(10)
+	area.health_component.apply_damage(calc_damage())
 	
 func start_timer(): 
 	var timer = Timer.new()
