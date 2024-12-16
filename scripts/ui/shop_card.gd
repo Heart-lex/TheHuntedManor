@@ -21,7 +21,7 @@ func create_card (card_type: CardType.card_type) -> void:
 			type = CardType.card_type.RED_POTION
 			image.texture = preload("res://assets/red_potion.png") 
 			title_text.text = "red potion"
-			description_text.text = "a mystical brew that pulses with life energy. Consuming it grants 10xp, fueling your journey toward greater power skill."
+			description_text.text = "a mystical brew that pulses with life energy. Consuming it grants 10hp, fueling your journey toward greater power skill."
 		CardType.card_type.GREEN_POTION:
 			type = CardType.card_type.GREEN_POTION
 			image.texture = preload("res://assets/green_potion.png") 
