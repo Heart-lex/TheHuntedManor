@@ -19,6 +19,7 @@ var temp_state
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	GameManager.is_main_menu_active = false
 	GameManager.set_heroes(knight, rogue)
 	GameManager.set_knight_as_active()
 	
