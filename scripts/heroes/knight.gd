@@ -134,22 +134,27 @@ func light_attack():
 	
 	match attackType:
 		AttackType.LIGHT_ATK:
-			attack_cooldown = 1.2
+			attack_cooldown = 0.6
 		AttackType.AERIAL_LIGHT_ATK:
 			velocity.y = 4.0
-			attack_cooldown = 1.6
+			attack_cooldown = 1.0
+	
+	is_attacking = true
+	await get_tree().create_timer(attack_cooldown).timeout
+	is_attacking = false
 	
 func heavy_attack():
 	anim_tree.set("parameters/HeavyAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
 	match attackType:
 		AttackType.HEAVY_ATK:
-			attack_cooldown = 1.4
+			attack_cooldown = 1.2
 		AttackType.AERIAL_HEAVY_ATK:
 			velocity.y = -4.0
-			attack_cooldown = 1.8
-	
-func _on_attack_animation_finished(anim_name: StringName) -> void:
+			attack_cooldown = 1.4
+			
+	is_attacking = true
+	await get_tree().create_timer(attack_cooldown).timeout
 	is_attacking = false
 	
 func character_death() -> void:
@@ -163,13 +168,13 @@ func calc_damage() -> int:
 		AttackType.NONE:
 			damage = 0
 		AttackType.LIGHT_ATK:
-			damage = 10
+			damage = 8
 		AttackType.AERIAL_LIGHT_ATK:
-			damage = 20
+			damage = 12
 		AttackType.HEAVY_ATK:
-			damage = 25
+			damage = 18
 		AttackType.AERIAL_HEAVY_ATK:
-			damage = 30
+			damage = 25
 		
 	return damage
 		
