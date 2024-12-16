@@ -169,6 +169,8 @@ script = ExtResource("2_2u1ae")
 
 [node name="Hurtbox" type="Area3D" parent="." index="0" groups=["Spikes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000799179, -1.19209e-07, -0.00992203)
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00790405, 0.999585, -0.00537109)
