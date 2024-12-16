@@ -20,7 +20,7 @@ var mouse_look_direction: Vector3 = Vector3.ZERO
 var rayOrigin: Vector3
 var rayEnd: Vector3
 
-const SPEED: float = 5.0
+var SPEED: float = 5.0
 const JUMP_VELOCITY: float = 4.5
 const ROTATION_SPEED: float = 12.0
 const RAY_LENGTH = 1000.0
