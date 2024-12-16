@@ -13,6 +13,7 @@ extends CharacterBody3D
 @onready var active 
 
 var is_attacking : bool = false
+var is_dead: bool = false
 
 var currState = state.IDLE
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -39,8 +40,13 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 	
-	move_and_slide()
-	handle_animations(delta)
+	if health_component.health == 0:
+		currState = state.DIE
+		is_dead = true
+	
+	if not is_dead:
+		move_and_slide()
+		handle_animations(delta)
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -118,20 +124,29 @@ func handle_animations(delta: float) -> void:
 				pass
 			state.HEAVY_ATTACK:
 				pass
-			state.DIE:
-				anim_tree.set("parameters/Death/transition_request", "Die")
 	else:
 		anim_tree.set("parameters/Movement/transition_request", "Idle")
-		
+
 func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
 func light_attack():
 	anim_tree.set("parameters/LightAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
-
 func character_death() -> void:
-	pass
+	anim_tree.set("parameters/Movement/transition_request", "Die")
+	start_timer()
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	area.health_component.apply_damage(10)
+	
+func start_timer(): 
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 3
+	timer.one_shot = true
+	timer.start()
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	
+func _on_timer_timeout():
+	GameManager.restart_level()

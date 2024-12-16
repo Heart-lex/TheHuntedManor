@@ -13,6 +13,7 @@ extends CharacterBody3D
 @onready var active 
 
 var currState
+var is_dead: bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var SPEED: float = 5.0
@@ -26,8 +27,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	move_and_slide()
-	handle_animations(delta)
+	if not is_dead:
+		move_and_slide()
+		handle_animations(delta)
+	
+	if health_component.health == 0:
+		character_death()
+		is_dead = true
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -73,4 +79,16 @@ func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
 func character_death() -> void:
-	pass
+	anim_tree.set("parameters/Movement/transition_request", "Death")
+	start_timer()
+	
+func start_timer(): 
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 3
+	timer.one_shot = true
+	timer.start()
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	
+func _on_timer_timeout():
+	GameManager.restart_level()
