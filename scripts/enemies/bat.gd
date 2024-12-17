@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var detection_area: Area3D = $DetectionArea
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var healthbar_position: Node3D = $HealthbarPosition
+@onready var hurtbox: Area3D = $Armature/Hurtbox
 
 var currState
 var knight: Node3D =  null
@@ -56,31 +57,15 @@ func handle_animations(delta: float) -> void:
 		state.FLY:
 			anim_tree.set("parameters/Movement/transition_request","Fly")
 		state.DEATH:
-			anim_tree.set("parameters/Movement/transition_request","Die")
+			# We use this in place of a death animation
+			anim_tree.set("parameters/Movement/transition_request","Hang") 
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	area.health_component.apply_damage(8)
 	
 func on_target_dead() -> void:
 	currState = state.DEATH
-	$AnimationTree.set("parameters/Movement/transition_request", "Die")
+	hurtbox.monitoring = false
 	# Wait for the death animation to complete before fading
-	await get_tree().create_timer(1.5).timeout  # Adjust duration to match death animation
-	start_fade_out()
-
-func start_fade_out() -> void:
-	
-	# Modulate does NOT exist for 3D models. This needs to be handled via shaders.
-	
-	# Begin reducing the alpha value of the model's modulate property
-	#var fade_time = 2.0  # Duration of fade-out in seconds
-	#var fade_step = 1.0 / (fade_time * 60.0)  # Assuming 60 FPS
-	#var alpha = 1.0
-#
-	#while alpha > 0:
-		#alpha -= fade_step
-		#model.modulate.a = alpha  # Gradually reduce alpha
-		#await get_tree().create_timer(1.0 / 60.0).timeout  # Wait for the next frame
-
-	# Once fully faded, remove the spider
+	await get_tree().create_timer(0.3).timeout  # Adjust duration to match death animation
 	queue_free()
