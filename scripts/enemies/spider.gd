@@ -3,7 +3,7 @@ class_name Spider
 extends CharacterBody3D
 
 const SPEED = 2.0               # Movement speed
-const PATROL_DISTANCE = 7.0    # Distance in meters to patrol before turning around
+const PATROL_DISTANCE = 10.0    # Distance in meters to patrol before turning around
 const TURN_DELAY = 1.0          # Pause duration in seconds before turning
 
 @onready var model: Node3D = $Sketchfab_model
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 				chase_target(delta)
 
 func start_patrol() -> void:
-	patrol_direction = Vector3(0, 0, 1)  # Reset patrol direction to forward
+	patrol_direction = -transform.basis.z.normalized()  # Local forward direction
 	currState = state.PATROL
 	anim_tree.set("parameters/Movement/transition_request", "Walk")
 	velocity = patrol_direction * SPEED
@@ -54,24 +54,17 @@ func start_patrol() -> void:
 func handle_patrol(delta: float) -> void:
 	# Move the spider forward in its patrol direction
 	velocity = patrol_direction * SPEED
-	
 	# Check if the spider has reached the patrol distance
 	if global_position.distance_to(patrol_start) >= PATROL_DISTANCE and not is_turning:
 		is_turning = true  # Prevent movement during turning
 		velocity = Vector3.ZERO  # Stop the spider
 		anim_tree.set("parameters/Movement/transition_request", "Idle")  # Pause animation
 		
-		# Start a timer to handle the turn
-		var timer = Timer.new()
-		timer.wait_time = TURN_DELAY
-		timer.one_shot = true
-		timer.timeout.connect(turn_back)
-		add_child(timer)  # Add timer to the scene
-		timer.start()
+		turn_back()
 
 func turn_back() -> void:
 	# Turn the spider 180 degrees
-	patrol_direction = -patrol_direction
+	patrol_direction = -patrol_direction  # Flip the patrol direction
 	model.look_at(global_position + patrol_direction, Vector3.UP)
 
 	# Reset patrol start and resume movement
@@ -79,7 +72,6 @@ func turn_back() -> void:
 	velocity = patrol_direction * SPEED
 	anim_tree.set("parameters/Movement/transition_request", "Walk")
 	is_turning = false
-
 
 # Target chase
 func chase_target(delta: float) -> void:

@@ -273,7 +273,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36305, 7.38181, -5.37111)
 
 [node name="spider" parent="." instance=ExtResource("9_pn8h6")]
-transform = Transform3D(-0.0517782, 0, 0.998659, 0, 1, 0, -0.998659, 0, -0.0517782, 10.0271, -13.281, 8.89067)
+transform = Transform3D(-0.0414226, 0, 0.798927, 0, 0.8, 0, -0.798927, 0, -0.0414226, 10.0271, -10.2393, 8.61049)
 
 [node name="CollisionWalls" type="Node" parent="."]
 
