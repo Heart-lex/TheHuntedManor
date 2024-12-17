@@ -8,6 +8,8 @@ extends CharacterBody3D
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var shield: MeshInstance3D = $MeshInstance3D
+@onready var hitbox: Area3D = $Hitbox
 
 @onready var active 
 
@@ -32,8 +34,14 @@ enum State { IDLE, WALK, RUN, JUMP, LIGHT_ATTACK, HEAVY_ATTACK, BLOCK, DIE }
 enum AttackType { NONE, LIGHT_ATK, HEAVY_ATK, AERIAL_LIGHT_ATK, AERIAL_HEAVY_ATK }
 
 func _ready() -> void:
+	is_dead = false
 	health_component.target_is_dead.connect(character_death)
 
+func activate_shield() -> void:
+	shield.visible = true
+	hitbox.monitorable = false
+	start_timer()
+	
 # MOUSE-BASED CHARACTER ROTATION
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -175,20 +183,27 @@ func calc_damage() -> int:
 			damage = 18
 		AttackType.AERIAL_HEAVY_ATK:
 			damage = 25
-		
 	return damage
 		
-
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	area.health_component.apply_damage(calc_damage())
 	
 func start_timer(): 
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 3
+	if is_dead:
+		timer.wait_time = 3
+	else: 
+		timer.wait_time = 15
 	timer.one_shot = true
 	timer.start()
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	
 func _on_timer_timeout():
-	GameManager.restart_level()
+	if is_dead:
+		GameManager.restart_level()
+	else:
+		GameManager.green_potion = false
+		shield.visible = false
+		hitbox.monitorable = true
+		

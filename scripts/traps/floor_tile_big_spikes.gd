@@ -15,10 +15,14 @@ var bodies : Array = []
 func _process(delta: float) -> void:
 	if state == States.ACTIVE:
 		for body in hurtbox.get_overlapping_bodies():
-			if body not in bodies:
-				body.health_component.apply_damage(20)
-				bodies.append(body)
-		
+			if body.is_in_group("knight") and GameManager.green_potion and GameManager.hero_knight.active:
+				pass
+			elif body.is_in_group("rogue") and GameManager.green_potion and GameManager.hero_rogue.active:
+				pass
+			else: 
+				if body not in bodies:
+					body.health_component.apply_damage(20)
+					bodies.append(body)
 		timer.start()
 
 func activate() -> void:

@@ -5,6 +5,7 @@ var hero_knight : Knight
 var hero_rogue : Rogue
 var temp_state : bool
 var is_main_menu_active: bool = true
+var green_potion: bool = false
 	
 func set_heroes(knight : Knight, rogue: Rogue) -> void:
 	hero_knight = knight
@@ -42,7 +43,7 @@ func _input(event: InputEvent) -> void:
 			CoinCollector.blue_potion_count -=1
 			if hero_knight.active:
 				hero_knight.SPEED += 5.0
-				await get_tree().create_timer(20).timeout
+				await get_tree().create_timer(15).timeout
 				hero_knight.SPEED -= 5.0
 			else:
 				hero_rogue.SPEED += 5.0
@@ -50,6 +51,11 @@ func _input(event: InputEvent) -> void:
 				hero_rogue.SPEED -= 5.0
 	if Input.is_action_just_pressed("use_green_potion") and CoinCollector.green_potion_count > 0:
 			CoinCollector.green_potion_count -=1
+			if hero_knight.active:
+				hero_knight.activate_shield()
+			else:
+				hero_knight.activate_shield()
+			green_potion = true
 	if Input.is_action_just_pressed("use_red_potion") and CoinCollector.red_potion_count > 0:
 			CoinCollector.red_potion_count -=1
 			if hero_knight.active:
@@ -60,5 +66,5 @@ func _input(event: InputEvent) -> void:
 			CoinCollector.purple_potion_count -=1
 
 func restart_level():
-
+	CoinCollector.restart()
 	get_tree().reload_current_scene()

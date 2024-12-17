@@ -24,6 +24,14 @@ var purple_potion_count: int = 0
 
 func _ready() -> void:
 	self.visible = true
+
+func restart() -> void:
+	restart_coin_count()
+	door_key_count = 0
+	red_potion_count = 0
+	blue_potion_count = 0
+	green_potion_count = 0
+	purple_potion_count = 0
 	
 func _process(delta: float) -> void:
 	if door_key_count == 0: 
@@ -57,6 +65,9 @@ func _process(delta: float) -> void:
 		purple_potion.visible = true
 		key_5.visible = true
 		
+func restart_coin_count() -> void:
+	coin_count = 0
+	coin_label.text = str(coin_count)
 
 # Function to update the coin count
 func update_coin_count(amount: int) -> void:

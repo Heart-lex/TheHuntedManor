@@ -9,8 +9,10 @@ extends CharacterBody3D
 @onready var model: Node3D = $Rig
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var hitbox: Area3D = $Hitbox
 
 @onready var active 
+@onready var shield: MeshInstance3D = $MeshInstance3D
 
 var currState
 var is_dead: bool = false
@@ -22,8 +24,14 @@ const ROTATION_SPEED: float = 12.0
 
 enum state {RUN, JUMP, IDLE}
 
+func activate_shield() -> void:
+	shield.visible = true
+	hitbox.monitorable = false
+	start_timer()
+
 func _ready() -> void:
 	health_component.target_is_dead.connect(character_death)
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -85,10 +93,18 @@ func character_death() -> void:
 func start_timer(): 
 	var timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = 3
+	if is_dead:
+		timer.wait_time = 3
+	else: 
+		timer.wait_time = 15
 	timer.one_shot = true
 	timer.start()
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	
 func _on_timer_timeout():
-	GameManager.restart_level()
+	if is_dead:
+		GameManager.restart_level()
+	else:
+		GameManager.green_potion = false
+		shield.visible = false
+		hitbox.monitorable = true
