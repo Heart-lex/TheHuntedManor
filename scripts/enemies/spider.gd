@@ -61,17 +61,24 @@ func handle_patrol(delta: float) -> void:
 		anim_tree.set("parameters/Movement/transition_request", "Idle")  # Pause animation
 		
 		turn_back()
-
+		
 func turn_back() -> void:
-	# Turn the spider 180 degrees
-	patrol_direction = -patrol_direction  # Flip the patrol direction
-	model.look_at(global_position + patrol_direction, Vector3.UP)
+	# Flip patrol direction
+	patrol_direction = -patrol_direction  
+	var target_rotation = model.rotation.y + PI  # 180-degree turn
 
-	# Reset patrol start and resume movement
-	patrol_start = global_position
-	velocity = patrol_direction * SPEED
-	anim_tree.set("parameters/Movement/transition_request", "Walk")
-	is_turning = false
+	# Use a Tween to smoothly rotate the model
+	var tween = get_tree().create_tween()
+	tween.tween_property(model, "rotation:y", target_rotation, TURN_DELAY)
+	
+	# When the rotation is done, resume movement
+	tween.finished.connect(func():
+		patrol_start = global_position
+		velocity = patrol_direction * SPEED
+		anim_tree.set("parameters/Movement/transition_request", "Walk")
+		is_turning = false
+	)
+
 
 # Target chase
 func chase_target(delta: float) -> void:
