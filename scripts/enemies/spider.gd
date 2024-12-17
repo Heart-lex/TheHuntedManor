@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 const SPEED = 2.0               # Movement speed
 const PATROL_DISTANCE = 10.0    # Distance in meters to patrol before turning around
-const TURN_DELAY = 1.0          # Pause duration in seconds before turning
+const TURN_DELAY = 0.5          # Pause duration in seconds before turning
 
 @onready var model: Node3D = $Sketchfab_model
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -12,7 +12,7 @@ const TURN_DELAY = 1.0          # Pause duration in seconds before turning
 @onready var health_component: HealthComponent = $HealthComponent
 
 var currState
-var knight: Node3D = null
+@export var knight: Knight = null
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -78,17 +78,28 @@ func turn_back() -> void:
 		anim_tree.set("parameters/Movement/transition_request", "Walk")
 		is_turning = false
 	)
-
-
-# Target chase
+	
 func chase_target(delta: float) -> void:
-	var direction = (knight.global_position - global_position).normalized() # Calculate the distance to the target
-	velocity += direction * SPEED * delta # Move towards the target
-	model.look_at(Vector3(knight.position.x, position.y, knight.position.z), Vector3(0, 1, 0))
+	# Calculate direction to the knight
+	var direction = (knight.global_position - global_position).normalized()
+	direction.y = 0  # Ignore vertical movement
+
+	# Set velocity toward the knight
+	velocity.x = direction.x * SPEED
+	velocity.z = direction.z * SPEED
+
+	# Apply gravity
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	global_position += direction * SPEED * delta  # Move towards the target
+	# Smoothly rotate to face the knight
+	var target_rotation = atan2(direction.x, -direction.z)
+	model.look_at(Vector3(knight.position.x, -position.y, knight.position.z), Vector3(0, 1, 0), true)
+	model.rotation.y = lerp_angle(model.rotation.y, -target_rotation, delta * 5.0)
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("soldier"):  
-		knight = body
+	if body.is_in_group("knight"):  
 		currState = state.CHASE
 
 func handle_animations(delta: float) -> void:
