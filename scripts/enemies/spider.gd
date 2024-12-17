@@ -2,17 +2,21 @@ class_name Spider
 
 extends CharacterBody3D
 
-const SPEED = 2.0               # Movement speed
-const PATROL_DISTANCE = 10.0    # Distance in meters to patrol before turning around
-const TURN_DELAY = 0.5          # Pause duration in seconds before turning
+@export var knight: Knight = null
 
 @onready var model: Node3D = $Sketchfab_model
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var detection_area: Area3D = $DetectionArea
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var hurtbox: Area3D = $Hurtbox
 
-var currState
-@export var knight: Knight = null
+const SPEED : float = 3.0               # Movement speed
+const CHASE_SPEED : float = 8.0 
+const PATROL_DISTANCE : float = 10.0    # Distance in meters to patrol before turning around
+const TURN_DELAY : float = 0.5          # Pause duration in seconds before turning
+const ROTATE_SPEED : float = 1.5
+
+var currState : state
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -81,22 +85,19 @@ func turn_back() -> void:
 	
 func chase_target(delta: float) -> void:
 	# Calculate direction to the knight
-	var direction = (knight.global_position - global_position).normalized()
-	direction.y = 0  # Ignore vertical movement
+	var direction = (knight.position - position).normalized()
 
 	# Set velocity toward the knight
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
+	velocity.x = direction.x * CHASE_SPEED
+	velocity.z = direction.z * CHASE_SPEED
 
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	global_position += direction * SPEED * delta  # Move towards the target
 	# Smoothly rotate to face the knight
-	var target_rotation = atan2(direction.x, -direction.z)
-	model.look_at(Vector3(knight.position.x, -position.y, knight.position.z), Vector3(0, 1, 0), true)
-	model.rotation.y = lerp_angle(model.rotation.y, -target_rotation, delta * 5.0)
+	var target_rotation = atan2(position.z - knight.position.z, knight.position.x -  position.x)
+	model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATE_SPEED)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("knight"):  
@@ -118,24 +119,8 @@ func _on_hurtbox_area_entered(area: Area3D) -> void:
 
 func on_target_dead() -> void:
 	currState = state.DEATH
-	$AnimationTree.set("parameters/Movement/transition_request", "Death")
+	hurtbox.monitoring = false
+	anim_tree.set("parameters/Movement/transition_request", "Death")
 	# Wait for the death animation to complete before fading
 	await get_tree().create_timer(1.5).timeout  # Adjust duration to match death animation
-	start_fade_out()
-
-func start_fade_out() -> void:
-	
-	# Modulate does NOT exist for 3D models.
-	
-	# Begin reducing the alpha value of the model's modulate property
-	#var fade_time = 2.0  # Duration of fade-out in seconds
-	#var fade_step = 1.0 / (fade_time * 60.0)  # Assuming 60 FPS
-	#var alpha = 1.0
-#
-	#while alpha > 0:
-		#alpha -= fade_step
-		#model.modulate.a = alpha  # Gradually reduce alpha
-		#await get_tree().create_timer(1.0 / 60.0).timeout  # Wait for the next frame
-		
-	# Once fully faded, remove the spider
 	queue_free()
