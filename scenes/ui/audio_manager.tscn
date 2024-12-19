@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://5xvh7pxy46m8"]
+
+[ext_resource type="Script" path="res://scripts/globals/audio_manager.gd" id="1_dieaq"]
+[ext_resource type="AudioStream" uid="uid://b7jag32758ej2" path="res://sounds/sound_effects/CoinCollecting.wav" id="2_o4lns"]
+[ext_resource type="AudioStream" uid="uid://cwfw0noafea1p" path="res://sounds/sound_effects/ShopKeeper.mp3" id="3_fkrnw"]
+
+[node name="AudioManager" type="Node3D"]
+script = ExtResource("1_dieaq")
+
+[node name="ShopKeeper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fkrnw")
+
+[node name="CoinCollecting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o4lns")
