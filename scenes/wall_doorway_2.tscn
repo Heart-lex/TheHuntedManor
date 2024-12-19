@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0p3xsg135jns"]
+[gd_scene load_steps=10 format=3 uid="uid://0p3xsg135jns"]
 
 [ext_resource type="PackedScene" uid="uid://dqdoijs3ga16" path="res://assets/dungeon/floor/dungeon_remastered/wall_doorway.gltf" id="1_isjfb"]
 [ext_resource type="Script" path="res://scripts/items/wall_doorway_2.gd" id="2_cgksd"]
@@ -62,11 +62,27 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.733333)
 }
 
+[sub_resource type="Animation" id="Animation_b4ser"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall_doorway/wall_doorway_door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_prwp4"]
 _data = {
 "RESET": SubResource("Animation_x8w7u"),
 "closed": SubResource("Animation_i2d8m"),
-"open": SubResource("Animation_ql50c")
+"open": SubResource("Animation_ql50c"),
+"opened": SubResource("Animation_b4ser")
 }
 
 [node name="wall_doorway2" instance=ExtResource("1_isjfb")]

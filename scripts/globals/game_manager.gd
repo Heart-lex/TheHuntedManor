@@ -62,8 +62,6 @@ func _input(event: InputEvent) -> void:
 				hero_knight.health_component.gain_health(10.0)
 			else:
 				hero_rogue.health_component.gain_health(10.0)
-	if Input.is_action_just_pressed("use_purple_potion") and CoinCollector.purple_potion_count > 0:
-			CoinCollector.purple_potion_count -=1
 
 func restart_level():
 	CoinCollector.restart()

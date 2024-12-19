@@ -12,7 +12,7 @@ extends CanvasLayer
 @onready var purple_potion: TextureRect = $MarginContainer/HBoxContainer/PurplePotion
 
 var coin_count: int = 0
-var door_key_count: int = 0
+var door_key_count: int = 1
 var red_potion_count: int = 0
 var blue_potion_count: int = 0
 var green_potion_count: int = 0

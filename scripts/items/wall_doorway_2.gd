@@ -7,6 +7,7 @@ extends Node3D
 @onready var interaction_prompt: CanvasLayer = $InteractionPrompt
 
 @export var lever : Lever = null
+@export var exitlever : ExitLever = null
 
 var active: bool = false
 
@@ -24,7 +25,7 @@ func _input(event: InputEvent) -> void:
 		self.open()
 		
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("knight") and (CoinCollector.door_key_count > 0) and (lever == null):
+	if body.is_in_group("knight") and (CoinCollector.door_key_count > 0) and (lever == null and exitlever == null):
 		active = true
 		interaction_prompt.label.text = "Press 1 to use the door key"
 		interaction_prompt.visible = true

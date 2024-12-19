@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctou2xlakkebs" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_large.gltf" id="1_0787i"]
 [ext_resource type="Script" path="res://scripts/items/coins_stack.gd" id="1_fctj1"]
-[ext_resource type="AudioStream" uid="uid://b7jag32758ej2" path="res://sounds/coins.wav" id="3_7vsum"]
+[ext_resource type="AudioStream" uid="uid://b7jag32758ej2" path="res://sounds/sound_effects/CoinCollecting.wav" id="3_7vsum"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e7ets"]
 size = Vector3(1.51703, 1.25269, 1.59619)
@@ -17,7 +17,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389192, 0, 0.264666)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347601, 0.588013, 0.347412)
 shape = SubResource("BoxShape3D_e7ets")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="CoinCollecting" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7vsum")
+pitch_scale = 1.5
+mix_target = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
