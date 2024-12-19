@@ -17,14 +17,16 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://sounds/default_bus_layout.tres"
+buses/default_bus_layout=""
 
 [autoload]
 
-Music="*res://scenes/music.tscn"
 CoinCollector="*res://scenes/ui/coin_collector.tscn"
-CardType="*res://scripts/ui/card_type.gd"
+EnumClass="*res://scripts/ui/EnumClass.gd"
 GameManager="*res://scripts/globals/game_manager.gd"
+AudioManager="*res://scripts/globals/audio_manager.gd"
+SceneTransitionAnimation="*res://scenes/levels/scene_transition_animation.tscn"
+Music="*res://scripts/globals/music.tscn"
 
 [display]
 
