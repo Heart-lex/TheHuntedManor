@@ -17,11 +17,15 @@ func _ready() -> void:
 
 func open() -> void:
 	animation_player.play("open")
+	AudioManager.play_sound(AudioManager.DOOR_OPENING, 0.25, 1)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_key") and active:
+		AudioManager.play_sound(AudioManager.KEY_UNLOCKING, 0, 1)
 		active = false
 		CoinCollector.door_key_count -= 1
+		await  get_tree().create_timer(2).timeout
+		AudioManager.play_sound(AudioManager.DOOR_OPENING, 0.25, 1)
 		self.open()
 		
 func _on_body_entered(body: Node3D) -> void:

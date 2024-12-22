@@ -13,16 +13,18 @@ extends CharacterBody3D
 
 @onready var active 
 @onready var shield: MeshInstance3D = $MeshInstance3D
+var was_on_floor: bool = true  # Tracks if the character was on the floor
 
 var currState
 var is_dead: bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var is_running_sound_playing: bool = false 
 
 var SPEED: float = 5.0
-const JUMP_VELOCITY: float = 4.5
+const JUMP_VELOCITY: float = 6.5
 const ROTATION_SPEED: float = 12.0
 
-enum state {RUN, JUMP, IDLE}
+enum state {RUN, JUMP, IDLE, LANDING}
 
 func activate_shield() -> void:
 	shield.visible = true
@@ -31,7 +33,6 @@ func activate_shield() -> void:
 
 func _ready() -> void:
 	health_component.target_is_dead.connect(character_death)
-	
 
 func _physics_process(delta: float) -> void:
 	
@@ -45,7 +46,9 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-		
+
+	if is_on_floor() and not was_on_floor:
+		land()
 	if active:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -54,22 +57,29 @@ func _physics_process(delta: float) -> void:
 		var input_dir = Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
+		# rotate by camera pivot's rotation so that the movement always stays "upright"
+		# regardless of node's rotation (e.g. can be placed on a level and rotated and "up" is always camera's up
+		direction = direction.rotated(Vector3.UP, pivot.rotation.y)
+		
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 			currState = state.RUN
+			run()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 			currState = state.IDLE
 
 		if velocity.length() > 1.0:
-			var direction_angle = -atan2((model.position.x - velocity.normalized().x), -(model.position.z - velocity.normalized().z))
+			var direction_angle = atan2(direction.x, direction.z)
 			model.rotation.y = lerp_angle(model.rotation.y, direction_angle, ROTATION_SPEED * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		currState = state.IDLE
+		
+	was_on_floor = is_on_floor()
 		
 func handle_animations(delta: float) -> void:
 	if active:
@@ -79,12 +89,24 @@ func handle_animations(delta: float) -> void:
 			state.RUN: 
 				anim_tree.set("parameters/Movement/transition_request","RJ")
 			state.JUMP:
-				anim_tree.set("parameters/Movement/transition_request","Jump")
+				jump()
 	else:
 		anim_tree.set("parameters/Movement/transition_request", "Idle")
 		
 func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	AudioManager.play_sound(AudioManager.JUMP, 0.25, 1)
+	was_on_floor = false
+	
+func land():
+	AudioManager.play_sound(AudioManager.LANDING, 0.25, 5)
+	
+func run():
+	if not is_running_sound_playing:
+		is_running_sound_playing = true
+		AudioManager.play_sound(AudioManager.WALKING, 0.25, 10)
+		await get_tree().create_timer(0.5).timeout
+		is_running_sound_playing = false
 	
 func character_death() -> void:
 	anim_tree.set("parameters/Movement/transition_request", "Death")

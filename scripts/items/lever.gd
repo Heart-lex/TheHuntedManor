@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and active == true and not is_triggered:
 		door.open()
 		is_triggered = true
+		AudioManager.play_sound(AudioManager.LEVER_PULL, 0.25, 1)
 		interaction_prompt.visible = false
 		animation_tree.set("parameters/LeverToggle/transition_request", "Toggle")
 

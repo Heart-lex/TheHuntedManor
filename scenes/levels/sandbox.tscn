@@ -83,7 +83,7 @@ use_collision = true
 size = Vector3(100, 1, 100)
 
 [node name="MovableFoundation" parent="." instance=ExtResource("7_8noto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.564764, -15.6881)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143531, -15.6881)
 
 [node name="Heroes" type="Node" parent="."]
 
@@ -92,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45034, 0.0860932, 0)
 camera = NodePath("../camera_rig")
 
 [node name="Rogue" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("2_2iyta")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.183146, 2.43526, -4.02681)
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0.183146, 2.43526, -4.02681)
 camera = NodePath("../camera_rig")
 
 [node name="camera_rig" parent="Heroes" instance=ExtResource("9_xu7iv")]
@@ -100,110 +100,112 @@ camera = NodePath("../camera_rig")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 2
 
-[node name="wall2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3417, -0.001827, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall2"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall2/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3417, -0.001827, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall3"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall3/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3417, -0.001827, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall4"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall4/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall5" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3417, -0.001827, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall5"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall5/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall5/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall6" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3417, 3.99817, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall6"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall6/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall6/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall7" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3417, 3.99817, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall7"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall7/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall7/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall8" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3417, 3.99817, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall8"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall8/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall8/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
-[node name="wall9" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3417, 3.99817, -0.0653286)
-
-[node name="wall" type="MeshInstance3D" parent="wall9"]
-layers = 2
-mesh = SubResource("ArrayMesh_dtwll")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="wall9/wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="wall9/wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fouex")
-
 [node name="spider" parent="." node_paths=PackedStringArray("knight") instance=ExtResource("10_tqp5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99837, -14.0018, 9.69158)
 knight = NodePath("../Heroes/Knight")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="wall2" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3417, -0.001827, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall2"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall2/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall2/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall3" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3417, -0.001827, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall3"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall3/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall3/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall4" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3417, -0.001827, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall4"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall4/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall4/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall5" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3417, -0.001827, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall5"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall5/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall5/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall6" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3417, 3.99817, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall6"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall6/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall6/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall7" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3417, 3.99817, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall7"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall7/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall7/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall8" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3417, 3.99817, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall8"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall8/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall8/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")
+
+[node name="wall9" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3417, 3.99817, -0.0653286)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/wall9"]
+layers = 2
+mesh = SubResource("ArrayMesh_dtwll")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/wall9/wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/wall9/wall/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fouex")

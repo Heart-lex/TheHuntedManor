@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 
 func activate() -> void:
 	state = States.ACTIVE
+	AudioManager.play_sound(AudioManager.SPIKE_TRAP, 0, -20)
 	hurtbox.monitoring = true
 	
 func deactivate() -> void:

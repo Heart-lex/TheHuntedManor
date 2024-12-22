@@ -25,13 +25,14 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_6p2kb"]
+[sub_resource type="Sky" id="Sky_gpwb7"]
 sky_material = SubResource("ProceduralSkyMaterial_0kbn4")
 
 [sub_resource type="Environment" id="Environment_od41d"]
 background_mode = 2
-sky = SubResource("Sky_6p2kb")
-tonemap_mode = 2
+sky = SubResource("Sky_gpwb7")
+tonemap_mode = 3
+tonemap_exposure = 1.15
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnopg"]
@@ -392,7 +393,7 @@ transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926
 camera = NodePath("../camera_rig")
 
 [node name="Rogue" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("11_de0tv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5413, 9.05156, 37.2892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.897, 9.35927, -5.06167)
 camera = NodePath("../camera_rig")
 
 [node name="camera_rig" parent="Heroes" instance=ExtResource("20_aq4lq")]

@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 		animation_tree.set("parameters/LeverToggle/transition_request", "Toggle")
 		SceneTransitionAnimation.animation_player.play("fade_in")
 		await get_tree().create_timer(0.5).timeout
+		AudioManager.play_sound(AudioManager.LEVEL_SUCCESS, 0.25, 1)
 		get_tree().change_scene_to_file("res://scenes/levels/level02.tscn")
 
 func _on_body_entered(body: Node3D) -> void:

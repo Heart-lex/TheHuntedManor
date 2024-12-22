@@ -1370,3 +1370,4 @@ texture = SubResource("ViewportTexture_7ssbr")
 health_component = NodePath("../../HealthComponent")
 
 [connection signal="area_entered" from="Armature/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Armature/Hurtbox" to="." method="_on_hurtbox_area_exited"]

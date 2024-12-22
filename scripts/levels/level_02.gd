@@ -8,7 +8,6 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SceneTransitionAnimation.animation_player.play("fade_out")
-	get_tree().reload_current_scene()
 	
 	GameManager.is_main_menu_active = false
 	GameManager.set_heroes(knight, rogue)

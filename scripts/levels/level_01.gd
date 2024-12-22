@@ -4,6 +4,7 @@ extends Node3D
 @onready var knight: Knight = $Heroes/Knight
 @onready var shop: Shop = $UI/shop
 @onready var camera_rig: CameraRig = $Heroes/camera_rig
+@onready var music: AudioStreamPlayer = $Music
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

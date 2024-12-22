@@ -1,17 +1,25 @@
 extends CharacterBody3D
 
 @onready var foundation: Node3D = $Model
+@onready var interaction_prompt: CanvasLayer = $InteractionPrompt
 
 const SPEED : float = 0.1
 
 # None, PositiveX, NegativeX, PositiveZ, NegativeZ
 enum Zones { NONE, POS_X, NEG_X, POS_Z, NEG_Z }
 
-# Set initial zone to "None"
-var current_zone : Zones = Zones.NONE
+
+var current_zone : Zones
+
+func _ready() -> void:
+	# Set initial zone to "None"
+	current_zone = Zones.NONE
+	# Set initial prompt visibility
+	interaction_prompt.visible = false
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and current_zone != Zones.NONE:
+		AudioManager.play_sound(AudioManager.PUSH, 0, 1)
 		print("Currently at: " + Zones.keys()[current_zone]) # debug
 		move(current_zone)
 
@@ -55,39 +63,46 @@ func move(zone: Zones) -> void:
 
 func _on_zone_positive_x_body_entered(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = true
 		current_zone = Zones.POS_X
 
 
 func _on_zone_positive_x_body_exited(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = false
 		current_zone = Zones.NONE
 
 
 func _on_zone_negative_x_body_entered(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = true
 		current_zone = Zones.NEG_X
 
 
 func _on_zone_negative_x_body_exited(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = false
 		current_zone = Zones.NONE 
 
 
 func _on_zone_negative_z_body_entered(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = true
 		current_zone = Zones.NEG_Z
 
 
 func _on_zone_negative_z_body_exited(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = false
 		current_zone = Zones.NONE
 
 
 func _on_zone_positive_z_body_entered(body: Node3D) -> void:
 	if body.is_in_group("knight"):
+		interaction_prompt.visible = true
 		current_zone = Zones.POS_Z
-
 
 func _on_zone_positive_z_body_exited(body: Node3D) -> void:
 	if body.is_in_group("knight"):
 		current_zone = Zones.NONE
+		interaction_prompt.visible = false

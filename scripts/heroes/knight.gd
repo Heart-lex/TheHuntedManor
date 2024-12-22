@@ -10,8 +10,10 @@ extends CharacterBody3D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var shield: MeshInstance3D = $MeshInstance3D
 @onready var hitbox: Area3D = $Hitbox
+@onready var hurtbox: Area3D = $Rig/Hurtbox
 
 @onready var active 
+
 
 var is_attacking : bool = false
 var is_dead: bool = false
@@ -19,7 +21,9 @@ var is_dead: bool = false
 var currState = State.IDLE
 var attackType = AttackType.NONE
 var look_rotation : float
+var is_running_sound_playing: bool = false 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var was_on_floor: bool = true
 
 var attack_cooldown : float
 
@@ -62,6 +66,9 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		
+	if is_on_floor() and not was_on_floor:
+		land()
 	
 	if active and not is_dead:
 		
@@ -84,7 +91,7 @@ func _physics_process(delta: float) -> void:
 						attackType = AttackType.AERIAL_LIGHT_ATK
 					light_attack()
 				
-				if Input.is_action_just_pressed("heavy_attack"):
+				elif Input.is_action_just_pressed("heavy_attack"):
 					currState = State.HEAVY_ATTACK
 					if is_on_floor():
 						attackType = AttackType.HEAVY_ATK
@@ -106,6 +113,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 			currState = State.RUN
+			run()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -114,6 +122,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		currState = State.IDLE
+		
+	was_on_floor = is_on_floor()
 
 func handle_animations(delta: float) -> void:
 	if active:
@@ -125,8 +135,10 @@ func handle_animations(delta: float) -> void:
 			State.RUN: 
 				anim_tree.set("parameters/Movement/transition_request","Run")
 				anim_tree.set("parameters/Running Animation/blend_position", Vector2(-velocity.z, -velocity.x).normalized())
+				run()
+				await  get_tree().create_timer(2).timeout
 			State.JUMP:
-				anim_tree.set("parameters/Movement/transition_request","Jump")
+				jump()
 			State.LIGHT_ATTACK:
 				pass
 			State.HEAVY_ATTACK:
@@ -134,12 +146,24 @@ func handle_animations(delta: float) -> void:
 	else:
 		anim_tree.set("parameters/Movement/transition_request", "Idle")
 
+func run():
+	if not is_running_sound_playing:
+		is_running_sound_playing = true
+		AudioManager.play_sound(AudioManager.WALKING, 0.25, 10, 0.3)
+		await get_tree().create_timer(0.5).timeout
+		is_running_sound_playing = false
+		
+func land():
+	AudioManager.play_sound(AudioManager.LANDING, 0.25, 5)
+
 func jump():
 	anim_tree.set("parameters/Jump/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	AudioManager.play_sound(AudioManager.JUMP, 0.25, 1)
+	was_on_floor = false
 	
 func light_attack():
 	anim_tree.set("parameters/LightAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-	
+	AudioManager.play_sound(AudioManager.LIGHT_ATTACK, 0, 0.8, 0.55)
 	match attackType:
 		AttackType.LIGHT_ATK:
 			attack_cooldown = 0.6
@@ -153,7 +177,7 @@ func light_attack():
 	
 func heavy_attack():
 	anim_tree.set("parameters/HeavyAttack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-	
+	AudioManager.play_sound(AudioManager.HEAVY_ATTACK, 0.25, 1, 0.6)
 	match attackType:
 		AttackType.HEAVY_ATK:
 			attack_cooldown = 1.2
@@ -164,8 +188,13 @@ func heavy_attack():
 	is_attacking = true
 	await get_tree().create_timer(attack_cooldown).timeout
 	is_attacking = false
-	
-func character_death() -> void:
+
+func character_death():
+	AudioManager.play_sound(AudioManager.GAME_OVER, 0.25, 1)
+	hitbox.monitorable = false
+	hurtbox.monitorable = false
+	GameManager.character_dead = true
+	is_dead = true
 	anim_tree.set("parameters/Movement/transition_request", "Die")
 	start_timer()
 
@@ -192,7 +221,7 @@ func start_timer():
 	var timer = Timer.new()
 	add_child(timer)
 	if is_dead:
-		timer.wait_time = 3
+		timer.wait_time = 1
 	else: 
 		timer.wait_time = 15
 	timer.one_shot = true

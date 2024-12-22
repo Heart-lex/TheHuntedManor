@@ -40,6 +40,7 @@ func create_card (card_type: EnumClass.card_type) -> void:
 		
 func _on_buy_button_pressed() -> void:
 	# Disable the button
+	AudioManager.play_sound(AudioManager.PURCHASE, 0.25, 1)
 	var coin_collector_total = CoinCollector.coin_count
 	var card_total = int(coin_count.text)
 	if coin_collector_total >= card_total:
