@@ -136,8 +136,7 @@ func handle_animations(delta: float) -> void:
 			State.RUN: 
 				anim_tree.set("parameters/Movement/transition_request","Run")
 				anim_tree.set("parameters/Running Animation/blend_position", Vector2(-velocity.z, -velocity.x).normalized())
-				run()
-				await  get_tree().create_timer(2).timeout
+				await get_tree().create_timer(2).timeout
 			State.JUMP:
 				jump()
 			State.LIGHT_ATTACK:
