@@ -94,6 +94,7 @@ camera = NodePath("../camera_rig")
 [node name="Rogue" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("2_2iyta")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0.183146, 2.43526, -4.02681)
 camera = NodePath("../camera_rig")
+camera_offset = 1.4
 
 [node name="camera_rig" parent="Heroes" instance=ExtResource("9_xu7iv")]
 

@@ -393,7 +393,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, -13)
 [node name="coin_stack" parent="Coins" instance=ExtResource("7_u7513")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 8.98481)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("17_builb")]
+[node name="Bat" parent="." instance=ExtResource("17_builb")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.1925, 17.4712, -21.899)
 
 [node name="wall2" parent="." instance=ExtResource("16_urx5e")]

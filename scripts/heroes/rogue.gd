@@ -3,6 +3,7 @@ class_name Rogue
 extends CharacterBody3D
 
 @export var camera : CameraRig
+@export var camera_offset : float = 0
 
 @onready var pivot: Node3D = $CameraPoint
 
@@ -13,6 +14,7 @@ extends CharacterBody3D
 
 @onready var active 
 @onready var shield: MeshInstance3D = $MeshInstance3D
+
 var was_on_floor: bool = true  # Tracks if the character was on the floor
 
 var currState
@@ -54,8 +56,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			jump()
 			
-		var input_dir = Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var input_dir := Input.get_vector("strafe_left", "strafe_right","move_forward","move_backwards")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		# rotate by camera pivot's rotation so that the movement always stays "upright"
 		# regardless of node's rotation (e.g. can be placed on a level and rotated and "up" is always camera's up
@@ -65,7 +67,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 			currState = state.RUN
-			run()
+			if is_on_floor():
+				run()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -73,7 +76,7 @@ func _physics_process(delta: float) -> void:
 
 		if velocity.length() > 1.0:
 			var direction_angle = atan2(direction.x, direction.z)
-			model.rotation.y = lerp_angle(model.rotation.y, direction_angle, ROTATION_SPEED * delta)
+			model.rotation.y = lerp_angle(model.rotation.y, direction_angle + camera_offset, ROTATION_SPEED * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
