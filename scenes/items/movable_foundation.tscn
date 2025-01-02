@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bxea2ujb23k66" path="res://scenes/ui/interaction_prompt.tscn" id="3_ahk30"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vaqpv"]
-size = Vector3(2.22839, 1.98083, 2.22916)
+size = Vector3(2.22839, 2, 2.22916)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_psptt"]
 size = Vector3(2.19305, 1.99191, 2.40436)
@@ -14,13 +14,15 @@ size = Vector3(2.19305, 1.99191, 2.40436)
 script = ExtResource("1_k8ws7")
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974668, 0)
 shape = SubResource("BoxShape3D_vaqpv")
 
 [node name="Model" parent="." instance=ExtResource("1_uy52j")]
 
 [node name="ZonePositiveX" type="Area3D" parent="Model"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZonePositiveX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0918e-09, 1, 2.30926)
@@ -28,12 +30,16 @@ shape = SubResource("BoxShape3D_psptt")
 
 [node name="ZoneNegativeX" type="Area3D" parent="Model"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZoneNegativeX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
 shape = SubResource("BoxShape3D_psptt")
 
 [node name="ZoneNegativeZ" type="Area3D" parent="Model"]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZoneNegativeZ"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
@@ -41,6 +47,8 @@ shape = SubResource("BoxShape3D_psptt")
 
 [node name="ZonePositiveZ" type="Area3D" parent="Model"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/ZonePositiveZ"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
