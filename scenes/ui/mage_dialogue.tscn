@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="1_g0ugu"]
 
 [node name="MageDialogue" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_4l4pv")
 
 [node name="Panel" type="Panel" parent="."]

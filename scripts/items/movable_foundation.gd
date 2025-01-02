@@ -4,6 +4,8 @@ extends CharacterBody3D
 @onready var interaction_prompt: CanvasLayer = $InteractionPrompt
 
 const SPEED : float = 0.1
+var GRAVITY = ProjectSettings.get_setting("physics/3d/default_gravity")
+const JUMP_VELOCITY: float = -400.0
 
 # None, PositiveX, NegativeX, PositiveZ, NegativeZ
 enum Zones { NONE, POS_X, NEG_X, POS_Z, NEG_Z }
@@ -12,6 +14,7 @@ enum Zones { NONE, POS_X, NEG_X, POS_Z, NEG_Z }
 var current_zone : Zones
 
 func _ready() -> void:
+	
 	# Set initial zone to "None"
 	current_zone = Zones.NONE
 	# Set initial prompt visibility
@@ -24,6 +27,13 @@ func _input(event: InputEvent) -> void:
 		move(current_zone)
 
 func _physics_process(delta: float) -> void:
+	
+	if not is_on_floor:
+		velocity.y -= GRAVITY * delta
+	
+	if is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
 	move_and_slide()
 	
 	if velocity.x:

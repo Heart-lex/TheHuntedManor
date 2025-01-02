@@ -1098,7 +1098,7 @@ size = Vector3(0.225281, 0.259292, 0.636963)
 [sub_resource type="ViewportTexture" id="ViewportTexture_7ssbr"]
 viewport_path = NodePath("SubViewport")
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Bat" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 motion_mode = 1
 script = ExtResource("1_6ds08")

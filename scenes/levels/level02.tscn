@@ -1,278 +1,56 @@
-[gd_scene load_steps=21 format=3 uid="uid://1fo5cuq4py51"]
+[gd_scene load_steps=14 format=3 uid="uid://bkp4hj17ixp0d"]
 
 [ext_resource type="MeshLibrary" uid="uid://dilpivy0fn048" path="res://assets/tilemap/dungeon_tiles.tres" id="1_4rnas"]
 [ext_resource type="Script" path="res://scripts/levels/level_02.gd" id="1_b2lfi"]
 [ext_resource type="MeshLibrary" uid="uid://csbu8dnn0eohy" path="res://assets/tilemap/halloween.tres" id="3_cg7rr"]
 [ext_resource type="PackedScene" uid="uid://dwl3eokw5v32j" path="res://scenes/items/lit_torch.tscn" id="4_7aqpj"]
-[ext_resource type="PackedScene" uid="uid://uob8cbt3k6ul" path="res://scenes/items/latern.tscn" id="5_e8rw5"]
 [ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="6_kcxin"]
-[ext_resource type="PackedScene" uid="uid://dlchlektuef0h" path="res://scenes/camera_rig.tscn" id="6_mh6o5"]
-[ext_resource type="PackedScene" uid="uid://d1wi7ubtnwuwh" path="res://scenes/items/movable_foundation.tscn" id="6_oq7ng"]
-[ext_resource type="PackedScene" uid="uid://bao88qhbacqiu" path="res://scenes/items/exit_lever.tscn" id="7_8f87f"]
-[ext_resource type="PackedScene" uid="uid://bnsuiv5f1bnul" path="res://scenes/items/coins_stack.tscn" id="7_u7513"]
 [ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="8_h4ox1"]
 [ext_resource type="PackedScene" uid="uid://brrrfimnoags3" path="res://scenes/heroes/mage.tscn" id="9_f6d46"]
+[ext_resource type="PackedScene" uid="uid://dlchlektuef0h" path="res://scenes/camera_rig.tscn" id="10_1en8l"]
 [ext_resource type="PackedScene" uid="uid://xfkggql8ewe8" path="res://scenes/ui/mage_dialogue.tscn" id="11_7hnns"]
 [ext_resource type="PackedScene" uid="uid://bxxid2eqls1qf" path="res://scenes/ui/shop.tscn" id="12_7vphm"]
-[ext_resource type="PackedScene" uid="uid://0p3xsg135jns" path="res://scenes/wall_doorway_2.tscn" id="15_scwfp"]
-[ext_resource type="PackedScene" uid="uid://bcmfvg2hxk4ww" path="res://scenes/items/transparent_wall.tscn" id="16_urx5e"]
-[ext_resource type="PackedScene" uid="uid://dojdxwasr8q2k" path="res://scenes/enemies/bat.tscn" id="17_builb"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_su0gt"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oqsex"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_6p2kb"]
-sky_material = SubResource("ProceduralSkyMaterial_su0gt")
+[sub_resource type="Sky" id="Sky_g22gb"]
+sky_material = SubResource("ProceduralSkyMaterial_oqsex")
 
-[sub_resource type="Environment" id="Environment_h6el7"]
+[sub_resource type="Environment" id="Environment_tsliw"]
 background_mode = 2
-sky = SubResource("Sky_6p2kb")
-tonemap_mode = 2
+sky = SubResource("Sky_g22gb")
+tonemap_mode = 3
+tonemap_exposure = 1.15
 glow_enabled = true
 
 [node name="Level02" type="Node3D"]
 script = ExtResource("1_b2lfi")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h6el7")
+environment = SubResource("Environment_tsliw")
 
-[node name="FloorMap" type="GridMap" parent="."]
+[node name="FloorAssets" type="GridMap" parent="."]
 mesh_library = ExtResource("1_4rnas")
 data = {
-"cells": PackedInt32Array(0, 0, 1048658, 65534, 0, 1048658, 65534, 2, 1048658, 65534, 6, 1048658, 65534, 65532, 655557, 65534, 65534, 1048658, 0, 65532, 1048658, 0, 65534, 1048658, 0, 65530, 90, 65534, 65530, 90, 131070, 65530, 90, 65536, 65530, 90, 65536, 65527, 90, 131070, 65527, 90, 0, 65527, 90, 65534, 65527, 90, 196605, 65531, 83, 196607, 65531, 82, 131073, 65531, 83, 196605, 65529, 82, 196607, 65529, 82, 131073, 65529, 82, 196607, 65527, 82, 131073, 65527, 82, 196605, 65527, 82, 65535, 65532, 142, 2, 65532, 1441977, 1, 65532, 655557, 2, 65531, 1048773, 2, 65529, 1048755, 2, 65526, 185, 2, 65527, 1441989, 0, 65526, 655539, 65534, 65526, 655539, 65532, 65526, 1048761, 65532, 65532, 655545, 65532, 65528, 1048755, 65532, 65530, 1048755, 2, 0, 1048658, 4, 0, 1048658, 6, 0, 1048658, 65534, 65533, 1048658, 65532, 0, 1048658, 65530, 0, 1048658, 65528, 0, 1048658, 65526, 0, 1048658, 65524, 0, 1048658, 65522, 0, 1048658, 65525, 65533, 146, 196597, 65531, 146, 196602, 65527, 1048718, 327672, 65527, 1048718, 131067, 65527, 1048666, 65531, 65527, 1048666, 262137, 65527, 1048666, 196601, 65527, 1048666, 131065, 65527, 1048666, 65529, 65527, 1048666, 196604, 65529, 1441971, 196604, 65531, 1441971, 196605, 65526, 655539, 196607, 65526, 203, 131073, 65526, 203, 196607, 65532, 655551, 327669, 65529, 146, 65525, 65532, 90, 131061, 65532, 90, 262133, 65530, 90, 196597, 65530, 90, 131061, 65530, 90, 65525, 65530, 90, 458743, 65528, 82, 458739, 65528, 82, 458743, 65526, 82, 458743, 65524, 82, 458741, 65524, 82, 458739, 65524, 82, 458739, 65526, 82, 458741, 65526, 82, 458737, 65528, 82, 458737, 65526, 82, 458737, 65524, 82, 458737, 65522, 82, 458739, 65522, 82, 458741, 65522, 82, 458743, 65522, 82, 393207, 65522, 90, 393201, 65522, 90, 393201, 65528, 90, 393207, 65528, 90, 327671, 65528, 90, 327665, 65528, 90, 327665, 65522, 90, 327671, 65522, 90, 262135, 65522, 90, 262129, 65522, 90, 262129, 65528, 90, 262135, 65528, 90, 196599, 65528, 90, 196593, 65528, 90, 196593, 65522, 90, 196599, 65522, 90, 131063, 65522, 90, 131063, 65528, 90, 131057, 65528, 90, 131057, 65522, 90, 65527, 65522, 90, 65527, 65528, 90, 65521, 65528, 90, 65521, 65522, 90, 458741, 65519, 142, 327672, 65529, 1441977, 327672, 65521, 185, 327664, 65529, 655545, 327664, 65521, 1048761, 327664, 65523, 1048755, 327664, 65525, 1048755, 327664, 65527, 1048755, 327666, 65521, 179, 327668, 65521, 179, 327670, 65521, 179, 327672, 65523, 1441971, 327672, 65525, 1441971, 589811, 65516, 1048667, 655347, 65516, 1048667, 655346, 65516, 1048667, 655345, 65516, 1048667, 655344, 65516, 1048667, 655343, 65516, 1048667, 655342, 65516, 1048667, 720878, 65516, 1048667, 720877, 65516, 1048667, 786412, 65516, 1048667, 655341, 65513, 1048667, 589805, 65513, 1048667, 524269, 65513, 1048667, 458733, 65513, 1048667, 393197, 65513, 1048667, 327661, 65513, 1048667, 262125, 65513, 1048667, 196589, 65513, 1048667, 131053, 65513, 1048667, 786405, 65517, 655450, 786411, 65517, 655450, 786405, 65511, 655450, 786411, 65511, 655450, 720869, 65511, 655450, 720875, 65511, 655450, 720869, 65517, 655450, 720875, 65517, 655450, 655333, 65517, 655450, 655339, 65517, 655450, 655333, 65511, 655450, 655339, 65511, 655450, 589803, 65511, 655450, 589797, 65511, 655450, 589797, 65517, 655450, 589803, 65517, 655450, 524267, 65517, 655450, 524261, 65517, 655450, 524261, 65511, 655450, 524267, 65511, 655450, 458731, 65511, 655450, 458725, 65511, 655450, 458725, 65517, 655450, 458731, 65517, 655450, 393195, 65511, 655450, 393189, 65511, 655450, 393189, 65517, 655450, 393195, 65517, 655450, 327659, 65511, 655450, 327653, 65511, 655450, 327653, 65517, 655450, 327659, 65517, 655450, 262123, 65511, 655450, 262117, 65511, 655450, 262123, 65517, 655450, 262117, 65517, 655450, 196587, 65511, 655450, 196587, 65517, 655450, 196581, 65517, 655450, 196581, 65511, 655450, 131051, 65517, 655450, 131045, 65517, 655450, 131045, 65511, 655450, 131051, 65511, 655450, 65515, 65511, 655450, 65515, 65517, 655450, 65509, 65517, 655450, 65509, 65511, 655450, 720872, 65518, 655539, 720874, 65518, 655539, 720870, 65518, 655539, 720868, 65516, 1048755, 720868, 65514, 1048755, 720868, 65512, 1048755, 720870, 65510, 179, 720874, 65510, 179, 720872, 65510, 179, 720876, 65510, 185, 720868, 65510, 1048761, 720868, 65518, 655545, 720876, 65518, 1441977, 720876, 65515, 1441971, 720876, 65511, 1441989, 720876, 65516, 1441989, 327677, 65526, 179, 327679, 65526, 179, 262145, 65526, 179, 327676, 65531, 1441971, 327676, 65529, 1441971, 589808, 65528, 1441971, 589808, 65526, 1441971, 589808, 65524, 1441971, 589811, 65521, 655539, 589815, 65521, 655539, 589808, 65521, 1048761, 589809, 65521, 197, 589808, 65522, 1441989, 720889, 65511, 655539, 720887, 65511, 655539, 720885, 65511, 655539, 720883, 65511, 655539, 720880, 65511, 1048761, 720881, 65511, 197, 983012, 65510, 1048761, 983014, 65510, 179, 983016, 65510, 179, 983018, 65510, 179, 983012, 65512, 1441971, 983012, 65514, 1441971, 983012, 65516, 1441971, 983020, 65510, 655557, 983012, 65518, 1048773, 65534, 4, 1048658, 458741, 65528, 82, 589812, 65510, 655463, 589812, 65508, 655463, 589812, 65506, 655463, 589811, 65510, 1048755, 589811, 65506, 1048755, 589811, 65508, 1048755)
+"cells": PackedInt32Array(1, 5, 655463, 1, 7, 655463, 5, 7, 655463, 7, 5, 655463, 5, 5, 655463, 1, 3, 655463, 3, 3, 1441971, 5, 3, 1441971, 0, 2, 1048761, 3, 5, 655463, 3, 7, 655463, 2, 4, 1048761, 4, 4, 655551, 2, 2, 179, 4, 2, 655551, 131077, 3, 655463, 131075, 3, 655463, 131073, 3, 655463, 131073, 5, 655463, 131073, 7, 655463, 4, 3, 655463, 4, 1, 655463, 4, 65535, 655463, 4, 65533, 655463, 4, 65531, 655463, 4, 65529, 655463, 4, 65527, 655463, 131079, 1, 655463, 131079, 65535, 655463, 131079, 65533, 655463, 131079, 65531, 655463, 131079, 65529, 655463, 131079, 65527, 655463, 131079, 65525, 655463, 4, 65525, 1048674, 131072, 2, 1048761, 131074, 2, 179, 131076, 2, 179, 131072, 4, 1441971, 131072, 6, 1441971, 131078, 2, 655557, 131072, 8, 1048773, 2, 65525, 1048679, 0, 65525, 1048679, 0, 65523, 1048679, 6, 65525, 1048679, 6, 65523, 1048679, 4, 65523, 1048679, 2, 65523, 1048679, 6, 65521, 1048679, 4, 65521, 1048679, 2, 65521, 1048679, 0, 65521, 1048679, 131079, 65523, 1441895, 131079, 65521, 1441890, 131080, 65520, 185, 131080, 65521, 1441989, 131079, 65520, 655557, 6, 65519, 1441895, 4, 65519, 1441895, 2, 65519, 1441895, 0, 65519, 1441895, 196604, 65525, 1048679, 196602, 65525, 1048679, 196600, 65525, 1048679, 196604, 65527, 1048679, 196604, 65529, 1048679, 196604, 65531, 1048679, 196604, 65533, 1048679, 196598, 65525, 1048679, 196596, 65525, 1048679, 196594, 65525, 1048679, 196604, 65535, 1048679, 196604, 1, 1048679, 196602, 1, 1048679, 196600, 1, 1441890, 196598, 1, 1048679, 196596, 1, 1048679, 196602, 65527, 1048679, 196602, 65529, 1048679, 196596, 65535, 1048679, 196594, 65527, 1048679, 196594, 65529, 1048679, 196594, 65531, 1048679, 196594, 65533, 1441890, 196594, 65535, 1048679, 196594, 1, 1048679, 196596, 65533, 1441890, 196596, 65531, 1048679, 196596, 65529, 1048679, 196596, 65527, 1048679, 196598, 65527, 1048679, 196600, 65527, 1048679, 196600, 65529, 1048679, 196598, 65529, 1048679, 196598, 65531, 1048679, 196598, 65533, 1441890, 196598, 65535, 1048679, 196600, 65535, 1441890, 196602, 65535, 1048679, 196602, 65533, 1048679, 196602, 65531, 1048679, 196600, 65531, 1048679, 196600, 65533, 1441890, 196604, 65524, 655556, 196602, 65524, 655556, 196600, 65524, 655556, 196598, 65524, 655556, 196596, 65524, 655556, 196593, 65524, 1048761, 196594, 65524, 197, 196593, 65526, 1441971, 196593, 65528, 1048772, 196593, 65530, 1048772, 196593, 65532, 1048772, 196593, 65534, 1048772, 196593, 0, 1048772, 196593, 1, 1441989, 65534, 1, 655463, 0, 1, 655463, 2, 1, 655463, 2, 65535, 655463, 2, 65533, 655463, 2, 65531, 655463, 2, 65529, 655463, 2, 65527, 655463, 0, 65527, 655463, 65534, 65527, 655463, 65534, 65529, 655463, 65534, 65531, 655463, 65534, 65533, 655463, 65534, 65535, 655463, 0, 65535, 655463, 0, 65533, 655463, 0, 65531, 655463, 0, 65529, 655463, 6, 65526, 655557, 7, 65526, 1441977, 7, 65524, 1441971, 7, 65522, 1441971, 7, 65520, 1441971, 7, 65518, 185, 5, 65518, 179, 3, 65518, 179, 1, 65518, 179, 65535, 65518, 197, 196604, 65519, 113, 196602, 65519, 113, 196600, 65519, 113, 196598, 65519, 113, 196596, 65519, 113, 196596, 65517, 113, 196596, 65515, 113, 196596, 65513, 113, 196598, 65513, 113, 196600, 65513, 113, 196602, 65513, 113, 196604, 65513, 113, 196604, 65517, 113, 196604, 65515, 113, 196602, 65515, 113, 196602, 65517, 113, 196600, 65517, 113, 196598, 65517, 113, 196598, 65515, 113, 196600, 65515, 113, 196604, 65507, 113, 196602, 65507, 113, 196600, 65507, 113, 196598, 65507, 113, 196596, 65507, 113, 196604, 65505, 113, 196602, 65505, 113, 196600, 65505, 113, 196598, 65505, 113, 196596, 65505, 113, 65528, 65511, 90, 65528, 65510, 90, 65528, 65512, 90, 131064, 65512, 90, 196599, 65514, 90, 196602, 65514, 90, 65528, 65509, 90, 65528, 65508, 90, 131064, 65508, 90, 196604, 65514, 90, 196596, 65514, 90, 65533, 65517, 1441971, 65533, 65515, 1441971, 65533, 65513, 1441971, 65533, 65504, 185, 65533, 65505, 1441989, 65523, 65504, 1048761, 65523, 65508, 655545, 65523, 65512, 1048761, 65533, 65512, 185, 65531, 65512, 179, 65525, 65512, 179, 65527, 65512, 199, 65529, 65512, 655559, 65523, 65506, 1048755, 65525, 65508, 179, 65533, 65506, 1441989, 65533, 65508, 1441977, 65531, 65508, 655539, 65529, 65508, 655559, 65527, 65508, 199, 65531, 65504, 197, 65524, 65504, 197, 65530, 65504, 197, 65525, 65504, 197, 65529, 65504, 197, 65526, 65504, 197, 65528, 65504, 197, 65527, 65504, 197, 196595, 65519, 1048755, 196595, 65517, 1048775, 196595, 65512, 1048761, 65523, 65514, 1048773, 65523, 65515, 1048773, 65523, 65516, 1048773, 65523, 65517, 1048773, 65523, 65518, 1048773, 65523, 65519, 1048773, 65523, 65520, 655545, 65525, 65520, 655539, 65527, 65520, 655539, 65532, 65520, 655539, 65530, 65520, 655539, 65529, 65520, 655557, 196595, 65514, 1441991, 196595, 65507, 1048775, 196595, 65504, 1048761, 196595, 65506, 1048773, 196597, 65504, 179, 196599, 65504, 179, 196601, 65504, 192, 196605, 65504, 185, 196603, 65504, 179, 196605, 65506, 1441971, 7, 7, 655463, 6, 4, 189, 8, 4, 655539)
 }
-metadata/_editor_floor_ = Vector3(0, 8, 0)
-
-[node name="ItemMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_4rnas")
-data = {
-"cells": PackedInt32Array(196607, 65531, 1441920, 458741, 65528, 655553, 458739, 65521, 655539, 458743, 65521, 655539, 458736, 65521, 1048761, 458737, 65521, 197, 458736, 65523, 1441971, 458736, 65525, 1441971, 458736, 65527, 1441971, 458736, 65528, 1441989, 393205, 65520, 1441882, 327669, 65520, 1441882, 262133, 65520, 1441882, 196597, 65520, 1441882, 131061, 65520, 1441882, 65525, 65520, 1441882, 589813, 65518, 1441874, 589815, 65518, 1441874, 589811, 65518, 1441874, 589817, 65518, 1441874, 589811, 65516, 1441874, 589813, 65516, 1441874, 589815, 65516, 1441874, 589817, 65516, 1441874, 589817, 65514, 1441874, 589815, 65514, 1441874, 589813, 65514, 1441874, 589811, 65514, 1441874, 589809, 65514, 1441874, 589817, 65512, 1441874, 589815, 65512, 1441874, 589813, 65512, 1441874, 589811, 65512, 1441874, 589809, 65512, 1441874, 720876, 65513, 1048710, 720883, 65516, 1048660, 720882, 65516, 1048660, 720881, 65516, 1048660, 720880, 65516, 1048660, 720879, 65516, 1048660, 786414, 65516, 1048660, 851948, 65516, 1048660, 851947, 65513, 1048658, 851947, 65515, 1048658, 851947, 65517, 1048658, 851947, 65511, 1048658, 851945, 65517, 1048658, 851945, 65515, 1048658, 851945, 65513, 1048658, 851945, 65511, 1048658, 851943, 65511, 1048658, 851943, 65513, 1048658, 851943, 65515, 1048658, 851943, 65517, 1048658, 851941, 65511, 1048658, 851941, 65513, 1048658, 851941, 65515, 1048658, 851941, 65517, 1048658, 524281, 65512, 1048666, 524281, 65518, 1048666, 524273, 65512, 1048666, 524275, 65518, 1048666, 458739, 65518, 1048666, 458737, 65512, 1048666, 458745, 65512, 1048666, 393209, 65512, 1048666, 458745, 65518, 1048666, 393209, 65518, 1048666, 393203, 65518, 1048666, 393201, 65512, 1048666, 327665, 65512, 1048666, 327667, 65518, 1048666, 327673, 65512, 1048666, 327673, 65518, 1048666, 262137, 65518, 1048666, 262137, 65512, 1048666, 262129, 65512, 1048666, 262131, 65518, 1048666, 196601, 65512, 1048666, 196601, 65518, 1048666, 196595, 65518, 1048666, 196593, 65512, 1048666, 131057, 65512, 1048666, 131065, 65512, 1048666, 131065, 65518, 1048666, 131059, 65518, 1048666, 65523, 65518, 1048666, 65521, 65512, 1048666, 65529, 65512, 1048666, 65529, 65518, 1048666, 458746, 65513, 1048755, 458746, 65515, 1048755, 458746, 65517, 1048755, 458746, 65511, 185, 458746, 65519, 1441977, 458736, 65511, 1048761, 458738, 65515, 185, 458738, 65519, 655545, 458744, 65519, 655539, 458744, 65511, 179, 458742, 65511, 179, 458740, 65511, 179, 458738, 65511, 179, 458736, 65513, 1441971, 458738, 65517, 1441971, 458736, 65515, 655545, 458740, 65519, 655557, 458743, 65519, 655557, 851940, 65517, 1441971, 851940, 65515, 1441971, 851940, 65513, 1441971, 851940, 65510, 1048761, 851940, 65512, 1048773, 851942, 65510, 179, 851944, 65510, 179, 851946, 65510, 179, 851947, 65510, 197, 589808, 65511, 1048761, 589810, 65511, 179, 589814, 65511, 179, 589816, 65511, 179, 589817, 65511, 197, 589810, 65517, 1441989, 589810, 65518, 1441989, 589808, 65514, 1441989, 327666, 65529, 179, 65533, 6, 128, 65530, 65534, 82, 65528, 65534, 82, 65522, 65534, 82, 131072, 65528, 1441949, 196608, 65526, 133, 196605, 65531, 1048698, 6, 65535, 179, 4, 65535, 179, 65528, 65533, 179, 65530, 65533, 179, 65522, 65533, 179, 2, 65535, 197, 589808, 65528, 1048583, 589808, 65526, 1048583, 589808, 65524, 1048583, 589808, 65522, 1048583, 589810, 65521, 7, 589815, 65521, 7, 458737, 65522, 42, 458737, 65527, 156, 458743, 65522, 162, 851942, 65511, 79, 851942, 65513, 79, 983016, 65514, 655480, 1, 65535, 655545, 1, 65534, 1048773, 1, 65533, 1048773, 65533, 65533, 1048773, 65533, 65535, 1441977, 65531, 65535, 655545, 65531, 65534, 1048773, 65533, 65534, 1048773)
-}
-metadata/_editor_floor_ = Vector3(0, 8, 0)
-
-[node name="table_items" type="GridMap" parent="."]
-mesh_library = ExtResource("1_4rnas")
-cell_size = Vector3(0.6, 1.34, 1.048)
-data = {
-"cells": PackedInt32Array(262148, 65521, 1441847, 262146, 65521, 1441848, 327679, 65521, 1441846)
-}
-metadata/_editor_floor_ = Vector3(0, 4, 0)
+metadata/_editor_floor_ = Vector3(1, 0, 0)
 
 [node name="Halloween" type="GridMap" parent="."]
 mesh_library = ExtResource("3_cg7rr")
 data = {
-"cells": PackedInt32Array(851942, 65516, 1048589, 65523, 65535, 1048612, 65527, 65535, 1048612, 65528, 65534, 27, 65529, 65534, 28, 65530, 65534, 29, 131073, 65531, 11, 196606, 65527, 3, 131074, 65527, 1048628, 131074, 65529, 1048628, 131074, 65531, 1048628, 458740, 65522, 52, 458742, 65522, 52, 458737, 65525, 1048588, 458743, 65528, 1048587, 589814, 65519, 1048615, 589812, 65519, 1441831, 589811, 65515, 1048625, 589811, 65517, 1048625, 720879, 65516, 1048627, 589814, 65512, 655363, 589817, 65516, 1441803, 589817, 65514, 1441803, 589813, 65518, 1441827, 589813, 65517, 1441827, 589813, 65516, 1441827, 589812, 65516, 1441827, 589813, 65515, 1441827, 589813, 65514, 1441827, 589813, 65513, 1441827, 589813, 65511, 1441827, 589813, 65512, 1441827, 851948, 65516, 1441824, 851947, 65516, 1441824, 851946, 65516, 1441824, 851945, 65516, 1441824, 851944, 65516, 1441824, 851945, 65515, 1048626, 851945, 65517, 1048626, 851944, 65514, 1048629, 851941, 65513, 1048587, 851941, 65511, 1048587, 851941, 65512, 1048588, 851941, 65514, 1048588, 851943, 65513, 1048591, 851943, 65511, 1048593, 458744, 65527, 1048577)
+"cells": PackedInt32Array(131079, 2, 655360, 131078, 1, 1048595, 131078, 65535, 1048595, 131080, 1, 1048595, 131080, 65535, 1048595, 131080, 65533, 1048595, 131080, 65531, 1048595, 131078, 65533, 1048595, 131078, 65531, 1048595, 131078, 65529, 1048595, 131078, 65527, 1048595, 131078, 65525, 1048595, 131080, 65529, 1048595, 131080, 65527, 1048595, 131080, 65525, 1048595, 5, 65535, 1048595, 5, 65533, 1048595, 3, 65535, 1048595, 3, 65533, 1048595, 5, 65531, 1048595, 3, 65531, 1048595, 5, 65529, 1048595, 3, 65529, 1048595, 131078, 65523, 1441811, 131080, 65523, 1441811, 196594, 65533, 19, 196596, 65533, 19, 196598, 65533, 655379, 196599, 65534, 1048595, 196599, 1, 1048595, 262130, 65533, 19, 262132, 65533, 19, 262134, 65533, 19, 262135, 65534, 1441811, 262135, 1, 1441811, 196594, 65531, 1441830, 196594, 65529, 1441830, 196595, 65525, 655398, 196597, 65525, 655398, 196599, 65525, 655398, 196601, 65525, 655398, 196603, 65525, 655398, 196596, 65525, 43, 196598, 65525, 43, 196600, 65525, 43, 196602, 65525, 43, 196594, 65530, 1048619, 196599, 65532, 1048627, 196594, 65532, 1048627, 196594, 65528, 1048627, 196594, 65525, 12, 196601, 65527, 49, 196601, 65530, 49, 196601, 65531, 49, 196601, 65532, 49, 196601, 65533, 49, 196604, 65533, 49, 196604, 65532, 49, 196604, 65531, 49, 196604, 65530, 49, 196596, 65508, 655379, 196604, 65508, 655379, 196598, 65508, 655379, 196602, 65508, 655379, 3, 1, 1441806, 5, 1, 1441806, 5, 65527, 1441806, 3, 65527, 1441806, 5, 65525, 1048591, 4, 65524, 15)
 }
-metadata/_editor_floor_ = Vector3(0, 6, 0)
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="Heroes" type="Node" parent="."]
-
-[node name="Knight" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("8_h4ox1")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.3681, 5.06753, -10.025)
-camera = NodePath("../camera_rig")
-
-[node name="camera_rig" parent="Heroes" instance=ExtResource("6_mh6o5")]
-
-[node name="Rogue" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("6_kcxin")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.80241, 1.0912, 2.12917)
-camera = NodePath("../camera_rig")
-
-[node name="ExitLever" parent="Heroes" node_paths=PackedStringArray("door") instance=ExtResource("7_8f87f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1411, 26.8458, -50.5)
-door = NodePath("../../wall_doorway2")
-
-[node name="Collisions" type="Node" parent="."]
-
-[node name="First Floor" type="Node" parent="Collisions"]
-
-[node name="Walls" type="Node" parent="Collisions/First Floor"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05664, 4.65151, 3.48479)
-visible = false
-use_collision = true
-size = Vector3(15.4888, 7.32825, 1.23761)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0519, 4.65151, 3.48479)
-visible = false
-use_collision = true
-size = Vector3(23.9288, 7.32825, 1.23761)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2011, 4.65151, 0.245441)
-visible = false
-use_collision = true
-size = Vector3(2.38367, 7.32825, 5.34922)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(-0.0213089, 0, 0.999773, 0, 1, 0, -0.999773, 0, -0.0213089, -5.48732, 4.65151, 9.6753)
-visible = false
-use_collision = true
-size = Vector3(11.6912, 7.32825, 1.23761)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(-0.0213089, 0, 0.999773, 0, 1, 0, -0.999773, 0, -0.0213089, -0.412584, 4.65151, 9.6753)
-visible = false
-use_collision = true
-size = Vector3(11.6912, 7.32825, 1.23761)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1594, 10.1912, -8.75466)
-visible = false
-use_collision = true
-size = Vector3(9.11023, 18.4076, 12.8661)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Collisions/First Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0485, 10.2283, -7.16232)
-visible = false
-use_collision = true
-size = Vector3(9.11023, 18.4819, 10.7571)
-
-[node name="wall2" parent="Collisions/First Floor/Walls" instance=ExtResource("16_urx5e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1745, 17.05, -51.1896)
-
-[node name="wall3" parent="Collisions/First Floor/Walls" instance=ExtResource("16_urx5e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1745, 17.05, -55.1896)
-
-[node name="wall4" parent="Collisions/First Floor/Walls" instance=ExtResource("16_urx5e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1745, 17.05, -59.1896)
-
-[node name="Ground" type="Node" parent="Collisions/First Floor"]
-
-[node name="GroundCollision1" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99911, 0.492382, 0.758621)
-use_collision = true
-size = Vector3(19.8477, 1, 4)
-
-[node name="GroundCollision3" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99821, 0.492382, 8.60717)
-use_collision = true
-size = Vector3(3.85306, 1, 12.3561)
-
-[node name="GroundCollision4" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.990195, 0.492382, -3.62341)
-use_collision = true
-size = Vector3(8.04572, 1, 5.11295)
-
-[node name="GroundCollision2" type="CSGBox3D" parent="Collisions/First Floor/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5642, 0.492382, 0.525054)
-use_collision = true
-size = Vector3(24.7434, 1, 4.05192)
-
-[node name="Stairs" type="Node" parent="Collisions/First Floor"]
-
-[node name="Right Staircase" type="CSGBox3D" parent="Collisions/First Floor/Stairs"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.944214, 2.69729, -5.40008)
-visible = false
-use_collision = true
-size = Vector3(4.03247, 1, 5.96973)
-
-[node name="MovableFoundation" parent="Collisions/First Floor" instance=ExtResource("6_oq7ng")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9478, 17.1538, -38.8215)
-
-[node name="Second Floor" type="Node" parent="Collisions"]
-
-[node name="Walls" type="Node" parent="Collisions/Second Floor"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0163, 11.7836, -25.6517)
-visible = false
-use_collision = true
-size = Vector3(7.44199, 24.5672, 13.5208)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.99614, 11.7836, -12.3986)
-visible = false
-use_collision = true
-size = Vector3(7.44199, 24.5672, 13.5208)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.74481, 12.5, -40.9954)
-visible = false
-use_collision = true
-size = Vector3(1.27243, 26, 15.7286)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(0.00589923, 0, 0.999983, 0, 1, 0, -0.999983, 0, 0.00589923, -17.0954, 11.7836, -30.7769)
-visible = false
-use_collision = true
-size = Vector3(2.83684, 24.5672, 4)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(-0.0377599, 0, -0.999287, 0, 1, 0, 0.999287, 0, -0.0377599, -41.8025, 16.4982, -32.2321)
-visible = false
-use_collision = true
-size = Vector3(4.07513, 33.9964, 37.1115)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(-0.0377599, 0, -0.999287, 0, 1, 0, 0.999287, 0, -0.0377599, -33.6637, 16.4982, -40.6786)
-visible = false
-use_collision = true
-size = Vector3(0.590721, 33.9964, 11.4965)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(-0.998768, 0, 0.0496168, 0, 1, 0, -0.0496168, 0, -0.998768, -33.5084, 16.4982, -46.88)
-visible = false
-use_collision = true
-size = Vector3(2.02018, 33.9964, 11.4965)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(-0.998768, 0, 0.0496168, 0, 1, 0, -0.0496168, 0, -0.998768, -34.7514, 16.4982, -49.859)
-visible = false
-use_collision = true
-size = Vector3(6.94954, 33.9964, 5.28633)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(-0.0056897, 0, -0.999984, 0, 1, 0, 0.999984, 0, -0.0056897, -33.3791, 16.2431, -35.3577)
-visible = false
-use_collision = true
-size = Vector3(4.07513, 33.4863, 9.35577)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.991, 19.0243, -38.9252)
-visible = false
-use_collision = true
-size = Vector3(12.1424, 4.00708, 2.05981)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="Collisions/Second Floor/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3839, 22.0223, -38.9252)
-visible = false
-use_collision = true
-size = Vector3(4.82505, 2.00311, 2.05981)
-
-[node name="Ground" type="Node" parent="Collisions/Second Floor"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Collisions/Second Floor/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500793, 4.53718, -12.7795)
-visible = false
-use_collision = true
-size = Vector3(11.9095, 1, 12.4244)
-
-[node name="Stairs" type="Node" parent="Collisions/Second Floor"]
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Collisions/Second Floor/Stairs"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -11.177, 8.8023, -17.0766)
-visible = false
-use_collision = true
-size = Vector3(11.235, 1, 3.83009)
-
-[node name="Third Floor" type="Node" parent="Collisions"]
-
-[node name="Walls" type="Node" parent="Collisions/Third Floor"]
-
-[node name="Ground" type="Node" parent="Collisions/Third Floor"]
-
-[node name="Stairs" type="Node" parent="Collisions/Third Floor"]
-
-[node name="Fourth Floor" type="Node" parent="Collisions"]
-
-[node name="Walls" type="Node" parent="Collisions/Fourth Floor"]
-
-[node name="Ground" type="Node" parent="Collisions/Fourth Floor"]
-
-[node name="Stairs" type="Node" parent="Collisions/Fourth Floor"]
+[node name="Items" type="GridMap" parent="."]
+mesh_library = ExtResource("1_4rnas")
+data = {
+"cells": PackedInt32Array(6, 65521, 1441926, 65533, 65519, 1048710, 65533, 65525, 1048710, 196594, 65534, 1441867, 196594, 65535, 1441867, 196594, 0, 1441866, 196594, 1, 1441866, 196597, 65534, 1441913, 327669, 65534, 1441911, 196597, 1, 1441913, 196598, 1, 1441834, 196598, 65534, 1441834, 196605, 2, 1441841, 196593, 2, 48, 196595, 2, 46, 196597, 2, 46, 196599, 2, 46, 196601, 2, 46, 196603, 2, 46, 196605, 0, 1441838, 196605, 65534, 1441838, 196605, 65532, 1441838, 196605, 65530, 1441838, 196605, 65528, 1441838, 196605, 65526, 1441842, 65533, 65527, 1048779, 65533, 65529, 1048755, 65533, 65531, 1048755, 65533, 65533, 1048779, 65533, 65535, 1048755, 65533, 2, 1441977, 65533, 1, 1048773, 65531, 2, 179, 65529, 2, 179, 65527, 2, 179, 65525, 2, 179, 65523, 2, 179, 65521, 2, 655545, 65521, 0, 1048755, 65521, 65534, 1048755, 65521, 65532, 1048755, 65521, 65530, 1048755, 65521, 65528, 1048755, 65521, 65526, 1048755, 65521, 65524, 1048761, 65523, 65524, 179, 65525, 65524, 179, 65527, 65524, 179, 65529, 65524, 179, 65531, 65524, 179, 65532, 65524, 197, 65534, 2, 655557, 0, 2, 655557, 65535, 2, 655557, 6, 65519, 79)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 53, 58.7251, 11.1946)
@@ -280,124 +58,58 @@ transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 53, 58.7
 [node name="Torches" type="Node" parent="."]
 
 [node name="Torch1" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.649368, -0.760474, 0, 0.760474, 0.649368, 4.14146, 3, -6.4116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -11)
 
 [node name="Torch2" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.649368, -0.760474, 0, 0.760474, 0.649368, -2.11598, 3, -6.4116)
-
-[node name="Torch4" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.649368, -0.760474, 0, 0.760474, 0.649368, -0.473121, 9.24489, -18.3128)
-
-[node name="Torch5" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(-0.878597, 0.442045, 0.180731, 0.136392, 0.594945, -0.792109, -0.457674, -0.671295, -0.583008, -7.96902, 9.24489, -14.4967)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7, -11)
 
 [node name="Torch3" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(-0.878597, 0.442045, 0.180731, 0.136392, 0.594945, -0.792109, -0.457674, -0.671295, -0.583008, -7.96902, 9.24489, -10.5569)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7, -9)
+
+[node name="Torch4" parent="Torches" instance=ExtResource("4_7aqpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7, -7)
+
+[node name="Torch5" parent="Torches" instance=ExtResource("4_7aqpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7, -5)
 
 [node name="Torch6" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.649368, -0.760474, 0, 0.760474, 0.649368, 5.43201, 9.24489, -18.3128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -9)
 
 [node name="Torch7" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.583328, -0.812236, 0, 0.812236, 0.583328, -23, 3.40992, -0.415397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -7)
 
 [node name="Torch8" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.583328, -0.812236, 0, 0.812236, 0.583328, -15.0858, 3.40992, -0.415397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -5)
 
 [node name="Torch9" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.588815, -0.808267, 0, 0.808267, 0.588815, -18.9653, 16.0144, -14.6192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 7, -17)
 
 [node name="Torch10" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.697315, -0.716765, 0, 0.716765, 0.697315, -21.7972, 15.6929, -28.4517)
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 9.02646, 3.03877, 9.62266)
 
 [node name="Torch11" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.697315, -0.716765, 0, 0.716765, 0.697315, -16.1676, 15.6929, -28.4517)
-
-[node name="Torch12" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(-0.359036, 0.668973, 0.650821, 0, 0.697315, -0.716765, -0.933324, -0.257344, -0.250361, -31.056, 15.6929, -28.4517)
-
-[node name="Torch13" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(-0.359036, 0.668973, 0.650821, 0, 0.697315, -0.716765, -0.933324, -0.257344, -0.250361, -31.056, 15.6929, -22.7131)
-
-[node name="Torch14" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(-0.359036, 0.668973, 0.650821, 0, 0.697315, -0.716765, -0.933324, -0.257344, -0.250361, -31.056, 15.6929, -17.4948)
-
-[node name="Torch15" parent="Torches" instance=ExtResource("5_e8rw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 17, -35)
-
-[node name="Torch16" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.690112, -0.723702, 0, 0.723702, 0.690112, -44.8414, 26.8807, -50.5263)
-
-[node name="Torch17" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 0.690112, -0.723702, 0, 0.723702, 0.690112, -40.1886, 26.8807, -50.5263)
-
-[node name="Torch18" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(-0.0653857, 0.722154, 0.688636, 0, 0.690112, -0.723702, -0.99786, -0.0473198, -0.0451235, -54.5418, 26.8807, -48.5242)
-
-[node name="Torch19" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4305, 25.3105, -37.2315)
-
-[node name="Torch20" parent="Torches" instance=ExtResource("4_7aqpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4305, 25.3105, -41.0157)
-
-[node name="Laterns" type="Node" parent="."]
-
-[node name="Latern1" parent="Laterns" instance=ExtResource("5_e8rw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89401, 1.05116, 10.902)
-
-[node name="Latern2" parent="Laterns" instance=ExtResource("5_e8rw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57418, 1.02565, -1.89551)
-
-[node name="Latern3" parent="Laterns" instance=ExtResource("5_e8rw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 17, -46.5025)
-
-[node name="Latern4" parent="Laterns" instance=ExtResource("5_e8rw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2386, 17, -47.5025)
-
-[node name="Latern5" parent="Laterns" instance=ExtResource("5_e8rw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5865, 17, -35)
-
-[node name="KeyPosition" type="GridMap" parent="."]
-mesh_library = ExtResource("1_4rnas")
-cell_size = Vector3(1.6, 2.2, 2.175)
-data = {
-"cells": PackedInt32Array(262144, 65527, 118)
-}
-metadata/_editor_floor_ = Vector3(0, 1, 0)
-
-[node name="Mage" parent="." node_paths=PackedStringArray("shop", "mage_dialogue") instance=ExtResource("9_f6d46")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750553, 5.04805, -17.2764)
-shop = NodePath("../UI/shop")
-mage_dialogue = NodePath("../UI/MageDialogue")
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 13.0265, 3.03877, 9.62266)
 
 [node name="UI" type="Node" parent="."]
 
+[node name="shop" parent="UI" instance=ExtResource("12_7vphm")]
+
 [node name="MageDialogue" parent="UI" instance=ExtResource("11_7hnns")]
-visible = false
 
-[node name="shop" parent="UI" node_paths=PackedStringArray("mage") instance=ExtResource("12_7vphm")]
-visible = false
-mage = NodePath("../../Mage")
+[node name="Mage" parent="." node_paths=PackedStringArray("shop", "mage_dialogue") instance=ExtResource("9_f6d46")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.7363, 5, -0.0654352)
+shop = NodePath("../UI/shop")
+mage_dialogue = NodePath("../UI/MageDialogue")
 
-[node name="wall_doorway2" parent="." node_paths=PackedStringArray("exitlever") instance=ExtResource("15_scwfp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0039, 17, -49.0247)
-exitlever = NodePath("../Heroes/ExitLever")
+[node name="Heroes" type="Node" parent="."]
 
-[node name="Coins" type="Node" parent="."]
+[node name="Rogue" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("6_kcxin")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.63616, 5.51602, 8.97099)
+camera = NodePath("../camera_rig")
+camera_offset = -1.571
 
-[node name="coin_stack2" parent="Coins" instance=ExtResource("7_u7513")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8019, 13.0502, -25.5348)
+[node name="Knight" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("8_h4ox1")]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, 9.39997, 1, 12.2954)
+camera = NodePath("../camera_rig")
 
-[node name="coin_stack3" parent="Coins" instance=ExtResource("7_u7513")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, -13)
-
-[node name="coin_stack" parent="Coins" instance=ExtResource("7_u7513")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 8.98481)
-
-[node name="Bat" parent="." instance=ExtResource("17_builb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.1925, 17.4712, -21.899)
-
-[node name="wall2" parent="." instance=ExtResource("16_urx5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00615, 4.90275, -7.10481)
-
-[node name="wall3" parent="." instance=ExtResource("16_urx5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99385, 4.90275, -7.10481)
+[node name="camera_rig" parent="Heroes" instance=ExtResource("10_1en8l")]

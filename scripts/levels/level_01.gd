@@ -4,14 +4,14 @@ extends Node3D
 @onready var knight: Knight = $Heroes/Knight
 @onready var shop: Shop = $UI/shop
 @onready var camera_rig: CameraRig = $Heroes/camera_rig
-@onready var music: AudioStreamPlayer = $Music
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SceneTransitionAnimation.animation_player.play("fade_out")
 	
 	GameManager.is_main_menu_active = false
 	GameManager.set_heroes(knight, rogue)
-	GameManager.set_knight_as_active()
+	GameManager.set_rogue_as_active()
 	
 	shop.shop_card.create_card(EnumClass.card_type.RED_POTION)
 	shop.shop_card.coin_count.text = "10"
