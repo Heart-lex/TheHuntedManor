@@ -1363,6 +1363,7 @@ health = 30.0
 
 [node name="HealthbarPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
 
 [node name="HealthComponent2" parent="HealthbarPosition" node_paths=PackedStringArray("health_component") instance=ExtResource("7_jkxjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367432, 0)
