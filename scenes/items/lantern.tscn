@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b108e1jqccbdd"]
+
+[ext_resource type="PackedScene" uid="uid://3ff1nqn5huqg" path="res://assets/dungeon/floor/halloween/post_lantern.gltf" id="1_pt2i5"]
+
+[node name="Lantern" type="Node3D"]
+
+[node name="post_lantern2" parent="." instance=ExtResource("1_pt2i5")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9741, 1)
+light_color = Color(0.854902, 0.6, 0.317647, 1)
+light_size = 0.225
+omni_attenuation = 1.625
