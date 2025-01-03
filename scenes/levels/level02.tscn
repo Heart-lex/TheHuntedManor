@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dojdxwasr8q2k" path="res://scenes/enemies/bat.tscn" id="13_cyaeq"]
 [ext_resource type="PackedScene" uid="uid://dws74k17qnt02" path="res://scenes/enemies/spider.tscn" id="14_1fmfx"]
 [ext_resource type="PackedScene" uid="uid://blg7kl6rxtg8h" path="res://assets/dungeon/floor/halloween/arch_gate.gltf" id="14_737h1"]
-[ext_resource type="PackedScene" path="res://scenes/items/exit_lever.tscn" id="15_hmlrl"]
+[ext_resource type="PackedScene" uid="uid://bao88qhbacqiu" path="res://scenes/items/exit_lever.tscn" id="15_hmlrl"]
 [ext_resource type="PackedScene" uid="uid://cp4fnfqgndq2t" path="res://assets/dungeon/floor/halloween/shrine_candles.gltf" id="15_thdyk"]
 [ext_resource type="PackedScene" uid="uid://0p3xsg135jns" path="res://scenes/wall_doorway_2.tscn" id="16_2olgx"]
 [ext_resource type="PackedScene" uid="uid://bsjf8sxkublhg" path="res://assets/dungeon/floor/halloween/fence_gate.gltf" id="16_7dppn"]
