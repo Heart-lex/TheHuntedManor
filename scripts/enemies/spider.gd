@@ -3,6 +3,7 @@ class_name Spider
 extends CharacterBody3D
 
 @export var knight: Knight = null
+@export var rotation_offset : float
 
 @onready var model: Node3D = $Sketchfab_model
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -96,8 +97,8 @@ func chase_target(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 	# Smoothly rotate to face the knight
-	var target_rotation = atan2(position.z - knight.position.z, knight.position.x -  position.x)
-	model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATE_SPEED)
+	var target_rotation = atan2(position.x - knight.position.x, knight.position.z - position.z)
+	model.rotation.y = lerp_angle(model.rotation.y, -target_rotation + rotation_offset, ROTATE_SPEED)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("knight"):  
