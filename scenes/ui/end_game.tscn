@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvugupub0vurb"]
+
+[ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="1_s7t2u"]
+[ext_resource type="PackedScene" uid="uid://dgpo5lluaipax" path="res://scenes/ui/confetti.tscn" id="2_pwdb5"]
+
+[node name="EndGame" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.382
+anchor_right = 0.5
+anchor_bottom = 0.382
+offset_left = -126.5
+offset_top = -20.04
+offset_right = 126.5
+offset_bottom = 19.96
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_s7t2u")
+theme_override_font_sizes/font_size = 37
+text = "END OF GAME"
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -20.0
+offset_right = 100.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.870588, 0.85098, 0.231373, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_s7t2u")
+theme_override_font_sizes/font_size = 37
+text = "yOU WON"
+
+[node name="Confetti" parent="." instance=ExtResource("2_pwdb5")]
+position = Vector2(483, 299)
+rotation = -1.0472
+scale = Vector2(3, 3)
+
+[node name="Confetti2" parent="." instance=ExtResource("2_pwdb5")]
+position = Vector2(794, 297)
+rotation = 1.0472
+scale = Vector2(3, 3)
+
+[node name="Confetti3" parent="." instance=ExtResource("2_pwdb5")]
+position = Vector2(629, 397)
+rotation = 3.14159
+scale = Vector2(3, 3)
