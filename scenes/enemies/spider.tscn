@@ -39,7 +39,6 @@ input_2/reset = true
 animation = &"Spider_Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_t7hhr"]
-graph_offset = Vector2(-473.108, -0.10022)
 nodes/Attack/node = SubResource("AnimationNodeAnimation_bsy52")
 nodes/Attack/position = Vector2(-186.667, 346.667)
 nodes/Death/node = SubResource("AnimationNodeAnimation_jo18h")
@@ -183,3 +182,4 @@ texture = SubResource("ViewportTexture_75p1a")
 health_component = NodePath("../../HealthComponent")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
