@@ -48,13 +48,13 @@ func move(zone: Zones) -> void:
 		Zones.NONE:
 			pass
 		Zones.POS_X:
-			velocity.x = 3
+			velocity.x = 7
 		Zones.NEG_X:
-			velocity.x = -3
+			velocity.x = -7
 		Zones.POS_Z:
-			velocity.z = 3
+			velocity.z = 7
 		Zones.NEG_Z:
-			velocity.z = -3
+			velocity.z = -7
 		
 		# I used the following when it was a simple Node3D:
 		#Zones.POS_X:
