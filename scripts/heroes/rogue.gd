@@ -112,6 +112,10 @@ func run():
 		is_running_sound_playing = false
 	
 func character_death() -> void:
+	AudioManager.play_sound(AudioManager.GAME_OVER, 0.25, 1)
+	hitbox.monitorable = false
+	GameManager.character_dead = true
+	is_dead = true
 	anim_tree.set("parameters/Movement/transition_request", "Death")
 	start_timer()
 	
