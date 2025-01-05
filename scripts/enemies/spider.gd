@@ -10,6 +10,8 @@ extends CharacterBody3D
 @onready var detection_area: Area3D = $DetectionArea
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var hurtbox: Area3D = $Hurtbox
+var hurtbox_entered : bool = false
+var area : Area3D
 
 const SPEED : float = 3.0               # Movement speed
 const CHASE_SPEED : float = 8.0 
@@ -24,6 +26,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var patrol_start: Vector3
 var patrol_direction: Vector3 = Vector3(0, 0, 1)  # Initial patrol direction
 var is_turning: bool = false                     # Prevent movement during turn delay
+var is_attacking : bool = false
 
 enum state {ATTACK, DEATH, PATROL, CHASE}
 
@@ -49,6 +52,11 @@ func _process(delta: float) -> void:
 		state.CHASE:
 			if knight:
 				chase_target(delta)
+	if hurtbox_entered and not is_attacking:
+		hurt(area)
+		is_attacking = true
+		await get_tree().create_timer(0.8).timeout
+		is_attacking = false
 
 func start_patrol() -> void:
 	patrol_direction = -transform.basis.z.normalized()  # Local forward direction
@@ -115,8 +123,14 @@ func handle_animations(delta: float) -> void:
 		state.DEATH:
 			anim_tree.set("parameters/Movement/transition_request", "Death")
 
-func _on_hurtbox_area_entered(area: Area3D) -> void:
-	area.health_component.apply_damage(6)
+func _on_hurtbox_area_entered(area3D: Area3D) -> void:
+	hurtbox_entered = true
+	area = area3D
+
+func hurt(area : Area3D):
+	area.health_component.apply_damage(7)
+	AudioManager.play_sound(AudioManager.SPIDER_ATTACK, 0.25, 1)
+	await get_tree().create_timer(1).timeout
 
 func on_target_dead() -> void:
 	currState = state.DEATH
@@ -125,3 +139,6 @@ func on_target_dead() -> void:
 	# Wait for the death animation to complete before fading
 	await get_tree().create_timer(1.5).timeout  # Adjust duration to match death animation
 	queue_free()
+
+func _on_hurtbox_area_exited(area: Area3D) -> void:
+	hurtbox_entered = false

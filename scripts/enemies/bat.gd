@@ -85,6 +85,6 @@ func on_target_dead() -> void:
 	queue_free()
 
 func hurt(area : Area3D):
-	area.health_component.apply_damage(7)
+	area.health_component.apply_damage(4)
 	AudioManager.play_sound(AudioManager.BAT_ATTACK, 0.25, 1)
 	await get_tree().create_timer(1).timeout
