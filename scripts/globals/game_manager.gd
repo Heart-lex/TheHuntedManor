@@ -7,6 +7,9 @@ var temp_state : bool
 var is_main_menu_active: bool = true
 var green_potion: bool = false
 var character_dead: bool = false
+
+var level_number: int = 1
+var base_scene_path: String = "res://scenes/levels/"
 	
 func set_heroes(knight : Knight, rogue: Rogue) -> void:
 	hero_knight = knight
@@ -66,6 +69,15 @@ func _input(event: InputEvent) -> void:
 				hero_knight.health_component.gain_health(10.0)
 			else:
 				hero_rogue.health_component.gain_health(10.0)
+
+func change_level():
+		level_number += 1
+		if level_number != 6:
+			var next_scene_path = base_scene_path + "level0" + str(level_number) + ".tscn"
+			get_tree().change_scene_to_file(next_scene_path)
+		elif level_number == 6:
+			get_tree().change_scene_to_file("res://scenes/ui/end_game.tscn")
+	
 
 func potion_sound():
 	AudioManager.play_sound(AudioManager.POTION_DRINKING, 0, 1)
