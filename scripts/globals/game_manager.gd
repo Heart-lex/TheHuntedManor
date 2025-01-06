@@ -60,7 +60,7 @@ func _input(event: InputEvent) -> void:
 			if hero_knight.active:
 				hero_knight.activate_shield()
 			else:
-				hero_knight.activate_shield()
+				hero_rogue.activate_shield()
 			green_potion = true
 	if Input.is_action_just_pressed("use_red_potion") and CoinCollector.red_potion_count > 0:
 			CoinCollector.red_potion_count -=1
