@@ -122,7 +122,7 @@ func start_timer():
 	var timer = Timer.new()
 	add_child(timer)
 	if is_dead:
-		timer.wait_time = 3
+		timer.wait_time = 1.5
 	else: 
 		timer.wait_time = 15
 	timer.one_shot = true
