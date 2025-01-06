@@ -934,6 +934,27 @@ calculate_tangents = false
 use_collision = true
 size = Vector3(0.936696, 1.39677, 0.916827)
 
+[node name="CSGBox3D5" type="CSGBox3D" parent="Collisions/Fourth Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.0216, 26.0053, -48.9862)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.471479, 2.07546, 0.438191)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Collisions/Fourth Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.0216, 26.0053, -46.7425)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.471479, 2.07546, 0.438191)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Collisions/Fourth Floor/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.0216, 26.0053, -43.248)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.471479, 2.07546, 0.438191)
+
 [node name="Ground" type="Node" parent="Collisions/Fourth Floor"]
 
 [node name="Stairs" type="Node" parent="Collisions/Fourth Floor"]
