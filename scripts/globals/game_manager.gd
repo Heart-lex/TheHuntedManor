@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("player_switch"):
+	if event.is_action_pressed("player_switch") and not is_main_menu_active:
 		temp_state = !hero_knight.active
 		hero_rogue.active = hero_knight.active
 		hero_knight.active = temp_state
