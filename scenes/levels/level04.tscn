@@ -1448,7 +1448,7 @@ size = Vector3(5.49792, 1, 6)
 [node name="Levers" type="Node" parent="."]
 
 [node name="Lever" parent="Levers" node_paths=PackedStringArray("door") instance=ExtResource("19_tegg4")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -19.1227, 2.4106, 26.5844)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -18.1227, 2.4106, 26.5888)
 door = NodePath("../../DungeonDoor/LeverDoor")
 
 [node name="ExitLever" parent="Levers" node_paths=PackedStringArray("door") instance=ExtResource("20_ntgs4")]
