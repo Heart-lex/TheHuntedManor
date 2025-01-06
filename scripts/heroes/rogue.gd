@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor() and not was_on_floor:
 		land()
-	if active:
+	if active and not is_dead:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jump()
@@ -115,7 +115,7 @@ func character_death() -> void:
 	hitbox.monitorable = false
 	GameManager.character_dead = true
 	is_dead = true
-	anim_tree.set("parameters/Movement/transition_request", "Death")
+	anim_tree.set("parameters/Action/transition_request", "Death")
 	start_timer()
 	
 func start_timer(): 
