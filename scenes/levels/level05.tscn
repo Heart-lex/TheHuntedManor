@@ -177,4 +177,6 @@ mage_dialogue = NodePath("../UI/MageDialogue")
 
 [node name="shop" parent="UI" instance=ExtResource("8_wrmbi")]
 
-[node name="PauseMenu" parent="UI" instance=ExtResource("10_fx6k3")]
+[node name="PauseMenu" type="CanvasLayer" parent="UI"]
+
+[node name="PauseMenu" parent="UI/PauseMenu" instance=ExtResource("10_fx6k3")]

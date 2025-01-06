@@ -360,7 +360,9 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 
 
 [node name="MageDialogue" parent="UI" instance=ExtResource("11_7hnns")]
 
-[node name="PauseMenu" parent="UI" instance=ExtResource("8_vbveo")]
+[node name="PauseMenu" type="CanvasLayer" parent="UI"]
+
+[node name="PauseMenu" parent="UI/PauseMenu" instance=ExtResource("8_vbveo")]
 
 [node name="Mage" parent="." node_paths=PackedStringArray("shop", "mage_dialogue") instance=ExtResource("9_f6d46")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.7363, 5, -0.0654352)
@@ -874,6 +876,34 @@ visible = false
 calculate_tangents = false
 use_collision = true
 size = Vector3(1.9911, 0.687065, 4.41253)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Collisions/lvl1/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03854, 5.92504, -11.9395)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(1.10974, 2.66008, 1.12948)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Collisions/lvl1/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0385, 5.92504, -11.9395)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(1.10974, 2.66008, 1.12948)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Collisions/lvl1/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0385, 5.92504, -5.93945)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(1.10974, 2.66008, 1.12948)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Collisions/lvl1/Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03854, 5.92504, -5.93945)
+visible = false
+calculate_tangents = false
+use_collision = true
+size = Vector3(1.10974, 2.66008, 1.12948)
 
 [node name="Enemies" type="Node" parent="."]
 
