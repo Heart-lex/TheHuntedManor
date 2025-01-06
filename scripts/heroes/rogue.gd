@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 		handle_animations(delta)
 	
 	if health_component.health == 0:
-		character_death()
 		is_dead = true
 
 	if not is_on_floor():
