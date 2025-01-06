@@ -66,9 +66,9 @@ func _input(event: InputEvent) -> void:
 			CoinCollector.red_potion_count -=1
 			potion_sound()
 			if hero_knight.active:
-				hero_knight.health_component.gain_health(10.0)
+				hero_knight.health_component.gain_health(50.0)
 			else:
-				hero_rogue.health_component.gain_health(10.0)
+				hero_rogue.health_component.gain_health(50.0)
 
 func change_level():
 		level_number += 1
