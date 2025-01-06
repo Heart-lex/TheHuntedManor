@@ -21,7 +21,7 @@ func create_card (card_type: EnumClass.card_type) -> void:
 			type = EnumClass.card_type.RED_POTION
 			image.texture = preload("res://assets/red_potion.png") 
 			title_text.text = "red potion"
-			description_text.text = "a mystical brew that pulses with life energy. Consuming it grants 10hp, fueling your journey toward greater power skill."
+			description_text.text = "a mystical brew that pulses with life energy. Consuming it grants 50 hp, fueling your journey toward greater power."
 		EnumClass.card_type.GREEN_POTION:
 			type = EnumClass.card_type.GREEN_POTION
 			image.texture = preload("res://assets/green_potion.png") 
@@ -31,12 +31,12 @@ func create_card (card_type: EnumClass.card_type) -> void:
 			type = EnumClass.card_type.BLUE_POTION
 			image.texture = preload("res://assets/blue_potion.png") 
 			title_text.text = "blue potion"
-			description_text.text = "drink to gain a burst of speed outrunning enemies or completing tasks in record time!"
+			description_text.text = "drink to gain a burst of speed, outrunning enemies and completing tasks in record time!"
 		EnumClass.card_type.DOOR_KEY:
 			type = EnumClass.card_type.DOOR_KEY
 			image.texture = preload("res://assets/door_key.png") 
 			title_text.text = "door key"
-			description_text.text = "this key will help you unlock a closed door. careful! you do not want those with a lever"
+			description_text.text = "this key will help you unlock a closed door. careful! look for those without a lever"
 		
 func _on_buy_button_pressed() -> void:
 	# Disable the button
