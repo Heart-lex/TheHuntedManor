@@ -76,6 +76,7 @@ func change_level():
 			var next_scene_path = base_scene_path + "level0" + str(level_number) + ".tscn"
 			get_tree().change_scene_to_file(next_scene_path)
 		elif level_number == 6:
+			is_main_menu_active = true
 			get_tree().change_scene_to_file("res://scenes/ui/end_game.tscn")
 	
 
