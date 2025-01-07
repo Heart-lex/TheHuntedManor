@@ -14,8 +14,8 @@ func _ready() -> void:
 	GameManager.set_knight_as_active()
 	
 	shop.shop_card.create_card(EnumClass.card_type.RED_POTION)
-	shop.shop_card.coin_count.text = "10"
+	shop.shop_card.coin_count.text = "5"
 	shop.shop_card_2.create_card(EnumClass.card_type.DOOR_KEY)
-	shop.shop_card_2.coin_count.text = "7"
-	shop.shop_card_3.create_card(EnumClass.card_type.BLUE_POTION)
-	shop.shop_card_3.coin_count.text = "9"
+	shop.shop_card_2.coin_count.text = "10"
+	shop.shop_card_3.create_card(EnumClass.card_type.GREEN_POTION)
+	shop.shop_card_3.coin_count.text = "8"
