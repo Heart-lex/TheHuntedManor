@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 @export var knight: Knight = null
 @export var rotation_offset : float
+@export var PATROL_DISTANCE : float = 10.0 # Distance in meters to patrol before turning around
 
 @onready var model: Node3D = $Sketchfab_model
 @onready var anim_tree: AnimationTree = $AnimationTree
@@ -15,7 +16,6 @@ var area : Area3D
 
 const SPEED : float = 3.0               # Movement speed
 const CHASE_SPEED : float = 8.0 
-const PATROL_DISTANCE : float = 10.0    # Distance in meters to patrol before turning around
 const TURN_DELAY : float = 0.5          # Pause duration in seconds before turning
 const ROTATE_SPEED : float = 1.5
 
@@ -128,7 +128,7 @@ func _on_hurtbox_area_entered(area3D: Area3D) -> void:
 	area = area3D
 
 func hurt(area : Area3D):
-	area.health_component.apply_damage(7)
+	area.health_component.apply_damage(10)
 	AudioManager.play_sound(AudioManager.SPIDER_ATTACK, 0.25, 1)
 	await get_tree().create_timer(1).timeout
 
