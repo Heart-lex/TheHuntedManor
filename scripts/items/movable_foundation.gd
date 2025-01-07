@@ -23,7 +23,6 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and current_zone != Zones.NONE:
 		AudioManager.play_sound(AudioManager.PUSH, 0, 1)
-		print("Currently at: " + Zones.keys()[current_zone]) # debug
 		move(current_zone)
 
 func _physics_process(delta: float) -> void:
@@ -37,6 +36,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if velocity.z:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		
 # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Moves based on the zone in which the Knight is at.
 #
@@ -55,16 +56,7 @@ func move(zone: Zones) -> void:
 			velocity.z = 7
 		Zones.NEG_Z:
 			velocity.z = -7
-		
-		# I used the following when it was a simple Node3D:
-		#Zones.POS_X:
-			#foundation.position.x += 1
-		#Zones.NEG_X:
-			#foundation.position.x -= 1
-		#Zones.POS_Z:
-			#foundation.position.z += 1
-		#Zones.NEG_Z:
-			#foundation.position.z -= 1
+
 
 # ~~ ZONE SIGNAL FUNCTIONS ~~ #
 

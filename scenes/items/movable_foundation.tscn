@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1wi7ubtnwuwh"]
+[gd_scene load_steps=7 format=3 uid="uid://d1wi7ubtnwuwh"]
 
 [ext_resource type="Script" path="res://scripts/items/movable_foundation.gd" id="1_k8ws7"]
 [ext_resource type="PackedScene" uid="uid://w6k5dsn7jo21" path="res://assets/dungeon/floor/dungeon_remastered/floor_foundation_allsides.gltf" id="1_uy52j"]
-[ext_resource type="PackedScene" uid="uid://bxea2ujb23k66" path="res://scenes/ui/interaction_prompt.tscn" id="3_ahk30"]
+[ext_resource type="Script" path="res://scenes/ui/interaction_prompt.gd" id="3_qib4g"]
+[ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="4_jco11"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vaqpv"]
 size = Vector3(2.22839, 2, 2.22916)
@@ -54,7 +55,31 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.85)
 shape = SubResource("BoxShape3D_psptt")
 
-[node name="InteractionPrompt" parent="." instance=ExtResource("3_ahk30")]
+[node name="InteractionPrompt" type="CanvasLayer" parent="."]
+script = ExtResource("3_qib4g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InteractionPrompt"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -40.0
+offset_right = 253.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="InteractionPrompt/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.945338, 0.981818, 0.990637, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jco11")
+theme_override_font_sizes/font_size = 32
+text = "Press E or Shift to push"
 
 [connection signal="body_entered" from="Model/ZonePositiveX" to="." method="_on_zone_positive_x_body_entered"]
 [connection signal="body_exited" from="Model/ZonePositiveX" to="." method="_on_zone_positive_x_body_exited"]
