@@ -48,7 +48,7 @@ theme_override_colors/font_color = Color(0.870588, 0.85098, 0.231373, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_s7t2u")
 theme_override_font_sizes/font_size = 37
-text = "yOU WON"
+text = "yOU WON !"
 
 [node name="Confetti" parent="." instance=ExtResource("2_pwdb5")]
 position = Vector2(483, 299)
