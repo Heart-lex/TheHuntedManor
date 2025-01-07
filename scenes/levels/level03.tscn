@@ -437,7 +437,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9311, -6.52461, 12.1077)
 camera = NodePath("../camera_rig")
 
 [node name="Rogue" parent="Heroes" node_paths=PackedStringArray("camera") instance=ExtResource("5_v0yoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0053, -6.50004, 12.2748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8375, -6.36265, 8.9341)
 camera = NodePath("../camera_rig")
 
 [node name="camera_rig" parent="Heroes" instance=ExtResource("12_18ejg")]
