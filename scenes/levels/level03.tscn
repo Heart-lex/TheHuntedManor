@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbc16i4oqesmb" path="res://scenes/heroes/knight.tscn" id="4_ou5w0"]
 [ext_resource type="PackedScene" uid="uid://be0j8gwin07re" path="res://scenes/heroes/rogue.tscn" id="5_v0yoc"]
 [ext_resource type="PackedScene" uid="uid://0p3xsg135jns" path="res://scenes/wall_doorway_2.tscn" id="6_7t2ht"]
-[ext_resource type="PackedScene" path="res://scenes/items/exit_lever.tscn" id="7_7q1e8"]
+[ext_resource type="PackedScene" uid="uid://bao88qhbacqiu" path="res://scenes/items/exit_lever.tscn" id="7_7q1e8"]
 [ext_resource type="PackedScene" uid="uid://brrrfimnoags3" path="res://scenes/heroes/mage.tscn" id="8_tps1h"]
 [ext_resource type="PackedScene" uid="uid://dmyfa5fjdx88e" path="res://scenes/ui/pause_menu.tscn" id="9_jb14t"]
 [ext_resource type="PackedScene" uid="uid://xfkggql8ewe8" path="res://scenes/ui/mage_dialogue.tscn" id="10_kc1jl"]

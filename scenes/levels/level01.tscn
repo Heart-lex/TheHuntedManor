@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c65u3lqy2owdr" path="res://assets/dungeon/floor/dungeon_remastered/wall_archedwindow_gated.gltf" id="20_5j2v3"]
 [ext_resource type="PackedScene" uid="uid://0p3xsg135jns" path="res://scenes/wall_doorway_2.tscn" id="20_334r4"]
 [ext_resource type="PackedScene" uid="uid://dlchlektuef0h" path="res://scenes/camera_rig.tscn" id="20_aq4lq"]
-[ext_resource type="PackedScene" path="res://scenes/items/exit_lever.tscn" id="22_jfewo"]
+[ext_resource type="PackedScene" uid="uid://bao88qhbacqiu" path="res://scenes/items/exit_lever.tscn" id="22_jfewo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_su0gt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

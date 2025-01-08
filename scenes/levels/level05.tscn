@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bnsuiv5f1bnul" path="res://scenes/items/coins_stack.tscn" id="12_pli6j"]
 [ext_resource type="PackedScene" uid="uid://blg7kl6rxtg8h" path="res://assets/dungeon/floor/halloween/arch_gate.gltf" id="13_ghfx1"]
 [ext_resource type="PackedScene" uid="uid://dojdxwasr8q2k" path="res://scenes/enemies/bat.tscn" id="14_sx4a7"]
-[ext_resource type="PackedScene" path="res://scenes/items/exit_lever.tscn" id="17_i73ep"]
+[ext_resource type="PackedScene" uid="uid://bao88qhbacqiu" path="res://scenes/items/exit_lever.tscn" id="17_i73ep"]
 [ext_resource type="PackedScene" uid="uid://i61uxwn4i0yu" path="res://scenes/items/chest_full.tscn" id="17_mlfsp"]
 [ext_resource type="PackedScene" uid="uid://ctou2xlakkebs" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_large.gltf" id="19_lh87y"]
 [ext_resource type="PackedScene" uid="uid://d2es08gbof1so" path="res://assets/dungeon/floor/dungeon_remastered/coin_stack_medium.gltf" id="20_oljs8"]
