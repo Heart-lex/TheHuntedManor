@@ -117,7 +117,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_28ri5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hv6s7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ovc17")
-text = "Exit"
+text = "Quit Game"
 
 [node name="Title" type="Label" parent="Main"]
 layout_mode = 1

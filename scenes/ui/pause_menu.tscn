@@ -259,7 +259,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_sn4b3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0pltm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v2tk1")
-text = "Main Menu"
+text = "quit game"
 
 [connection signal="value_changed" from="Menu/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="Menu/VBoxContainer/Mute" to="." method="_on_mute_toggled"]

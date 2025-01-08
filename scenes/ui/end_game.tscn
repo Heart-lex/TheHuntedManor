@@ -1,9 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvugupub0vurb"]
+[gd_scene load_steps=7 format=3 uid="uid://cvugupub0vurb"]
 
+[ext_resource type="Script" path="res://scenes/ui/end_game.gd" id="1_eigu6"]
 [ext_resource type="FontFile" uid="uid://jg7kaoe8c0nn" path="res://fonts/Scary Halloween Font.ttf" id="1_s7t2u"]
 [ext_resource type="PackedScene" uid="uid://dgpo5lluaipax" path="res://scenes/ui/confetti.tscn" id="2_pwdb5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8363t"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11qxa"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a24g"]
+bg_color = Color(0.839216, 0.8, 0.121569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
 [node name="EndGame" type="CanvasLayer"]
+script = ExtResource("1_eigu6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -61,6 +86,24 @@ rotation = 1.0472
 scale = Vector2(3, 3)
 
 [node name="Confetti3" parent="." instance=ExtResource("2_pwdb5")]
-position = Vector2(629, 397)
+position = Vector2(632, 459)
 rotation = 3.14159
 scale = Vector2(3, 3)
+
+[node name="exitButton" type="Button" parent="."]
+offset_left = 531.0
+offset_top = 414.0
+offset_right = 746.0
+offset_bottom = 447.0
+size_flags_vertical = 10
+theme_override_colors/font_hover_color = Color(0.839216, 0.8, 0.121569, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_s7t2u")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_8363t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_11qxa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0a24g")
+text = "  Main Menu  "
+
+[connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]
