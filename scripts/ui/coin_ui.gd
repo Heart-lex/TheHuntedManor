@@ -18,7 +18,7 @@ var blue_potion_count: int = 0
 var green_potion_count: int = 0
 var purple_potion_count: int = 0
 
-# Reference to the Label node
+# Reference to the Label node	
 @onready var coin_label: Label = $HBoxContainer/coin_label
 @onready var container: HBoxContainer = $HBoxContainer
 

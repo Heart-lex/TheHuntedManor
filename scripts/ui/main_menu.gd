@@ -32,9 +32,9 @@ func _on_exit_options_menu() -> void:
 	main.visible = true
 	
 func handle_connecting_signals() -> void:
-	start_button.button_down.connect(_on_start_pressed)
-	options_button.button_down.connect(_on_options_pressed)
-	exit_button.button_down.connect(_on_exit_pressed)
+	start_button.pressed.connect(_on_start_pressed)
+	options_button.pressed.connect(_on_options_pressed)
+	exit_button.pressed.connect(_on_exit_pressed)
 	options_menu.exit_options_menu.connect(_on_exit_options_menu)
 	
 	
