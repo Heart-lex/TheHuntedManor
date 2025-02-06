@@ -1,4 +1,4 @@
-##The Hunted Manor##
+#The Hunted Manor#
 
 **About the Game**
 
