@@ -2,7 +2,7 @@
 
 ## **About the Game**
 
-The Hunted Manor is a 2D puzzle-adventure game featuring two playable characters: a knight and a rogue. Trapped inside a mysterious manor, they must collaborate to escape while uncovering hidden treasures and facing lurking dangers. Along the way, they can collect coins to purchase potions and keys from the enigmatic shopkeeper, aiding them in their quest.
+The Hunted Manor is a 2.5D puzzle-adventure game featuring two playable characters: a knight and a rogue. Trapped inside a mysterious manor, they must collaborate to escape while uncovering hidden treasures and facing lurking dangers. Along the way, they can collect coins to purchase potions and keys from the enigmatic shopkeeper, aiding them in their quest.
 
 ## **Features**
 
