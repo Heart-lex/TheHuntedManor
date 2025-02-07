@@ -106,15 +106,15 @@ This project is open-source and available to the public. Feel free to contribute
 
 **_Clone the repository:_**
 
-'''bash
+```cmd
 git clone https://github.com/yourusername/The-Hunted-Manor.git
-'''
+```
 
 **_Navigate to the project directory:_**
 
-'''bash
+```cmd
 cd The-Hunted-Manor
-'''
+```
 
 Run the game (instructions depend on the development framework used).
 
