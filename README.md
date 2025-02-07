@@ -1,10 +1,10 @@
 # The Hunted Manor
 
-**About the Game**
+## **About the Game**
 
 The Hunted Manor is a 2D puzzle-adventure game featuring two playable characters: a knight and a rogue. Trapped inside a mysterious manor, they must collaborate to escape while uncovering hidden treasures and facing lurking dangers. Along the way, they can collect coins to purchase potions and keys from the enigmatic shopkeeper, aiding them in their quest.
 
-**Features**
+## **Features**
 
 *Two Playable Characters*
 
@@ -12,25 +12,25 @@ The Hunted Manor is a 2D puzzle-adventure game featuring two playable characters
 
 **_Rogue:_** Excels at agility, interacts with levers, and remains undetected by enemies.
 
-*Combat System*
+## *Combat System*
 
 The knight can perform both light and heavy attacks, even while airborne.
 
-*Enemies & Traps*
+## *Enemies & Traps*
 
 Face off against bats and spiders, each with unique attack patterns.
 
 Utilize spike traps to defeat enemies strategically.
 
-*Shop System*
+## *Shop System*
 
 Purchase potions and keys using collected coins.
 
-*Puzzle Mechanics*
+## *Puzzle Mechanics*
 
 Move foundations, activate levers, and unlock doors to progress.
 
-*Controls*
+## *Controls*
 
 **_Movement:_** Arrow Keys / WASD
 
@@ -60,25 +60,25 @@ Move foundations, activate levers, and unlock doors to progress.
 
 *Green Potion (Shield):* 4
 
-**Enemies**
+## **Enemies**
 
 *Bats:* Deal 10 HP damage, but are easy to defeat.
 
 *Spiders:* More challenging enemies that deal higher damage and aggressively chase the knight.
 
-**Traps & Puzzles**
+## **Traps & Puzzles**
 
 *Spike Traps:* Harm both the player and enemies, allowing for strategic play.
 
 *Movable Foundations:* The knight can reposition them to help the rogue reach higher platforms.
 
-**Levers & Doors:**
+## **Levers & Doors:**
 
 Levers (activated by the rogue) open doors.
 
 Keys (purchased from the shop) unlock doors without levers.
 
-**Shop System**
+## **Shop System**
 
 **_The shopkeeper sells various useful items:_**
 
@@ -92,13 +92,13 @@ Keys (purchased from the shop) unlock doors without levers.
 
 **Note:** If a character dies, the level resets, and all collected coins are lost.
 
-**Authors**
+## **Authors**
 
-Christiana Chrysafi (3210220)
+Christiana Chrysafi
 
-Alexander Manetas (3200282)
+Alexander Manetas 
 
-**License**
+## **License**
 
 This project is open-source and available to the public. Feel free to contribute, modify, or use it as a reference.
 
