@@ -106,13 +106,13 @@ This project is open-source and available to the public. Feel free to contribute
 
 **_Clone the repository:_**
 
-'''console
+'''bash
 git clone https://github.com/yourusername/The-Hunted-Manor.git
 '''
 
 **_Navigate to the project directory:_**
 
-'''console
+'''bash
 cd The-Hunted-Manor
 '''
 
